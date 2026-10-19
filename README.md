@@ -8,6 +8,11 @@ The Blogger template loads these assets from jsDelivr:
 
 - `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css`
 - `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css`
+- `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css`
 - JavaScript files under `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/`
+
+`custom.css` contains the extracted shortcode and HTML-widget styles.
+`js/globals.js` contains the template's static JavaScript settings; Blogger
+widget settings that use dynamic Blogger data remain in the XML.
 
 Do not remove or rename an asset while the Blogger XML references it.
