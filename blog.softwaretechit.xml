@@ -89,7 +89,7 @@ License:     Premium Version
 <b:if cond='data:view.isLayoutMode'>
 <b:template-skin>
 <![CDATA[
-@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css');
+@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css?v=1.0.1');
 ]]>
 </b:template-skin>
 </b:if>
@@ -286,10 +286,10 @@ License:     Premium Version
 
 
     
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css' rel='stylesheet'/>
-    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css' rel='stylesheet'/>
-    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.1' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css?v=1.0.1' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css?v=1.0.1' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -1170,7 +1170,7 @@ License:     Premium Version
                 
                 <data:post.body/>
                 <b:if cond='data:view.isPost'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.js'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.js?v=1.0.1'/>
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
@@ -1178,7 +1178,7 @@ License:     Premium Version
       </b:if>
     </b:loop>
   </b:if>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.js'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.js?v=1.0.1'/>
 </b:if>
               </div>
             </b:includable>
@@ -3232,11 +3232,11 @@ License:     Premium Version
 <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theia-sticky-sidebar.js'/>
 
 <!-- Theme Functions JS -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.js'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.js?v=1.0.1'/>
 
 <!-- Pagination Scripts -->
 <b:if cond='data:view.isMultipleItems'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.js'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.js?v=1.0.1'/>
 </b:if>
 
 <!-- Facebook SDK -->
