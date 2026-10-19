@@ -106,6 +106,10 @@ template = template.replace(
   ""
 );
 template = template.replace('class="bi bi-paypal"', 'class="fa fa-paypal"');
+template = template.replace(
+  /<meta content=['"]width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1['"] name=['"]viewport['"]\/>/i,
+  "<meta content='width=device-width, initial-scale=1' name='viewport'/>"
+);
 
 const headClose = template.indexOf("</head>");
 if (headClose < 0) fail("Could not find the template head");
