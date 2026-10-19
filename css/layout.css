@@ -1,5 +1,5 @@
 /*------Layout (No Edit)----------*/
-body#layout #outer-wrapper,body#layout .row{width:auto;padding:20px}
+body#layout #outer-wrapper,body#layout .row{width:auto;padding:0}
 body#layout{width:1200px;position:relative;padding:0px 5px 0;margin:5px}
 body#layout div.section{margin:0 5px 10px!important;padding:16px 16px 18px!important}
 body#layout .section h4{font-size:14px;margin:0}
