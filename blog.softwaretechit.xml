@@ -4,15 +4,9 @@
   
   <head>
     
+    <!-- OneSignal Push Notifications -->
     <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: &quot;1432ea5f-9279-4d68-a28e-55360f4e97c0&quot;,
-    });
-  });
-</script>
+    <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/onesignal-init.js'/>
     <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
     <!--GOOGLE CODE START-->
     
@@ -21,46 +15,13 @@
     <!--ADS CODE HERE-->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async='async' src='https://www.googletagmanager.com/gtag/js?id=UA-163388529-1'/>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag(&#39;js&#39;, new Date());
-
-  gtag(&#39;config&#39;, &#39;UA-163388529-1&#39;);
-</script>
-    
-  <!-- Google tag 2 -->
-    <!-- Google tag (gtag.js) -->
+<!-- Google Analytics (UA + GA4) via jsDelivr -->
 <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z'/>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag(&#39;js&#39;, new Date());
-
-  gtag(&#39;config&#39;, &#39;G-Q12K3XBE7Z&#39;);
-</script>
-    
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/analytics.js'/>
 <!--GOOGLE CODE ENDS-->
 
   
-    <!--#####Push Notification#####-->
-    <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: &quot;f3090643-ec3b-40b1-b998-074d3c4eea0f&quot;,
-      safari_web_id: &quot;web.onesignal.auto.650c091f-37ea-4fe0-8793-2961481353d2&quot;,
-      notifyButton: {
-        enable: true,
-      },
-      subdomainName: &quot;softwaretechit&quot;,
-    });
-  });
-</script>
-  <!--#####Push Notification#####-->
+    <!-- OneSignal init loaded via jsDelivr above -->
     
     
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
