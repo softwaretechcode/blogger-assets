@@ -1,5 +1,4 @@
 node_modules/
-*.xml
 npm-debug.log*
 .DS_Store
 Thumbs.db
