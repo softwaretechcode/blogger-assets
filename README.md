@@ -1,7 +1,7 @@
-# Blogger assets
+# SoftTwinPlus 1.0 - Blogger assets
 
 This repository contains only the CSS and JavaScript assets referenced by the
-SoftwareTechIT Blogger template. The XML template is kept outside the
+SoftTwinPlus 1.0 Blogger template (SoftwareTechIT). The XML template is kept outside the
 repository.
 
 The Blogger template loads these assets from jsDelivr:
@@ -16,6 +16,8 @@ The Blogger template loads these assets from jsDelivr:
 `js/globals.js` contains the template's static JavaScript settings; Blogger
 widget settings that use dynamic Blogger data remain in the XML.
 `modern-ui.css` applies the responsive surface, card, typography, and spacing
-overrides after the original theme and Tailwind styles.
+overrides after the original theme and Tailwind styles. It also carries the
+SoftTwinPlus soft glass gradient design: pill-shaped tags and categories,
+glass cards, gradient buttons, and gradient section headings.
 
 Do not remove or rename an asset while the Blogger XML references it.

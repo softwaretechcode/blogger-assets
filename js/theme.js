@@ -375,7 +375,7 @@ $(function () {
                         };
                         _0xf943x39 += '</ul>'
                     } else {
-                        _0xf943x39 = '<ul class="no-posts">Error: No Posts Found <i class="fa fa-frown-o"/></ul>'
+                        _0xf943x39 = '<ul class="no-posts">Error: No Posts Found <i class="fa-solid fa-frown"/></ul>'
                     };
                     if (_0xf943x11['match']('mega-menu')) {
                         _0xf943xf['addClass']('has-sub mega-menu')['append'](_0xf943x39);

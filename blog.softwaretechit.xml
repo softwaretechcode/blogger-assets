@@ -28,15 +28,16 @@
     <title><data:view.title.escaped/></title>
     <b:include data='blog' name='all-head-content'/>
     <!-- Google Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i|Merriweather:400,400i,700,700i' media='all' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Merriweather:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap' media='all' rel='stylesheet'/>
     <!-- Font Awesome 6 Free via jsDelivr (replaces Bootstrap CDN FA 4.7) -->
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='stylesheet'/>
   
 <!-- Template Style CSS -->
-<b:skin version='1.0.0'><![CDATA[/* 
+<b:skin version='1.0'><![CDATA[/* 
 -----------------------------------------------
 Blogger Template Style
-Name:        NewsPlus
+Name:        SoftTwinPlus
+Version:     1.0
 Author :     http://www.softwaretechit.com
 License:     Premium Version
 ----------------------------------------------- */
@@ -289,7 +290,6 @@ License:     Premium Version
     <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css' rel='stylesheet'/>
     <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css' rel='stylesheet'/>
       <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css' rel='stylesheet'/>
-<link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -409,11 +409,11 @@ License:     Premium Version
                <b:widget-setting name='link-5'>https://home.softwaretechit.com</b:widget-setting>
                <b:widget-setting name='link-3'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
                <b:widget-setting name='link-4'>https://www.pinterest.com/psmgyan/_saved/</b:widget-setting>
-               <b:widget-setting name='text-1'>PSM Gyan instagram</b:widget-setting>
+               <b:widget-setting name='text-1'>instagram</b:widget-setting>
                <b:widget-setting name='text-0'>facebook</b:widget-setting>
                <b:widget-setting name='text-3'>youtube</b:widget-setting>
                <b:widget-setting name='text-2'>instagram</b:widget-setting>
-               <b:widget-setting name='text-5'>like</b:widget-setting>
+               <b:widget-setting name='text-5'>external-link</b:widget-setting>
                <b:widget-setting name='text-4'>pinterest</b:widget-setting>
                <b:widget-setting name='sorting'>NONE</b:widget-setting>
                <b:widget-setting name='link-1'>https://instagram.com/psmgyan</b:widget-setting>
@@ -1467,7 +1467,7 @@ License:     Premium Version
                   <h3>404</h3>
                   <h4><data:messages.theresNothingHere/></h4>
                   <p><data:navMessage/></p>
-                  <a class='homepage' expr:href='data:blog.homepageUrl'><i class='fa fa-home'/> <data:messages.home/></a>
+                  <a class='homepage' expr:href='data:blog.homepageUrl'><i class='fa-solid fa-house'/> <data:messages.home/></a>
                 </div>
               </b:if>
               <b:if cond='data:view.isMultipleItems and data:posts.empty'><div class='queryEmpty'><data:messages.noResultsFound/></div></b:if>
@@ -1675,7 +1675,7 @@ License:     Premium Version
         <b:section class='sidebar common-widget' id='sidebar1' name='Sidebar Right (A)' showaddelement='yes'>
           <b:widget id='HTML27' locked='false' title='' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<a href=" https://softwaretechit.com/paypal"><i class="fa fa-paypal"></i>Donate For Support Me</a>
+              <b:widget-setting name='content'><![CDATA[<a href=" https://softwaretechit.com/paypal"><i class="fa-brands fa-paypal"></i>Donate For Support Me</a>
 <a href="https://razorpay.com/payment-button/pl_HYrPdhtCi9Mtxr/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button" >Donate On RazorPay</a>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -1747,7 +1747,7 @@ License:     Premium Version
               <b:widget-setting name='text-1'>twitter</b:widget-setting>
               <b:widget-setting name='text-0'>facebook</b:widget-setting>
               <b:widget-setting name='text-3'>pinterest</b:widget-setting>
-              <b:widget-setting name='text-2'>facebook page</b:widget-setting>
+              <b:widget-setting name='text-2'>facebook</b:widget-setting>
               <b:widget-setting name='text-5'>youtube</b:widget-setting>
               <b:widget-setting name='text-4'>instagram</b:widget-setting>
               <b:widget-setting name='text-7'>youtube</b:widget-setting>
