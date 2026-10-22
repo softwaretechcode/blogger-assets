@@ -7,7 +7,7 @@
     
     <!-- OneSignal Push Notifications -->
     <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
-    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/onesignal-init.js?v=1.0.0'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/onesignal-init.js?v=1.0.0'/>
     <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
     <!--GOOGLE CODE START-->
     
@@ -18,7 +18,7 @@
 
 <!-- Google Analytics (UA + GA4) via jsDelivr -->
 <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z'/>
-    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/analytics.js?v=1.0.0'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/analytics.js?v=1.0.0'/>
 <!--GOOGLE CODE ENDS-->
 
   
@@ -67,7 +67,7 @@
 <b:if cond='data:view.isLayoutMode'>
 <b:template-skin>
 <![CDATA[
-@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/css/editor.css?v=1.0.0');
+@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/css/editor.css?v=1.0.0');
 ]]>
 </b:template-skin>
 </b:if>
@@ -265,11 +265,11 @@
 
     
       <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/css/theme.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/css/layout.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/css/responsive.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/css/theme.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/css/layout.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/css/responsive.css?v=1.0.0' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -1148,7 +1148,7 @@
                 
                 <data:post.body/>
                 <b:if cond='data:view.isPost'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/related-posts.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/related-posts.js?v=1.0.0'/>
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
@@ -1156,7 +1156,7 @@
       </b:if>
     </b:loop>
   </b:if>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/related-posts-render.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/related-posts-render.js?v=1.0.0'/>
 </b:if>
               </div>
             </b:includable>
@@ -3201,19 +3201,24 @@
 
 <!-- Main Scripts -->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/globals.js?v=1.0.0'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/theia-sticky-sidebar.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/globals.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/theia-sticky-sidebar.js?v=1.0.0'/>
 
 <!-- Theme Functions JS -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/theme.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/theme.js?v=1.0.0'/>
+
+<!-- Post Content Tools: table of contents, code blocks, lightbox, reading time -->
+<b:if cond='data:view.isSingleItem'>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/post-tools.js?v=1.0.0'/>
+</b:if>
 
 <!-- Pagination Scripts -->
 <b:if cond='data:view.isMultipleItems'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/pagination.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/pagination.js?v=1.0.0'/>
 </b:if>
 
 <!-- Facebook SDK -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/js/facebook-sdk.js?v=1.0.0'/>  
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/js/facebook-sdk.js?v=1.0.0'/>  
 <!-- Overlay and Back To Top --> 
   <div class='overlay'/>
   <div class='back-top' title='Back to Top'/>
