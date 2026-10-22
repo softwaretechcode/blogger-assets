@@ -43,34 +43,35 @@ Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> 
 
 ## CDN
 
-All files are served from an immutable git tag:
+All files are served from an immutable commit ref:
 
 ```
-https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/...
+https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/...
 ```
 
-Current asset build: **v1.0.0**. The XML pins `@v1.0.0` everywhere (CSS, JS,
-`editor.css`) and keeps `?v=1.0.0` as the browser cache-buster. Branch aliases
-like `@main` are cached by jsDelivr for up to 12 hours and can serve a stale
-file even after a purge, which is what previously hid feed widgets; a tag URL
-is immutable and is always served byte-for-byte.
+The theme version is always **1.0.0**: every asset URL ends in `?v=1.0.0`. The
+`@8771498` part is only the build pointer, not a version number.
+
+Why a commit instead of a version tag: jsDelivr caches tag URLs permanently.
+Moving `v1.0.0` to a new commit and purging the files still served the old
+bytes, so a tag cannot be used to ship updates while the URL stays 1.0.0. A
+commit ref is immutable *and* changes with every release, which also busts the
+browser cache for free. Branch aliases like `@main` are cached for up to 12
+hours and can flap between old and new files.
 
 ### Releasing a change
 
-Because jsDelivr caches tag URLs permanently, the tag has to move for new
-asset content:
-
-1. Edit files, commit and push the branch.
-2. Move the shared tag and purge the changed files:
+1. Edit files, commit and push `main`.
+2. Point the XML at the new commit:
    ```
-   git tag -f v1.0.0 && git push -f origin v1.0.0
-   https://purge.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/<file>
+   git rev-parse --short HEAD
    ```
-3. Verify the new bytes from `cdn.jsdelivr.net/...@v1.0.0/...` before uploading
+   Replace `blogger-assets@<old-sha>` with `blogger-assets@<new-sha>` in
+   `blog.softwaretechit.xml`. Leave every `?v=1.0.0` untouched.
+3. Verify the new bytes from `cdn.jsdelivr.net/...@<sha>/...` before uploading
    the XML.
 4. Upload `blog.softwaretechit.xml` in Blogger.
 
-If a moved tag refuses to refresh on some edge, publish a new tag and update
-the XML to it.
+No purge and no tag is needed.
 
 Do not remove or rename an asset while the Blogger XML references it.
