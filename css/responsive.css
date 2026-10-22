@@ -12,6 +12,7 @@
   ul.hot-posts { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 145px; }
   .mega-menu-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   ul.grid-small { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ul.grid-text { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .blog-posts.index-post-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -54,6 +55,7 @@
   ul.grid-small { grid-template-columns: minmax(0, 1fr); }
   ul.grid-small .feat-item { grid-template-columns: 104px minmax(0, 1fr); }
   ul.grid-small .post-image-link { width: 104px; height: 104px; }
+  ul.grid-text { grid-template-columns: minmax(0, 1fr); }
   ul.grid-big { grid-template-columns: minmax(0, 1fr); }
   ul.feat-list .feat-inner { grid-template-columns: 110px minmax(0, 1fr); }
   ul.feat-list .post-title { font-size: 13px; }

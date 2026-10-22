@@ -329,7 +329,7 @@ $(function () {
     }
 
     function _0xf943x35(_0xf943xf, _0xf943x11, _0xf943x1b, _0xf943x13) {
-        if (_0xf943x11['match']('mega-menu') || _0xf943x11['match']('hot-posts') || _0xf943x11['match']('feat-big') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('post-list') || _0xf943x11['match']('related')) {
+        if (_0xf943x11['match']('mega-menu') || _0xf943x11['match']('hot-posts') || _0xf943x11['match']('feat-big') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-text') || _0xf943x11['match']('grid-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('post-list') || _0xf943x11['match']('related')) {
             var _0xf943x36 = '';
             if (_0xf943x13 == 'recent') {
                 _0xf943x36 = '/feeds/posts/default?alt=json-in-script&max-results=' + _0xf943x1b
@@ -421,8 +421,12 @@ $(function () {
                                                 _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[2] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></li>'
                                             }
                                         } else {
-                                            if (_0xf943x11['match']('grid-small')) {
-                                                _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2>' + _0xf943x3e + '<div class="post-meta">' + _0xf943x3d + '</div></div></li>'
+                                            if (_0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-text')) {
+                                                if (_0xf943x11['match']('grid-text')) {
+                                                    _0xf943x3f += '<li class="feat-item item-text item-' + _0xf943x4 + '"><h2 class="post-title">' + _0xf943x18 + '</h2>' + _0xf943x3e + '</li>'
+                                                } else {
+                                                    _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2>' + _0xf943x3e + '<div class="post-meta">' + _0xf943x3d + '</div></div></li>'
+                                                }
                                             } else {
                                                 if (_0xf943x11['match']('grid-big')) {
                                                     _0xf943x3f += '<li class="feat-item item-big item-' + _0xf943x4 + '"><div class="feat-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a>' + _0xf943x31 + '<div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div>' + _0xf943x3e + '</div></div></li>'
@@ -464,7 +468,7 @@ $(function () {
                         if (_0xf943x11['match']('hot-posts')) {
                             _0xf943xf['html'](_0xf943x39)['parent']()['addClass']('show-hot')
                         } else {
-                            if (_0xf943x11['match']('feat-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-big')) {
+                            if (_0xf943x11['match']('feat-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-text') || _0xf943x11['match']('grid-big')) {
                                 _0xf943xf['parent']()['find']('.widget-title')['append']('<a class="view-all" href="/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage + '">' + messages['viewAll'] + '</a>');
                                 if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right')) {
                                     if (_0xf943x11['match']('col-right')) {

@@ -46,23 +46,31 @@ Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> 
 All files are served from an immutable git tag:
 
 ```
-https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/...
+https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/...
 ```
 
-Current asset build: **v1.0.3**. The XML pins `@v1.0.3` everywhere (CSS, JS,
-`editor.css`). Branch aliases like `@main` are cached by jsDelivr for up to 12
-hours and can serve a stale file even after a purge, which is what previously
-hid feed widgets; a tag URL can never change its contents.
+Current asset build: **v1.0.0**. The XML pins `@v1.0.0` everywhere (CSS, JS,
+`editor.css`) and keeps `?v=1.0.0` as the browser cache-buster. Branch aliases
+like `@main` are cached by jsDelivr for up to 12 hours and can serve a stale
+file even after a purge, which is what previously hid feed widgets; a tag URL
+is immutable and is always served byte-for-byte.
 
 ### Releasing a change
 
-1. Edit files, then bump the version: `v1.0.4` (README + XML `@v1.0.3` ->
-   `@v1.0.4` and `?v=1.0.4`).
-2. Commit and push the branch.
-3. Tag and push the tag: `git tag v1.0.4 && git push origin v1.0.4`.
+Because jsDelivr caches tag URLs permanently, the tag has to move for new
+asset content:
+
+1. Edit files, commit and push the branch.
+2. Move the shared tag and purge the changed files:
+   ```
+   git tag -f v1.0.0 && git push -f origin v1.0.0
+   https://purge.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/<file>
+   ```
+3. Verify the new bytes from `cdn.jsdelivr.net/...@v1.0.0/...` before uploading
+   the XML.
 4. Upload `blog.softwaretechit.xml` in Blogger.
 
-No CDN purge is needed for a new tag. Keep the `?v=` query string as a browser
-cache-buster; jsDelivr ignores it, so the tag is what guarantees freshness.
+If a moved tag refuses to refresh on some edge, publish a new tag and update
+the XML to it.
 
 Do not remove or rename an asset while the Blogger XML references it.

@@ -7,7 +7,7 @@
     
     <!-- OneSignal Push Notifications -->
     <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
-    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/onesignal-init.js'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/onesignal-init.js'/>
     <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
     <!--GOOGLE CODE START-->
     
@@ -18,7 +18,7 @@
 
 <!-- Google Analytics (UA + GA4) via jsDelivr -->
 <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z'/>
-    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/analytics.js'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/analytics.js'/>
 <!--GOOGLE CODE ENDS-->
 
   
@@ -29,9 +29,9 @@
     <title><data:view.title.escaped/></title>
     <b:include data='blog' name='all-head-content'/>
     <!-- Google Fonts (non-render-blocking) -->
-    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Merriweather:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+    <link as='style' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Merriweather:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap' onload='this.rel=&apos;stylesheet&apos;' rel='preload'/>
     <!-- Font Awesome 6 Free via jsDelivr (non-render-blocking) -->
-    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+    <link as='style' href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' onload='this.rel=&apos;stylesheet&apos;' rel='preload'/>
   
 <!-- Template Style CSS: theme designer variables only.
      Visual rules are split by concern (load order matters):
@@ -67,7 +67,7 @@
 <b:if cond='data:view.isLayoutMode'>
 <b:template-skin>
 <![CDATA[
-@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/css/editor.css?v=1.0.3');
+@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/editor.css?v=1.0.0');
 ]]>
 </b:template-skin>
 </b:if>
@@ -103,7 +103,7 @@
             <b:if cond='data:post.featuredImage'>
               <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756' loading='lazy'/>
+              <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -147,7 +147,7 @@
             <b:if cond='data:post.featuredImage'>
               <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756' loading='lazy'/>
+              <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756'/>
             </b:if>
             <span class='post-tag'><data:post.labels.last.name/></span>
           </a>
@@ -265,11 +265,11 @@
 
     
       <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/css/tailwind.css?v=1.0.3' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/css/theme.css?v=1.0.3' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/css/layout.css?v=1.0.3' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/css/style-ui.css?v=1.0.3' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/css/responsive.css?v=1.0.3' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/theme.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/layout.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/css/responsive.css?v=1.0.0' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -386,16 +386,18 @@
         <b:section class='top-bar-social social' id='top-bar-social' maxwidgets='10' name='Social Top' showaddelement='yes'>
            <b:widget id='LinkList73' locked='true' title='' type='LinkList' version='2' visible='true'>
              <b:widget-settings>
-               <b:widget-setting name='link-4'>https://home.softwaretechit.com</b:widget-setting>
-               <b:widget-setting name='link-2'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
+               <b:widget-setting name='link-5'>https://home.softwaretechit.com</b:widget-setting>
                <b:widget-setting name='link-3'>https://www.pinterest.com/psmgyan/_saved/</b:widget-setting>
-               <b:widget-setting name='text-0'>facebook</b:widget-setting>
-               <b:widget-setting name='text-2'>youtube</b:widget-setting>
+               <b:widget-setting name='link-4'>https://home.softwaretechit.com</b:widget-setting>
                <b:widget-setting name='text-1'>instagram</b:widget-setting>
-               <b:widget-setting name='text-4'>external-link</b:widget-setting>
+               <b:widget-setting name='text-0'>facebook</b:widget-setting>
                <b:widget-setting name='text-3'>pinterest</b:widget-setting>
+               <b:widget-setting name='text-2'>youtube</b:widget-setting>
+               <b:widget-setting name='text-5'>external-link</b:widget-setting>
+               <b:widget-setting name='text-4'>external-link</b:widget-setting>
                <b:widget-setting name='sorting'>NONE</b:widget-setting>
                <b:widget-setting name='link-1'>https://instagram.com/softwaretechit</b:widget-setting>
+               <b:widget-setting name='link-2'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
                <b:widget-setting name='link-0'>https://fb.com/softwaretechit1</b:widget-setting>
              </b:widget-settings>
              <b:includable id='main'>
@@ -660,7 +662,7 @@
              </b:widget>
              <b:widget id='HTML8' locked='false' title='Python Tutorials' type='HTML' visible='true'>
                <b:widget-settings>
-                 <b:widget-setting name='content'>5/python/col-left</b:widget-setting>
+                 <b:widget-setting name='content'>9/python/col-left</b:widget-setting>
                </b:widget-settings>
                <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -671,7 +673,7 @@
              </b:widget>
              <b:widget id='HTML9' locked='false' title='Java Tutorials' type='HTML' visible='true'>
                <b:widget-settings>
-                 <b:widget-setting name='content'>5/java/col-right</b:widget-setting>
+                 <b:widget-setting name='content'>9/java/col-right</b:widget-setting>
                </b:widget-settings>
                <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -682,7 +684,7 @@
              </b:widget>
              <b:widget id='HTML12' locked='false' title='Coding' type='HTML' version='2' visible='true'>
                <b:widget-settings>
-                 <b:widget-setting name='content'>6/random/grid-small</b:widget-setting>
+                 <b:widget-setting name='content'>15/random/grid-text</b:widget-setting>
                </b:widget-settings>
                <b:includable id='main'>
                 <b:include name='widget-title'/>
@@ -693,7 +695,7 @@
              </b:widget>
              <b:widget id='HTML10' locked='false' title='Career' type='HTML' visible='true'>
                <b:widget-settings>
-                 <b:widget-setting name='content'>3/career/feat-list</b:widget-setting>
+                 <b:widget-setting name='content'>15/career/grid-text</b:widget-setting>
                </b:widget-settings>
                <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -704,7 +706,7 @@
              </b:widget>
              <b:widget id='HTML13' locked='false' title='Interview Questions' type='HTML' visible='true'>
                <b:widget-settings>
-                 <b:widget-setting name='content'>3/interview questions/grid-small</b:widget-setting>
+                 <b:widget-setting name='content'>15/interview questions/grid-text</b:widget-setting>
                </b:widget-settings>
                <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -715,7 +717,7 @@
              </b:widget>
              <b:widget id='HTML11' locked='false' title='Object Orianted Software Engineering' type='HTML' version='2' visible='true'>
                <b:widget-settings>
-                 <b:widget-setting name='content'>4/oose/grid-big</b:widget-setting>
+                 <b:widget-setting name='content'>15/oose/grid-text</b:widget-setting>
                </b:widget-settings>
                <b:includable id='main'>
                 <b:include name='widget-title'/>
@@ -771,7 +773,7 @@
                   <b:if cond='data:post.author.authorPhoto.image'>
                     <img class='author-avatar' expr:alt='data:post.author.name' expr:src='data:post.author.authorPhoto.image resizeImage 100' loading='lazy'/>                
                     <b:else/>
-                    <img class='author-avatar' expr:alt='data:post.author.name' src='https://4.bp.blogspot.com/-uCjYgVFIh70/VuOLn-mL7PI/AAAAAAAADUs/Kcu9wJbv790hIo83rI_s7lLW3zkLY01EA/s100/avatar.png' loading='lazy'/>
+                    <img class='author-avatar' expr:alt='data:post.author.name' loading='lazy' src='https://4.bp.blogspot.com/-uCjYgVFIh70/VuOLn-mL7PI/AAAAAAAADUs/Kcu9wJbv790hIo83rI_s7lLW3zkLY01EA/s100/avatar.png'/>
                   </b:if>
                 </div>
                 <h3 class='author-name'>
@@ -818,7 +820,7 @@
 </b:includable>
             <b:includable id='commentAuthorAvatar'>
               <div class='avatar-image-container'>
-                <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='45' width='45' loading='lazy'/>
+                <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='45' loading='lazy' width='45'/>
               </div>
             </b:includable>
             <b:includable id='commentDeleteIcon' var='comment'>
@@ -1146,7 +1148,7 @@
                 
                 <data:post.body/>
                 <b:if cond='data:view.isPost'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/related-posts.js?v=1.0.3'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/related-posts.js?v=1.0.0'/>
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
@@ -1154,7 +1156,7 @@
       </b:if>
     </b:loop>
   </b:if>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/related-posts-render.js?v=1.0.3'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/related-posts-render.js?v=1.0.0'/>
 </b:if>
               </div>
             </b:includable>
@@ -1235,7 +1237,7 @@
                   <b:if cond='data:post.featuredImage'> 
                     <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' loading='lazy'/>
                     <b:else/>
-                    <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
+                    <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
                   </b:if>
                 </a>
                 <b:include data='post' name='postCategory'/>
@@ -1599,41 +1601,14 @@
   </div>
 </b:includable>
           </b:widget>
-          <b:widget id='HTML21' locked='false' title='' type='HTML' visible='true'>
-            <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2024169830864585" crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-2024169830864585"
-     data-ad-slot="5516822463"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>]]></b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-</b:includable>
-          </b:widget>
         </b:section> 
 
         <b:if cond='data:view.isHomepage'> 
           <div class='clearfix'/>
           <b:section class='featured-posts' id='featured-posts-2' name='Featured Posts 02' showaddelement='yes'>
-            <b:widget id='HTML17' locked='false' title='Ads' type='HTML' visible='true'>
+            <b:widget id='HTML14' locked='false' title='' type='HTML' visible='true'>
               <b:widget-settings>
-                <b:widget-setting name='content'><![CDATA[<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2024169830864585" crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-2024169830864585"
-     data-ad-slot="5516822463"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>]]></b:widget-setting>
+                <b:widget-setting name='content'>12/random/grid-small</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1685,10 +1660,7 @@
           </b:widget>
           <b:widget id='HTML6' locked='false' title='Download App' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[
-
-
-<center><a href="https://blog.softwaretechit.com/p/download.html"><button class="button download-app-button"><span>Download App </span></button></a></center>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<center><a href="https://blog.softwaretechit.com/p/download.html"><button class="button download-app-button"><span>Download App </span></button></a></center>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1715,17 +1687,23 @@
         <b:section class='sidebar' id='social-widget' maxwidgets='1' name='Social Widget' showaddelement='yes'>
           <b:widget id='LinkList75' locked='true' title='Social Plugin' type='LinkList' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='link-4'>https://www.youtube.com/results?search_query=softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-7'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
+              <b:widget-setting name='link-5'>https://www.youtube.com/results?search_query=softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-6'>https://instagram.com/psmgyan</b:widget-setting>
               <b:widget-setting name='link-3'>https://pinterest.com/softwaretechit</b:widget-setting>
-              <b:widget-setting name='link-2'>https://instagram.com/softwaretechit</b:widget-setting>
-              <b:widget-setting name='link-1'>https://twitter.com/softwaretechit</b:widget-setting>
-              <b:widget-setting name='link-0'>http://fb.com/softwaretechit</b:widget-setting>
-              <b:widget-setting name='text-4'>youtube</b:widget-setting>
-              <b:widget-setting name='text-3'>pinterest</b:widget-setting>
-              <b:widget-setting name='text-2'>instagram</b:widget-setting>
+              <b:widget-setting name='link-4'>https://www.youtube.com/results?search_query=softwaretechit</b:widget-setting>
               <b:widget-setting name='text-1'>twitter</b:widget-setting>
               <b:widget-setting name='text-0'>facebook</b:widget-setting>
+              <b:widget-setting name='text-3'>pinterest</b:widget-setting>
+              <b:widget-setting name='text-2'>instagram</b:widget-setting>
+              <b:widget-setting name='text-5'>youtube</b:widget-setting>
+              <b:widget-setting name='text-4'>youtube</b:widget-setting>
+              <b:widget-setting name='text-7'>youtube</b:widget-setting>
+              <b:widget-setting name='text-6'>instagram</b:widget-setting>
               <b:widget-setting name='sorting'>NONE</b:widget-setting>
+              <b:widget-setting name='link-1'>https://twitter.com/softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-2'>https://instagram.com/softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-0'>http://fb.com/softwaretechit</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1906,7 +1884,7 @@
             <b:if cond='data:post.featuredImage'>
               <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
+              <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -2243,7 +2221,7 @@
             <b:if cond='data:post.featuredImage'>
               <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
+              <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -2580,7 +2558,7 @@
             <b:if cond='data:post.featuredImage'>
               <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756' loading='lazy'/>
+              <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -2784,9 +2762,6 @@
 </b:includable>
         </b:widget>
         <b:widget id='HTML24' locked='false' title='' type='HTML' visible='true'>
-          <b:widget-settings>
-            <b:widget-setting name='content'><![CDATA[]]></b:widget-setting>
-          </b:widget-settings>
           <b:includable id='main'>
   <b:include name='widget-title'/>
   <div class='widget-content'>
@@ -2809,7 +2784,7 @@
         </b:widget>
       </b:section>
       <b:section class='footer common-widget' id='footer-sec3' maxwidgets='3' name='Section (Right)' showaddelement='yes'>
-        <b:widget id='HTML26' locked='false' title='' type='HTML' visible='true'>
+        <b:widget id='HTML26' locked='false' title='' type='HTML' version='2' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='content'><![CDATA[<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'E1E8I58IY');kofiwidget2.draw();</script>]]></b:widget-setting>
           </b:widget-settings>
@@ -2970,7 +2945,7 @@
             <b:if cond='data:post.featuredImage'>
               <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
+              <img class='post-thumb' expr:alt='data:post.title' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -3157,19 +3132,19 @@
 
 <!-- Main Scripts -->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/globals.js?v=1.0.3'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/theia-sticky-sidebar.js'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/globals.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/theia-sticky-sidebar.js'/>
 
 <!-- Theme Functions JS -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/theme.js?v=1.0.3'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/theme.js?v=1.0.0'/>
 
 <!-- Pagination Scripts -->
 <b:if cond='data:view.isMultipleItems'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/pagination.js?v=1.0.3'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/pagination.js?v=1.0.0'/>
 </b:if>
 
 <!-- Facebook SDK -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.3/js/facebook-sdk.js'/>  
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@v1.0.0/js/facebook-sdk.js'/>  
 <!-- Overlay and Back To Top --> 
   <div class='overlay'/>
   <div class='back-top' title='Back to Top'/>
