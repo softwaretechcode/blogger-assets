@@ -7,7 +7,7 @@
     
     <!-- OneSignal Push Notifications -->
     <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
-    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/onesignal-init.js'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/onesignal-init.js?v=1.0.0'/>
     <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
     <!--GOOGLE CODE START-->
     
@@ -18,7 +18,7 @@
 
 <!-- Google Analytics (UA + GA4) via jsDelivr -->
 <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z'/>
-    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/analytics.js'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/analytics.js?v=1.0.0'/>
 <!--GOOGLE CODE ENDS-->
 
   
@@ -3133,7 +3133,7 @@
 <!-- Main Scripts -->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
 <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/globals.js?v=1.0.0'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/theia-sticky-sidebar.js'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/theia-sticky-sidebar.js?v=1.0.0'/>
 
 <!-- Theme Functions JS -->
 <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/theme.js?v=1.0.0'/>
@@ -3144,7 +3144,7 @@
 </b:if>
 
 <!-- Facebook SDK -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/facebook-sdk.js'/>  
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/js/facebook-sdk.js?v=1.0.0'/>  
 <!-- Overlay and Back To Top --> 
   <div class='overlay'/>
   <div class='back-top' title='Back to Top'/>
