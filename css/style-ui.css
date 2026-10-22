@@ -578,9 +578,8 @@ body.nav-active { overflow: hidden; }
 .blog-posts.index-post-wrap > .inline-ad { grid-column: 1 / -1; }
 
 .index-post {
-  display: grid;
-  grid-template-columns: minmax(92px, 34%) minmax(0, 1fr);
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / .8);
@@ -598,11 +597,12 @@ body.nav-active { overflow: hidden; }
   position: relative;
   float: none;
   width: 100%;
-  height: 100%;
-  min-height: 132px;
+  height: auto;
+  min-height: 0;
   margin: 0;
   overflow: hidden;
   background-color: var(--ui-surface-muted);
+  aspect-ratio: 16 / 10;
 }
 .index-post .post-image-link,
 .index-post .post-thumb {
@@ -617,12 +617,12 @@ body.nav-active { overflow: hidden; }
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  justify-content: center;
-  gap: 5px;
+  justify-content: flex-start;
+  gap: 6px;
   float: none;
   width: auto;
   min-width: 0;
-  padding: 12px 14px;
+  padding: 12px 14px 14px;
 }
 .index-post .post-title {
   margin: 0;
