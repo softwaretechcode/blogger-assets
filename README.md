@@ -1,4 +1,4 @@
-﻿# SoftTwinPlus 1.0 - Blogger assets
+# SoftTwinPlus 1.0 - Blogger assets
 
 CSS and JavaScript assets referenced by the SoftTwinPlus Blogger template
 (SoftwareTechIT). The template itself is `blog.softwaretechit.xml` in this folder.
@@ -46,11 +46,11 @@ Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> 
 All files are served from an immutable commit ref:
 
 ```
-https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@8771498/...
+https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6eca283/...
 ```
 
 The theme version is always **1.0.0**: every asset URL ends in `?v=1.0.0`. The
-`@8771498` part is only the build pointer, not a version number.
+`@6eca283` part is only the build pointer, not a version number.
 
 Why a commit instead of a version tag: jsDelivr caches tag URLs permanently.
 Moving `v1.0.0` to a new commit and purging the files still served the old
