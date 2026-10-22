@@ -120,6 +120,15 @@
   .post-body table { font-size: 12.5px; }
   .post-body th, .post-body td { padding: 7px 8px; }
 
+  .post-toc { border-radius: var(--radius-md); }
+  .toc-body { max-height: none; padding-bottom: 10px; }
+  .toc-list a { font-size: 12px; }
+  .code-toolbar { padding: 6px 10px; }
+  .code-lang { font-size: 10px; }
+  .img-lightbox { padding: 12px; }
+  .img-lightbox-close { top: 10px; right: 10px; }
+  .post-progress { height: 2px; }
+
   .blog-post.item-post { padding: 16px; border-radius: var(--radius-lg); }
   #blog-pager .page-num { min-width: 32px; height: 32px; font-size: 12px; }
   .related-posts { grid-template-columns: minmax(0, 1fr); }
@@ -145,4 +154,12 @@
   #sidebar-wrapper, #footer-wrapper, .back-top, #blog-pager { display: none !important; }
   body { background: #fff; color: #000; }
   .blog-post.item-post { border: 0; box-shadow: none; padding: 0; }
+  .post-toc, .code-toolbar, .post-progress, .img-lightbox,
+  .heading-anchor, .post-reading-time { display: none !important; }
+  .code-block, .post-body .code-block pre {
+    border-color: #cbd5e1;
+    background: #fff !important;
+    color: #0f172a !important;
+  }
+  .code-block .token { color: #0f172a !important; }
 }

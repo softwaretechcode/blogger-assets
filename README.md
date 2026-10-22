@@ -34,6 +34,7 @@ Blogger -> Theme -> Customise without touching CSS.
 | --- | --- |
 | `js/globals.js` | Shared helpers (`monthFormat`, `noThumbnail`). Blog options come from the Layout "Default Variables" widget |
 | `js/theme.js` | Menu, dropdowns, mobile drawer, hot/featured feed widgets, comments |
+| `js/post-tools.js` | Post content: table of contents, code blocks, reading time, lightbox, anchors, progress bar |
 | `js/pagination.js` | Numbered pager |
 | `js/theia-sticky-sidebar.js` | Sticky sidebar |
 | `js/related-posts.js` / `js/related-posts-render.js` | In-post "also read" links |
@@ -68,6 +69,43 @@ Blogger label, `random`, or `recent`.
 Example: `<b:widget-setting name='content'>9/mcq/grid-left-small</b:widget-setting>`.
 Every layout is responsive: 3 columns -> 2 at 1100px -> 1 at 720px (4-tile grids
 step down through 3 and 2).
+
+## Post content tools
+
+`js/post-tools.js` runs on post and page views only and adds:
+
+| Feature | Details |
+| --- | --- |
+| Table of contents | Built from `h2`-`h4`, numbered (1, 1.1, 2...), collapsible, active-section highlight. Appears from 3 headings, placed after the intro paragraph |
+| Heading anchors | Every heading gets a stable `id` plus a `#` permalink |
+| Code blocks | Language label, copy button, horizontal scroll, Prism syntax highlighting when a language is known |
+| Reading time | `x min read` appended to the post byline |
+| Image lightbox | Click a post image to zoom; linked images open the lightbox when the link points to an image |
+| Tables | Wrapped in a scrollable container on narrow screens |
+| External links | Open in a new tab with `rel="noopener noreferrer"` |
+| Reading progress | Thin gradient bar at the top of the viewport |
+
+Language detection accepts `class="language-java"`, `class="lang-java"`,
+`class="brush: java"` or `data-lang="java"` on the `<pre>` or its `<code>`.
+Syntax highlighting is Prism from jsDelivr and only loads when a code block has
+a language, so posts without code pay nothing.
+
+Opt-outs, per element inside the post body:
+
+```html
+<span class="no-post-tools"></span>  <!-- disable everything for this post -->
+<div class="no-toc"></div>           <!-- skip a section in the TOC -->
+<pre class="no-code-tools">...</pre> <!-- leave this block alone -->
+<img class="no-lightbox">            <!-- no zoom -->
+```
+
+Defaults can be changed before the script tag loads:
+
+```html
+<script>
+window.softtwinPostTools = { tocTitle: 'On this page', tocMinHeadings: 4, wordsPerMinute: 180, syntaxHighlight: false };
+</script>
+```
 
 ## CDN
 
