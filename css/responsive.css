@@ -13,6 +13,9 @@
   .mega-menu-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   ul.grid-small { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   ul.grid-text { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ul.grid-left-small { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ul.grid-overlay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ul.grid-tile { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .blog-posts.index-post-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -43,8 +46,7 @@
 
 @media (max-width: 720px) {
   .blog-posts.index-post-wrap { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .index-post { grid-template-columns: 112px minmax(0, 1fr); }
-  .index-post .post-image-wrap { aspect-ratio: auto; min-height: 0; }
+  .index-post .post-image-wrap { aspect-ratio: 16 / 10; }
   .index-post .post-title { font-size: 14.5px; }
   .index-post .post-snippet { -webkit-line-clamp: 2; }
 
@@ -55,6 +57,11 @@
   ul.grid-small { grid-template-columns: minmax(0, 1fr); }
   ul.grid-text { grid-template-columns: minmax(0, 1fr); }
   ul.grid-big { grid-template-columns: minmax(0, 1fr); }
+  ul.grid-left-small { grid-template-columns: minmax(0, 1fr); }
+  ul.grid-overlay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ul.grid-tile { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  ul.grid-list .feat-item { grid-template-columns: 96px minmax(0, 1fr); gap: 10px; }
+  ul.grid-list .post-image-link { width: 96px; height: 72px; }
   ul.feat-list .feat-inner { grid-template-columns: 110px minmax(0, 1fr); }
   ul.feat-list .post-title { font-size: 13px; }
 
@@ -98,9 +105,13 @@
   .hot-posts .item-3 { grid-column: span 1; grid-row: span 1; }
   .hot-posts .item-0 .post-title { font-size: 16px; }
 
-  .index-post { border-radius: var(--radius-md); grid-template-columns: 96px minmax(0, 1fr); }
+  .index-post { border-radius: var(--radius-md); }
   .index-post .post-info { padding: 12px 13px 14px; }
   .index-post .post-title { font-size: 14.5px; }
+  ul.grid-overlay { grid-template-columns: minmax(0, 1fr); }
+  ul.grid-tile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  ul.grid-list .feat-item { grid-template-columns: 84px minmax(0, 1fr); }
+  ul.grid-list .post-image-link { width: 84px; height: 64px; }
 
   .post-body h2 { font-size: 20px; }
   .post-body h3 { font-size: 18px; }

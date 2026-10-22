@@ -329,162 +329,134 @@ $(function () {
     }
 
     function _0xf943x35(_0xf943xf, _0xf943x11, _0xf943x1b, _0xf943x13) {
-        if (_0xf943x11['match']('mega-menu') || _0xf943x11['match']('hot-posts') || _0xf943x11['match']('feat-big') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-text') || _0xf943x11['match']('grid-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('post-list') || _0xf943x11['match']('related')) {
-            var _0xf943x36 = '';
-            if (_0xf943x13 == 'recent') {
-                _0xf943x36 = '/feeds/posts/default?alt=json-in-script&max-results=' + _0xf943x1b
-            } else {
-                if (_0xf943x13 == 'random') {
-                    var _0xf943x37 = Math['floor'](Math['random']() * _0xf943x1b) + 1;
-                    _0xf943x36 = '/feeds/posts/default?max-results=' + _0xf943x1b + '&start-index=' + _0xf943x37 + '&alt=json-in-script'
-                } else {
-                    _0xf943x36 = '/feeds/posts/default/-/' + _0xf943x13 + '?alt=json-in-script&max-results=' + _0xf943x1b
-                }
-            };
-            $['ajax']({
-                url: _0xf943x36,
-                type: 'get',
-                dataType: 'jsonp',
-                beforeSend: function () {
-                    if (_0xf943x11['match']('hot-posts')) {
-                        _0xf943xf['html']('<div class="hot-loader"/>')['parent']()['addClass']('show-hot')
-                    }
-                },
-                success: function (_0xf943x38) {
-                    if (_0xf943x11['match']('mega-menu')) {
-                        var _0xf943x39 = '<ul class="mega-menu-inner">'
-                    } else {
-                        if (_0xf943x11['match']('hot-posts')) {
-                            var _0xf943x39 = '<ul class="hot-posts">'
-                        } else {
-                            if (_0xf943x11['match']('feat-big')) {
-                                var _0xf943x39 = '<ul class="feat-big">'
-                            } else {
-                                if (_0xf943x11['match']('col-right') || _0xf943x11['match']('col-left')) {
-                                    var _0xf943x39 = '<ul class="feat-col">'
-                                } else {
-                                    if (_0xf943x11['match']('grid-small')) {
-                                        var _0xf943x39 = '<ul class="grid-small">'
-                                    } else {
-                                        if (_0xf943x11['match']('grid-big')) {
-                                            var _0xf943x39 = '<ul class="grid-big">'
-                                        } else {
-                                            if (_0xf943x11['match']('feat-list')) {
-                                                var _0xf943x39 = '<ul class="feat-list">'
-                                            } else {
-                                                if (_0xf943x11['match']('post-list')) {
-                                                    var _0xf943x39 = '<ul class="custom-widget">'
-                                                } else {
-                                                    if (_0xf943x11['match']('related')) {
-                                                        var _0xf943x39 = '<ul class="related-posts">'
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    };
-                    var _0xf943x3a = _0xf943x38['feed']['entry'];
-                    if (_0xf943x3a != undefined) {
-                        for (var _0xf943x4 = 0, _0xf943x1d = _0xf943x3a; _0xf943x4 < _0xf943x1d['length']; _0xf943x4++) {
-                            var _0xf943x1f = _0xf943x1c(_0xf943x1d, _0xf943x4),
-                                _0xf943x18 = _0xf943x20(_0xf943x1d, _0xf943x4, _0xf943x1f),
-                                _0xf943x3b = _0xf943x2a(_0xf943x1d, _0xf943x4),
-                                _0xf943x31 = _0xf943x30(_0xf943x1d, _0xf943x4),
-                                _0xf943x3c = _0xf943x23(_0xf943x1d, _0xf943x4),
-                                _0xf943x3d = _0xf943x24(_0xf943x1d, _0xf943x4),
-                                _0xf943x3e = _0xf943x32(_0xf943x1d, _0xf943x4);
-                            var _0xf943x3f = '';
-                            if (_0xf943x11['match']('mega-menu')) {
-                                _0xf943x3f += '<div class="mega-item item-' + _0xf943x4 + '"><div class="mega-content"><div class="post-image-wrap"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a></div><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></div>'
-                            } else {
-                                if (_0xf943x11['match']('hot-posts')) {
-                                    if (_0xf943x4 == 0) {
-                                        _0xf943x3f += '<li class="hot-item item-' + _0xf943x4 + '"><div class="hot-item-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a><div class="post-info">' + _0xf943x31 + '<h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div></div></div></li>'
-                                    } else {
-                                        _0xf943x3f += '<li class="hot-item item-' + _0xf943x4 + '"><div class="hot-item-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a><div class="post-info">' + _0xf943x31 + '<h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></div></li>'
-                                    }
-                                } else {
-                                    if (_0xf943x11['match']('feat-big')) {
-                                        if (_0xf943x4 == 0) {
-                                            _0xf943x3f += '<li class="feat-item item-big item-' + _0xf943x4 + '"><div class="feat-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a>' + _0xf943x31 + '<div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div>' + _0xf943x3e + '</div></div></li>'
-                                        } else {
-                                            _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></li>'
-                                        }
-                                    } else {
-                                        if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right')) {
-                                            if (_0xf943x4 == 0) {
-                                                _0xf943x3f += '<li class="feat-item item-big item-' + _0xf943x4 + '"><div class="feat-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a>' + _0xf943x31 + '<div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div>' + _0xf943x3e + '</div></div></li>'
-                                            } else {
-                                                _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[2] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></li>'
-                                            }
-                                        } else {
-                                            if (_0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-text')) {
-                                                if (_0xf943x11['match']('grid-text')) {
-                                                    _0xf943x3f += '<li class="feat-item item-text item-' + _0xf943x4 + '"><h2 class="post-title">' + _0xf943x18 + '</h2>' + _0xf943x3e + '</li>'
-                                                } else {
-                                                    _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2>' + _0xf943x3e + '<div class="post-meta">' + _0xf943x3d + '</div></div></li>'
-                                                }
-                                            } else {
-                                                if (_0xf943x11['match']('grid-big')) {
-                                                    _0xf943x3f += '<li class="feat-item item-big item-' + _0xf943x4 + '"><div class="feat-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a>' + _0xf943x31 + '<div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div>' + _0xf943x3e + '</div></div></li>'
-                                                } else {
-                                                    if (_0xf943x11['match']('feat-list')) {
-                                                        _0xf943x3f += '<li class="feat-item item-' + _0xf943x4 + '"><div class="feat-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a>' + _0xf943x31 + '<div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div>' + _0xf943x3e + '</div></div></li>'
-                                                    } else {
-                                                        if (_0xf943x11['match']('post-list')) {
-                                                            _0xf943x3f += '<li class="item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[2] + '</a><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></li>'
-                                                        } else {
-                                                            if (_0xf943x11['match']('related')) {
-                                                                _0xf943x3f += '<li class="related-item item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></li>'
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            };
-                            _0xf943x39 += _0xf943x3f
-                        };
-                        _0xf943x39 += '</ul>'
-                    } else {
-                        _0xf943x39 = '<ul class="no-posts">Error: No Posts Found <i class="fa-solid fa-frown"/></ul>'
-                    };
-                    if (_0xf943x11['match']('mega-menu')) {
-                        _0xf943xf['addClass']('has-sub mega-menu')['append'](_0xf943x39);
-                        _0xf943xf['find']('a:first')['attr']('href', function (_0xf943xf, _0xf943x14) {
-                            if (_0xf943x13 == 'recent' || _0xf943x13 == 'random') {
-                                _0xf943x14 = _0xf943x14['replace'](_0xf943x14, '/search/?&max-results=' + postPerPage)
-                            } else {
-                                _0xf943x14 = _0xf943x14['replace'](_0xf943x14, '/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage)
-                            };
-                            return _0xf943x14
-                        })
-                    } else {
-                        if (_0xf943x11['match']('hot-posts')) {
-                            _0xf943xf['html'](_0xf943x39)['parent']()['addClass']('show-hot')
-                        } else {
-                            if (_0xf943x11['match']('feat-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-text') || _0xf943x11['match']('grid-big')) {
-                                _0xf943xf['parent']()['find']('.widget-title')['append']('<a class="view-all" href="/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage + '">' + messages['viewAll'] + '</a>');
-                                if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right')) {
-                                    if (_0xf943x11['match']('col-right')) {
-                                        _0xf943xf['parent']()['addClass']('col-right')
-                                    };
-                                    _0xf943xf['parent']()['addClass']('col-width')
-                                };
-                                _0xf943xf['html'](_0xf943x39)['parent']()['addClass']('show-widget')
-                            } else {
-                                _0xf943xf['html'](_0xf943x39)
-                            }
-                        }
-                    }
-                }
-            })
+        var _cfg = _0xf943x11 || '',
+            _feedTypes = ['mega-menu', 'hot-posts', 'feat-big', 'col-left', 'col-right', 'grid-left-small', 'grid-small', 'grid-text', 'grid-big', 'grid-list', 'post-txt-list', 'grid-overlay', 'grid-tile', 'feat-list', 'post-list', 'related'],
+            _isType = function (_t) { return _cfg['indexOf'](_t) !== -1 },
+            _known = false;
+        for (var _i = 0; _i < _feedTypes['length']; _i++) {
+            if (_isType(_feedTypes[_i])) { _known = true; break }
         }
+        if (!_known) { return }
+        var _url = '';
+        if (_0xf943x13 == 'recent') {
+            _url = '/feeds/posts/default?alt=json-in-script&max-results=' + _0xf943x1b
+        } else if (_0xf943x13 == 'random') {
+            var _start = Math['floor'](Math['random']() * _0xf943x1b) + 1;
+            _url = '/feeds/posts/default?max-results=' + _0xf943x1b + '&start-index=' + _start + '&alt=json-in-script'
+        } else {
+            _url = '/feeds/posts/default/-/' + _0xf943x13 + '?alt=json-in-script&max-results=' + _0xf943x1b
+        }
+        $['ajax']({
+            url: _url,
+            type: 'get',
+            dataType: 'jsonp',
+            beforeSend: function () {
+                if (_isType('hot-posts')) {
+                    _0xf943xf['html']('<div class="hot-loader"/>')['parent']()['addClass']('show-hot')
+                }
+            },
+            success: function (_0xf943x38) {
+                var _list = 'grid-small';
+                if (_isType('mega-menu')) { _list = 'mega-menu-inner' }
+                else if (_isType('hot-posts')) { _list = 'hot-posts' }
+                else if (_isType('feat-big')) { _list = 'feat-big' }
+                else if (_isType('col-left') || _isType('col-right')) { _list = 'feat-col' }
+                else if (_isType('grid-left-small')) { _list = 'grid-left-small' }
+                else if (_isType('grid-small')) { _list = 'grid-small' }
+                else if (_isType('grid-text')) { _list = 'grid-text' }
+                else if (_isType('grid-big')) { _list = 'grid-big' }
+                else if (_isType('grid-list')) { _list = 'grid-list' }
+                else if (_isType('post-txt-list')) { _list = 'post-txt-list' }
+                else if (_isType('grid-overlay')) { _list = 'grid-overlay' }
+                else if (_isType('grid-tile')) { _list = 'grid-tile' }
+                else if (_isType('feat-list')) { _list = 'feat-list' }
+                else if (_isType('post-list')) { _list = 'custom-widget' }
+                else if (_isType('related')) { _list = 'related-posts' }
+                var _out = '<ul class="' + _list + '">',
+                    _entries = _0xf943x38['feed']['entry'];
+                if (_entries !== undefined) {
+                    for (var _n = 0; _n < _entries['length']; _n++) {
+                        var _link = _0xf943x1c(_entries, _n),
+                            _title = _0xf943x20(_entries, _n, _link),
+                            _img = _0xf943x2a(_entries, _n),
+                            _tag = _0xf943x30(_entries, _n),
+                            _author = _0xf943x23(_entries, _n),
+                            _date = _0xf943x24(_entries, _n),
+                            _snip = _0xf943x32(_entries, _n),
+                            _num = ('0' + (_n + 1))['slice'](-2),
+                            _item = '';
+                        if (_isType('mega-menu')) {
+                            _item = '<div class="mega-item item-' + _n + '"><div class="mega-content"><div class="post-image-wrap"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a></div><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _date + '</div></div></div>'
+                        } else if (_isType('hot-posts')) {
+                            _item = '<li class="hot-item item-' + _n + '"><div class="hot-item-inner"><a class="post-image-link" href="' + _link + '">' + _img[0] + '</a><div class="post-info">' + _tag + '<h2 class="post-title">' + _title + '</h2><div class="post-meta">' + (_n === 0 ? _author + _date : _date) + '</div></div></div></li>'
+                        } else if (_isType('feat-big') || _isType('col-left') || _isType('col-right')) {
+                            if (_n === 0) {
+                                _item = '<li class="feat-item item-big item-' + _n + '"><div class="feat-inner"><a class="post-image-link" href="' + _link + '">' + _img[0] + '</a>' + _tag + '<div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _author + _date + '</div>' + _snip + '</div></div></li>'
+                            } else {
+                                _item = '<li class="feat-item item-small item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[2] + '</a><div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _date + '</div></div></li>'
+                            }
+                        } else if (_isType('grid-text')) {
+                            _item = '<li class="feat-item item-text item-' + _n + '"><h2 class="post-title">' + _title + '</h2>' + _snip + '</li>'
+                        } else if (_isType('grid-small')) {
+                            _item = '<li class="feat-item item-small item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a><div class="post-info"><h2 class="post-title">' + _title + '</h2>' + _snip + '<div class="post-meta">' + _date + '</div></div></li>'
+                        } else if (_isType('grid-left-small')) {
+                            _item = '<li class="feat-item item-left item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a><div class="post-info"><h2 class="post-title">' + _title + '</h2>' + _snip + '</div></li>'
+                        } else if (_isType('grid-big')) {
+                            _item = '<li class="feat-item item-big item-' + _n + '"><div class="feat-inner"><a class="post-image-link" href="' + _link + '">' + _img[0] + '</a>' + _tag + '<div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _author + _date + '</div>' + _snip + '</div></div></li>'
+                        } else if (_isType('grid-list')) {
+                            _item = '<li class="feat-item item-row item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a><div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _date + '</div>' + _snip + '</div></li>'
+                        } else if (_isType('post-txt-list')) {
+                            _item = '<li class="feat-item item-num item-' + _n + '"><span class="post-index">' + _num + '</span><div class="post-info"><h2 class="post-title">' + _title + '</h2>' + _snip + '</div></li>'
+                        } else if (_isType('grid-overlay')) {
+                            _item = '<li class="feat-item item-overlay item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a>' + _tag + '<div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _date + '</div></div></li>'
+                        } else if (_isType('grid-tile')) {
+                            _item = '<li class="feat-item item-tile item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a><h2 class="post-title">' + _title + '</h2></li>'
+                        } else if (_isType('feat-list')) {
+                            _item = '<li class="feat-item item-' + _n + '"><div class="feat-inner"><a class="post-image-link" href="' + _link + '">' + _img[0] + '</a>' + _tag + '<div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _author + _date + '</div>' + _snip + '</div></div></li>'
+                        } else if (_isType('post-list')) {
+                            _item = '<li class="item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[2] + '</a><div class="post-info"><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _date + '</div></div></li>'
+                        } else if (_isType('related')) {
+                            _item = '<li class="related-item item-' + _n + '"><a class="post-image-link" href="' + _link + '">' + _img[1] + '</a><h2 class="post-title">' + _title + '</h2><div class="post-meta">' + _date + '</div></li>'
+                        }
+                        _out += _item
+                    }
+                    _out += '</ul>'
+                } else {
+                    _out = '<ul class="no-posts">Error: No Posts Found <i class="fa-solid fa-frown"/></ul>'
+                }
+                if (_isType('mega-menu')) {
+                    _0xf943xf['addClass']('has-sub mega-menu')['append'](_out);
+                    _0xf943xf['find']('a:first')['attr']('href', function (_0xf943xf, _0xf943x14) {
+                        if (_0xf943x13 == 'recent' || _0xf943x13 == 'random') {
+                            _0xf943x14 = _0xf943x14['replace'](_0xf943x14, '/search/?&max-results=' + postPerPage)
+                        } else {
+                            _0xf943x14 = _0xf943x14['replace'](_0xf943x14, '/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage)
+                        }
+                        return _0xf943x14
+                    })
+                } else if (_isType('hot-posts')) {
+                    _0xf943xf['html'](_out)['parent']()['addClass']('show-hot')
+                } else {
+                    var _viewAllTypes = ['feat-big', 'feat-list', 'col-left', 'col-right', 'grid-left-small', 'grid-small', 'grid-text', 'grid-big', 'grid-list', 'post-txt-list', 'grid-overlay', 'grid-tile'],
+                        _showAll = false;
+                    for (var _v = 0; _v < _viewAllTypes['length']; _v++) {
+                        if (_isType(_viewAllTypes[_v])) { _showAll = true; break }
+                    }
+                    if (_showAll) {
+                        _0xf943xf['parent']()['find']('.widget-title')['append']('<a class="view-all" href="/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage + '">' + messages['viewAll'] + '</a>');
+                        if (_isType('col-left') || _isType('col-right')) {
+                            if (_isType('col-right')) {
+                                _0xf943xf['parent']()['addClass']('col-right')
+                            };
+                            _0xf943xf['parent']()['addClass']('col-width')
+                        };
+                        _0xf943xf['html'](_out)['parent']()['addClass']('show-widget')
+                    } else {
+                        _0xf943xf['html'](_out)
+                    }
+                }
+            }
+        })
     }
     $('.blog-post-comments')['each'](function () {
         var _0xf943x40 = commentsSystem,

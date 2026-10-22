@@ -41,6 +41,34 @@ Blogger -> Theme -> Customise without touching CSS.
 
 Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
 
+## Feed widget layouts
+
+Any HTML widget inside a `.featured-posts` or `.common-widget` section that
+contains only `count/label/type` is replaced by a feed grid. `label` can be any
+Blogger label, `random`, or `recent`.
+
+| Type | Shape |
+| --- | --- |
+| `grid-small` | 3 columns, thumbnail on top, title + description below |
+| `grid-left-small` | 3 columns, thumbnail left, title + description right |
+| `grid-text` | 3 columns, title + description, no thumbnail |
+| `grid-big` | 2 columns, large thumbnail on top, title + description |
+| `grid-overlay` | 3 image tiles, title over the image |
+| `grid-tile` | 4 compact tiles, thumbnail + title only |
+| `grid-list` | one column, thumbnail left, title + date + description |
+| `post-txt-list` | one column, numbered, title + description, no thumbnail |
+| `post-list` | compact sidebar list (used by Random Posts) |
+| `feat-list` | stacked rows, image left |
+| `feat-big` | first post full width, the rest in small cards |
+| `col-left` / `col-right` | half-width column feed (Python/Java) |
+| `hot-posts` | 4-tile hot section |
+| `mega-menu` | dropdown feed |
+| `related` | in-post related posts |
+
+Example: `<b:widget-setting name='content'>9/mcq/grid-left-small</b:widget-setting>`.
+Every layout is responsive: 3 columns -> 2 at 1100px -> 1 at 720px (4-tile grids
+step down through 3 and 2).
+
 ## CDN
 
 All files are served from an immutable commit ref:
