@@ -1,8 +1,8 @@
 /*
   SoftTwinPlus 1.0 theme stylesheet
-  Soft glass gradient theme
+  TailwindCSS-based layout & component styles
   Original theme: SoftwareTechIT
-  NOTE: Layout, typography, and responsive grid are handled by modern-ui.css.
+  NOTE: Layout, typography, and responsive grid are handled by Tailwind + modern-ui.css.
   This file contains only the CSS reset and non-conflicting base styles.
 */
 

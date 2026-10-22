@@ -286,10 +286,12 @@ License:     Premium Version
 
 
     
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
-    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
-    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/merged.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+      <noscript>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1'/>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/merged.css?v=1.0.1'/>
+      </noscript>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -665,7 +667,6 @@ License:     Premium Version
   <!-- Content Wrapper -->
   <div class='row' id='content-wrapper'>
     <div class='container'>
-
       <!-- Main Wrapper -->
       <div id='main-wrapper'>
 
