@@ -33,56 +33,8 @@
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='preload' as='style' onload="this.rel='stylesheet'"/>
   
 <!-- Template Style CSS -->
-<b:skin version='1.0'><![CDATA[/* 
------------------------------------------------
-Blogger Template Style
-Name:        SoftTwinPlus
-Version:     1.0
-Author :     http://www.softwaretechit.com
-License:     Premium Version
------------------------------------------------ */
-
-/*
-<!-- Variable definitions -->
-<Variable name="keycolor" description="Main Color" type="color" default="$(main.color)" value="#4f46e5"/>
-<Variable name="followByEmail" description="Follow By Email Text" type="string" default="Get all latest content delivered straight to your inbox." value="Get all latest content delivered straight to your inbox."/>
-
-<Group description="Theme Body" selector="body">
-  <Variable name="body.background.color" description="Body Background Color" type="color" default="#f1f5f9"  value="#f1f5f9"/>
-  <Variable name="body.background" description="Background" type="background" color="$(body.background.color)" default="$(color) url() repeat fixed top left" value="#f1f5f9 url(none) repeat fixed top left"/>
-  <Variable name="body.text.color" description="Text Color" type="color" default="#334155"  value="#334155"/>
-  <Variable name="body.link.color" description="Link Color" type="color" default="$(main.color)"  value="#4f46e5"/>
-</Group>
-
-<Group description="Theme Colors" selector="body">
- <Variable name="main.color" description="Theme Color" type="color" default="#4f46e5" value="#4f46e5"/>
-  <Variable name="main.dark.color" description="Dark Color" type="color" default="#0f172a" value="#0f172a"/>
-  <Variable name="title.color" description="Title Color" type="color" default="#0f172a" value="#0f172a"/>
-  <Variable name="title.hover" description="Title Color on Hover" type="color" default="$(main.color)" value="#4f46e5"/>
-  <Variable name="footer.color" description="Footer Color" type="color" default="#ffffff" value="#ffffff"/>
-</Group>
- 
-<!-- Extra Variables -->
-<Variable name="body.text.font" description="Font" hideEditor="true" type="font" default="14px Roboto, sans-serif"  value="14px Roboto, sans-serif"/>
-<Variable name="posts.background.color" description="Post background color" hideEditor="true" type="color" default="#ffffff"  value="#ffffff"/>
-<Variable name="tabs.font" description="Font 2" hideEditor="true" type="font" default="14px Roboto, sans-serif"  value="14px Roboto, sans-serif"/>
-<Variable name="posts.title.color" description="Post title color" hideEditor="true" type="color" default="#111111"  value="#111111"/>
-<Variable name="posts.text.color" description="Post text color" hideEditor="true" type="color" default="#656565"  value="#656565"/>
-<Variable name="posts.icons.color" description="Post icons color" hideEditor="true" type="color" default="$(main.color)"  value="#4f46e5"/>
-<Variable name="labels.background.color" description="Label background color" hideEditor="true" type="color" default="$(main.color)"  value="#4f46e5"/>
-*/
-
-:root {
-  --blogger-body-link-color: $(body.link.color);
-  --blogger-body-background: $(body.background);
-  --blogger-body-background-color: $(body.background.color);
-  --blogger-body-text-color: $(body.text.color);
-  --blogger-main-dark-color: $(main.dark.color);
-  --blogger-main-color: $(main.color);
-  --blogger-title-color: $(title.color);
-  --blogger-title-hover: $(title.hover);
-  --blogger-footer-color: $(footer.color);
-}
+<b:skin version='1.0'><![CDATA[
+/* All styles merged into merged.css. This block kept empty to avoid duplicates. */
 ]]></b:skin>
 
 

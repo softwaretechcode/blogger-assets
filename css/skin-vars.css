@@ -1,5 +1,4 @@
 /* Blogger Theme Skin CSS Variables */
-/* These map Blogger template variables to CSS custom properties */
 :root {
   --blogger-body-link-color: $(body.link.color);
   --blogger-body-background: $(body.background);
@@ -11,4 +10,3 @@
   --blogger-title-hover: $(title.hover);
   --blogger-footer-color: $(footer.color);
 }
-

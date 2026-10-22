@@ -1,3 +1,5 @@
+/* layout.css - Only used in Blogger layout editor mode. */
+
 /*------Layout (No Edit)----------*/
 body#layout #outer-wrapper,body#layout .row{width:auto;padding:0}
 body#layout{width:1200px;position:relative;padding:0px 5px 0;margin:5px}
