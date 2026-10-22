@@ -6,7 +6,7 @@
     
     <!-- OneSignal Push Notifications -->
     <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
-    <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/onesignal-init.js'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/onesignal-init.js'/>
     <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
     <!--GOOGLE CODE START-->
     
@@ -17,7 +17,7 @@
 
 <!-- Google Analytics (UA + GA4) via jsDelivr -->
 <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/analytics.js'/>
+    <script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/analytics.js'/>
 <!--GOOGLE CODE ENDS-->
 
   
@@ -27,10 +27,10 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
     <b:include data='blog' name='all-head-content'/>
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Merriweather:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap' media='all' rel='stylesheet'/>
-    <!-- Font Awesome 6 Free via jsDelivr (replaces Bootstrap CDN FA 4.7) -->
-    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='stylesheet'/>
+    <!-- Google Fonts (non-render-blocking) -->
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Merriweather:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+    <!-- Font Awesome 6 Free via jsDelivr (non-render-blocking) -->
+    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='preload' as='style' onload="this.rel='stylesheet'"/>
   
 <!-- Template Style CSS -->
 <b:skin version='1.0'><![CDATA[/* 
@@ -95,7 +95,7 @@ License:     Premium Version
 </b:if>
 
 <!-- Global Variables -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/globals.js'/>
+<script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/globals.js'/>
 
 <b:defaultmarkups>
   <b:defaultmarkup type='Common'>
@@ -123,9 +123,9 @@ License:     Premium Version
         <div class='post-content'>
           <a class='post-image-link' expr:href='data:post.url'>
             <b:if cond='data:post.featuredImage'>
-              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100'/>
+              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756'/>
+              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756' loading='lazy'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -167,9 +167,9 @@ License:     Premium Version
         <div class='post-content'>
           <a class='post-image-link' expr:href='data:post.url'>
             <b:if cond='data:post.featuredImage'>
-              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640'/>
+              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756'/>
+              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756' loading='lazy'/>
             </b:if>
             <span class='post-tag'><data:post.labels.last.name/></span>
           </a>
@@ -286,10 +286,10 @@ License:     Premium Version
 
 
     
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.1' rel='stylesheet'/>
-    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1' rel='stylesheet'/>
-    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css?v=1.0.1' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css?v=1.0.1' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+    <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -793,9 +793,9 @@ License:     Premium Version
               <div class='about-author'>
                 <div class='avatar-container'>
                   <b:if cond='data:post.author.authorPhoto.image'>
-                    <img class='author-avatar' expr:alt='data:post.author.name' expr:src='data:post.author.authorPhoto.image resizeImage 100'/>                
+                    <img class='author-avatar' expr:alt='data:post.author.name' expr:src='data:post.author.authorPhoto.image resizeImage 100' loading='lazy'/>                
                     <b:else/>
-                    <img class='author-avatar' expr:alt='data:post.author.name' src='https://4.bp.blogspot.com/-uCjYgVFIh70/VuOLn-mL7PI/AAAAAAAADUs/Kcu9wJbv790hIo83rI_s7lLW3zkLY01EA/s100/avatar.png'/>
+                    <img class='author-avatar' expr:alt='data:post.author.name' src='https://4.bp.blogspot.com/-uCjYgVFIh70/VuOLn-mL7PI/AAAAAAAADUs/Kcu9wJbv790hIo83rI_s7lLW3zkLY01EA/s100/avatar.png' loading='lazy'/>
                   </b:if>
                 </div>
                 <h3 class='author-name'>
@@ -842,7 +842,7 @@ License:     Premium Version
 </b:includable>
             <b:includable id='commentAuthorAvatar'>
               <div class='avatar-image-container'>
-                <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='45' width='45'/>
+                <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='45' width='45' loading='lazy'/>
               </div>
             </b:includable>
             <b:includable id='commentDeleteIcon' var='comment'>
@@ -1257,9 +1257,9 @@ License:     Premium Version
               <div class='post-image-wrap'>
                 <a class='post-image-link' expr:href='data:post.url'>
                   <b:if cond='data:post.featuredImage'> 
-                    <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640'/>
+                    <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' loading='lazy'/>
                     <b:else/>
-                    <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
+                    <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
                   </b:if>
                 </a>
                 <b:include data='post' name='postCategory'/>
@@ -1934,9 +1934,9 @@ License:     Premium Version
         <div class='post-content'>
           <a class='post-image-link' expr:href='data:post.url'>
             <b:if cond='data:post.featuredImage'>
-              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100'/>
+              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
+              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -2271,9 +2271,9 @@ License:     Premium Version
         <div class='post-content'>
           <a class='post-image-link' expr:href='data:post.url'>
             <b:if cond='data:post.featuredImage'>
-              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100'/>
+              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
+              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -2608,9 +2608,9 @@ License:     Premium Version
         <div class='post-content'>
           <a class='post-image-link' expr:href='data:post.url'>
             <b:if cond='data:post.featuredImage'>
-              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100'/>
+              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756'/>
+              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/a/AVvXsEheuai0pCOsUQKQp-aoCpSRBIb4FNTJNgXiqAKlwdPB1z_eAJVkOFY8i1FlG3LugN75mtQ5BZ_g8zjeL11T4WZvRAjNi2c6QqtSNCz9iM-kfU9tLajkqT9VjMdqW0Qi_TfXsJkGMX-Gt16_L9YGB6hLFvkgQFlxho1D99QhFHtal6L9IMcf0ZvMrdlG=s756' loading='lazy'/>
             </b:if>
           </a>
           <div class='post-info'>
@@ -3040,9 +3040,9 @@ License:     Premium Version
         <div class='post-content'>
           <a class='post-image-link' expr:href='data:post.url'>
             <b:if cond='data:post.featuredImage'>
-              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100'/>
+              <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 100' loading='lazy'/>
               <b:else/>
-              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png'/>
+              <img class='post-thumb' expr:alt='data:post.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' loading='lazy'/>
             </b:if>
           </a>
           <div class='post-info'>
