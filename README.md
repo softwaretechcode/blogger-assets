@@ -45,7 +45,16 @@ Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> 
 
 All files are served from
 `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/...`.
-Bump the `?v=` query string in the XML after editing an asset so the CDN
-cache is refreshed.
+
+Current asset build: **1.0.2** (the XML requests `?v=1.0.2`). Bump the `?v=`
+query string in the XML after editing an asset so browser caches are refreshed.
+
+jsDelivr also caches the `@main` branch for up to 12 hours. After pushing an
+asset, purge it before uploading the new XML, otherwise the CDN can keep
+serving the previous file at the new `?v=` URL:
+
+```
+https://purge.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/<file>
+```
 
 Do not remove or rename an asset while the Blogger XML references it.

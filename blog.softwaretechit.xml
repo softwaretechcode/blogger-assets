@@ -67,7 +67,7 @@
 <b:if cond='data:view.isLayoutMode'>
 <b:template-skin>
 <![CDATA[
-@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/editor.css?v=1.0.0');
+@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/editor.css?v=1.0.2');
 ]]>
 </b:template-skin>
 </b:if>
@@ -265,11 +265,11 @@
 
     
       <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/responsive.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.2' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.2' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css?v=1.0.2' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/style-ui.css?v=1.0.2' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/responsive.css?v=1.0.2' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -386,18 +386,16 @@
         <b:section class='top-bar-social social' id='top-bar-social' maxwidgets='10' name='Social Top' showaddelement='yes'>
            <b:widget id='LinkList73' locked='true' title='' type='LinkList' version='2' visible='true'>
              <b:widget-settings>
-               <b:widget-setting name='link-5'>https://home.softwaretechit.com</b:widget-setting>
-               <b:widget-setting name='link-3'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
-               <b:widget-setting name='link-4'>https://www.pinterest.com/psmgyan/_saved/</b:widget-setting>
-               <b:widget-setting name='text-1'>instagram</b:widget-setting>
+               <b:widget-setting name='link-4'>https://home.softwaretechit.com</b:widget-setting>
+               <b:widget-setting name='link-2'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
+               <b:widget-setting name='link-3'>https://www.pinterest.com/psmgyan/_saved/</b:widget-setting>
                <b:widget-setting name='text-0'>facebook</b:widget-setting>
-               <b:widget-setting name='text-3'>youtube</b:widget-setting>
-               <b:widget-setting name='text-2'>instagram</b:widget-setting>
-               <b:widget-setting name='text-5'>external-link</b:widget-setting>
-               <b:widget-setting name='text-4'>pinterest</b:widget-setting>
+               <b:widget-setting name='text-2'>youtube</b:widget-setting>
+               <b:widget-setting name='text-1'>instagram</b:widget-setting>
+               <b:widget-setting name='text-4'>external-link</b:widget-setting>
+               <b:widget-setting name='text-3'>pinterest</b:widget-setting>
                <b:widget-setting name='sorting'>NONE</b:widget-setting>
-               <b:widget-setting name='link-1'>https://instagram.com/psmgyan</b:widget-setting>
-               <b:widget-setting name='link-2'>https://instagram.com/softwaretechit</b:widget-setting>
+               <b:widget-setting name='link-1'>https://instagram.com/softwaretechit</b:widget-setting>
                <b:widget-setting name='link-0'>https://fb.com/softwaretechit1</b:widget-setting>
              </b:widget-settings>
              <b:includable id='main'>
@@ -407,7 +405,7 @@
               <div class='widget-content'>
                 <ul>
                   <b:loop values='data:links' var='link'>
-                    <li expr:class='data:link.name'><a expr:href='data:link.target' expr:title='data:link.name' target='_blank'/></li>
+                    <li expr:class='data:link.name'><a expr:aria-label='data:link.name' expr:href='data:link.target' expr:title='data:link.name' rel='noopener' target='_blank'/></li>
                   </b:loop>
                 </ul>
               </div>
@@ -530,8 +528,9 @@
       </form>
     </div>
     <div class='mobile-menu'/>
+  </div>
 
-    <div class='header-menu'>
+  <div class='header-menu'>
       <div class='container row'> 
         <b:section class='main-menu' id='main-menu' maxwidgets='1' name='Main Menu' showaddelement='yes'>
            <b:widget id='LinkList74' locked='true' title='Link List' type='LinkList' version='2' visible='true'>
@@ -617,8 +616,6 @@
         <span class='show-search'/>
       </div>
     </div>
-
-  </div>
 
   <div class='clearfix'/>
 
@@ -1149,7 +1146,7 @@
                 
                 <data:post.body/>
                 <b:if cond='data:view.isPost'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.js?v=1.0.2'/>
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
@@ -1157,7 +1154,7 @@
       </b:if>
     </b:loop>
   </b:if>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.js?v=1.0.2'/>
 </b:if>
               </div>
             </b:includable>
@@ -1702,9 +1699,9 @@
           </b:widget>
           <b:widget id='HTML28' locked='false' title='' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<iframe width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <b:widget-setting name='content'><![CDATA[<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <!--<iframe src="https://softwaretechit.com/diwali-wishing-script/" height="400px" width="100%" title=" Let each diya you light bring a glow of happiness on your face and enlighten your soul. Happy Diwali! from SoftwareTechIT.com"></iframe>-->]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -1718,23 +1715,17 @@
         <b:section class='sidebar' id='social-widget' maxwidgets='1' name='Social Widget' showaddelement='yes'>
           <b:widget id='LinkList75' locked='true' title='Social Plugin' type='LinkList' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='link-7'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
-              <b:widget-setting name='link-5'>https://www.youtube.com/results?search_query=softwaretechit</b:widget-setting>
-              <b:widget-setting name='link-6'>https://instagram.com/psmgyan</b:widget-setting>
+              <b:widget-setting name='link-4'>https://www.youtube.com/results?search_query=softwaretechit</b:widget-setting>
               <b:widget-setting name='link-3'>https://pinterest.com/softwaretechit</b:widget-setting>
-              <b:widget-setting name='link-4'>https://instagram.com/softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-2'>https://instagram.com/softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-1'>https://twitter.com/softwaretechit</b:widget-setting>
+              <b:widget-setting name='link-0'>http://fb.com/softwaretechit</b:widget-setting>
+              <b:widget-setting name='text-4'>youtube</b:widget-setting>
+              <b:widget-setting name='text-3'>pinterest</b:widget-setting>
+              <b:widget-setting name='text-2'>instagram</b:widget-setting>
               <b:widget-setting name='text-1'>twitter</b:widget-setting>
               <b:widget-setting name='text-0'>facebook</b:widget-setting>
-              <b:widget-setting name='text-3'>pinterest</b:widget-setting>
-              <b:widget-setting name='text-2'>facebook</b:widget-setting>
-              <b:widget-setting name='text-5'>youtube</b:widget-setting>
-              <b:widget-setting name='text-4'>instagram</b:widget-setting>
-              <b:widget-setting name='text-7'>youtube</b:widget-setting>
-              <b:widget-setting name='text-6'>instagram</b:widget-setting>
               <b:widget-setting name='sorting'>NONE</b:widget-setting>
-              <b:widget-setting name='link-1'>https://twitter.com/softwaretechit</b:widget-setting>
-              <b:widget-setting name='link-2'>https://www.facebook.com/productsellermarket</b:widget-setting>
-              <b:widget-setting name='link-0'>http://fb.com/softwaretechit</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1744,7 +1735,7 @@
               <div class='widget-content'>
                 <ul class='social-counter social social-color social-text'>
                   <b:loop values='data:links' var='link'>
-                    <li expr:class='data:link.name'><a expr:href='data:link.target' expr:title='data:link.name' target='_blank'/></li>
+                    <li expr:class='data:link.name'><a expr:aria-label='data:link.name' expr:href='data:link.target' expr:title='data:link.name' rel='noopener' target='_blank'/></li>
                   </b:loop>
                 </ul>
               </div>
@@ -1754,9 +1745,9 @@
         <b:section class='sidebar common-widget' id='sidebar2' name='Sidebar Right (B)' showaddelement='yes'>
           <b:widget id='HTML7' locked='false' title='Watch Our Videos' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<iframe width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -2794,49 +2785,7 @@
         </b:widget>
         <b:widget id='HTML24' locked='false' title='' type='HTML' visible='true'>
           <b:widget-settings>
-            <b:widget-setting name='content'><![CDATA[
-
-
-<div class="site-links">
-    <nav class="site-links__inner" aria-labelledby="site-links-title">
-        <div class="site-links__header">
-            <div>
-                <p class="site-links__eyebrow">SoftwareTechIT network</p>
-                <h2 class="site-links__title" id="site-links-title">Explore our websites</h2>
-            </div>
-            <p class="site-links__description">Discover tools, learning resources, updates, and more from across our network.</p>
-        </div>
-
-        <div class="site-links__grid">
-            <a class="site-links__item" href="http://www.softwaretechit.com">Home</a>
-            <a class="site-links__item" href="http://atoz-seotools.softwaretechit.com">AtoZ SEO Tools</a>
-            <a class="site-links__item" href="http://shop.softwaretechit.com">Shop</a>
-            <a class="site-links__item" href="http://blog.softwaretechit.com">Blog</a>
-            <a class="site-links__item" href="http://hashtags.softwaretechit.com">Hashtags</a>
-            <a class="site-links__item" href="http://news.softwaretechit.com">News</a>
-            <a class="site-links__item" href="http://productsellermarket.softwaretechit.com">Product Seller Market</a>
-            <a class="site-links__item" href="http://songlyricsword-a2z.softwaretechit.com">Song Lyrics Word A-Z</a>
-            <a class="site-links__item" href="http://toolword360.softwaretechit.com">ToolWord360</a>
-            <a class="site-links__item" href="https://crazypyr.softwaretechit.com/">CrazyPyr</a>
-            <a class="site-links__item" href="http://freeapkdownload.softwaretechit.com">Free APK Download</a>
-            <a class="site-links__item" href="http://programadecode.softwaretechit.com/">ProgramadeCode</a>
-            <a class="site-links__item" href="http://tools.softwaretechit.com/">Tools</a>
-            <a class="site-links__item" href="http://seotools.softwaretechit.com/">SEO Tools</a>
-            <a class="site-links__item" href="http://compiler.softwaretechit.com/">Compiler</a>
-            <a class="site-links__item" href="http://ide.softwaretechit.com/">IDE</a>
-            <a class="site-links__item" href="http://support.softwaretechit.com/">Support</a>
-            <a class="site-links__item" href="http://link.softwaretechit.com/">Link</a>
-            <a class="site-links__item" href="http://techblog.softwaretechit.com/">TechBlog</a>
-            <a class="site-links__item" href="https://algblog.softwaretechit.com/">AlgBlog</a>
-            <a class="site-links__item" href="https://ytreview.softwaretechit.com/">YtReview</a>
-        </div>
-
-        <div class="site-links__bottom">
-            <p>One network, many ways to learn, build, and explore.</p>
-            <p>SoftwareTechIT</p>
-        </div>
-    </nav>
-</div>]]></b:widget-setting>
+            <b:widget-setting name='content'><![CDATA[]]></b:widget-setting>
           </b:widget-settings>
           <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -2868,7 +2817,7 @@
   <b:include name='widget-title'/>
   <div class='widget-content'>
     <data:content/>
-  </div>
+  </div>in 
 </b:includable>
         </b:widget>
         <b:widget id='PopularPosts2' locked='false' title='Most Popular' type='PopularPosts' version='2' visible='true'>
@@ -3199,7 +3148,7 @@
 </b:includable>
       </b:widget>
     </b:section>
-    
+    <p class='footer-credits'>&#169; <data:blog.title/> <span>All rights reserved.</span></p>
   </div>
 </div>
 </div>
@@ -3208,15 +3157,15 @@
 
 <!-- Main Scripts -->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/globals.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/globals.js?v=1.0.2'/>
 <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theia-sticky-sidebar.js'/>
 
 <!-- Theme Functions JS -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.js?v=1.0.2'/>
 
 <!-- Pagination Scripts -->
 <b:if cond='data:view.isMultipleItems'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.js?v=1.0.0'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.js?v=1.0.2'/>
 </b:if>
 
 <!-- Facebook SDK -->

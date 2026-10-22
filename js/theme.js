@@ -161,9 +161,22 @@ $(function () {
     $('#main-wrapper, #sidebar-wrapper')['each'](function () {
         if (fixedSidebar == true) {
             $(this)['theiaStickySidebar']({
-                additionalMarginTop: 25,
+                additionalMarginTop: 72,
                 additionalMarginBottom: 25
             })
+        }
+    });
+    var _0xf943xmenuBar = $('.header-menu');
+    if (_0xf943xmenuBar['length']) {
+        var _0xf943xmenuShadow = function () {
+            _0xf943xmenuBar['toggleClass']('is-stuck', $(window)['scrollTop']() > 6)
+        };
+        $(window)['on']('scroll', _0xf943xmenuShadow);
+        _0xf943xmenuShadow()
+    }
+    $(window)['on']('resize', function () {
+        if ($(window)['width']() > 960 && $('body')['hasClass']('nav-active')) {
+            $('.slide-menu-toggle')['trigger']('click')
         }
     });
     $('.back-top')['each'](function () {
@@ -195,16 +208,35 @@ $(function () {
     });
     $('.featured-posts .widget-content')['each'](function () {
         var _0xf943xf = $(this),
-            _0xf943x10 = _0xf943xf['text']()['trim'](),
-            _0xf943x11 = _0xf943x10['toLowerCase'](),
-            _0xf943x12 = _0xf943x10['split']('/');
-        if (_0xf943x11['match']('feat-big')) {
-            var _0xf943x1b = 5,
-                _0xf943x13 = _0xf943x12[0]
+            _0xf943xload = function () {
+                if (_0xf943xf['data']('feedLoaded')) {
+                    return
+                };
+                _0xf943xf['data']('feedLoaded', true);
+                var _0xf943x10 = _0xf943xf['text']()['trim'](),
+                    _0xf943x11 = _0xf943x10['toLowerCase'](),
+                    _0xf943x12 = _0xf943x10['split']('/');
+                if (_0xf943x11['match']('feat-big')) {
+                    var _0xf943x1b = 5,
+                        _0xf943x13 = _0xf943x12[0]
+                } else {
+                    _0xf943x1b = _0xf943x12[0], _0xf943x13 = _0xf943x12[1]
+                };
+                _0xf943x35(_0xf943xf, _0xf943x11, _0xf943x1b, _0xf943x13)
+            };
+        if ('IntersectionObserver' in window) {
+            var _0xf943xio = new IntersectionObserver(function (_0xf943xentries) {
+                if (_0xf943xentries[0]['isIntersecting']) {
+                    _0xf943xio['disconnect']();
+                    _0xf943xload()
+                }
+            }, {
+                rootMargin: '400px 0px'
+            });
+            _0xf943xio['observe'](this)
         } else {
-            _0xf943x1b = _0xf943x12[0], _0xf943x13 = _0xf943x12[1]
-        };
-        _0xf943x35(_0xf943xf, _0xf943x11, _0xf943x1b, _0xf943x13)
+            _0xf943xload()
+        }
     });
     $('.common-widget .widget-content')['each'](function () {
         var _0xf943xf = $(this),
@@ -434,7 +466,7 @@ $(function () {
                         } else {
                             if (_0xf943x11['match']('feat-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-big')) {
                                 _0xf943xf['parent']()['find']('.widget-title')['append']('<a class="view-all" href="/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage + '">' + messages['viewAll'] + '</a>');
-                                if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right')) {
+                                if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small')) {
                                     if (_0xf943x11['match']('col-right')) {
                                         _0xf943xf['parent']()['addClass']('col-right')
                                     };

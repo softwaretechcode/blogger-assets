@@ -49,6 +49,7 @@
   ul.feat-big { grid-template-columns: minmax(0, 1fr); }
   ul.feat-big > .item-small { grid-template-columns: 92px minmax(0, 1fr); }
   ul.grid-small { grid-template-columns: minmax(0, 1fr); }
+  ul.grid-big { grid-template-columns: minmax(0, 1fr); }
   ul.feat-list .feat-inner { grid-template-columns: 110px minmax(0, 1fr); }
   ul.feat-list .post-title { font-size: 13px; }
 
@@ -71,10 +72,13 @@
 
 @media (max-width: 560px) {
   body { font-size: 14px; }
-  #outer-wrapper { padding-inline: 12px; }
-  #top-bar { margin-top: 8px; border-radius: var(--radius-sm); }
-  #top-bar > .container { gap: 6px; padding-inline: 8px; }
-  .top-bar-nav ul > li:nth-child(n+5) { display: none; }
+  .row { padding-inline: 14px; }
+  #top-bar > .container { flex-wrap: nowrap; gap: 6px; }
+  .top-bar-nav { min-width: 0; }
+  .top-bar-nav ul,
+  .top-bar-social ul { flex-wrap: nowrap; }
+  .top-bar-nav ul > li:nth-child(n+3) { display: none; }
+  .top-bar-nav ul > li > a { padding-inline: 8px; }
   .top-bar-social ul > li > a { width: 24px; height: 24px; font-size: 12px; }
 
   #content-wrapper { padding-block: 16px; }

@@ -1,39 +1,44 @@
 /* =========================================================
    SoftTwinPlus 1.0 - layout.css
-   Page structure: outer shell, content grid, header shell.
+   Page structure: full-bleed shell, content grid, header shell.
    ========================================================= */
 
 /* ---------------------------------------------------------
    1. Layout shell
    --------------------------------------------------------- */
+/* Full-bleed shell: color bands span the viewport, .row keeps
+   the readable content width and horizontal gutters. */
 #outer-wrapper {
-  width: min(100%, 1264px);
-  max-width: 1264px;
-  margin-inline: auto;
-  padding-inline: clamp(14px, 3vw, 32px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   background: transparent;
 }
 
-.row {
-  width: 100%;
-  max-width: 1264px;
-  margin-inline: auto;
-}
+/* .container is declared before .row on purpose: it resets the
+   padding that .row then re-applies as a gutter. */
 .container {
   width: 100%;
   max-width: 100%;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+.row {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
 }
 
 #content-wrapper {
-  padding-block: clamp(18px, 3.4vw, 40px);
+  padding-block: clamp(20px, 3.4vw, 44px);
 }
 #content-wrapper > .container {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(272px, 312px);
+  grid-template-columns: minmax(0, 1fr) minmax(272px, 320px);
   align-items: start;
-  gap: clamp(18px, 2.6vw, 32px);
+  gap: clamp(20px, 2.6vw, 34px);
 }
 
 #main-wrapper,
@@ -48,20 +53,20 @@
 #sidebar-wrapper { display: flex; flex-direction: column; gap: 18px; }
 
 /* ---------------------------------------------------------
-   2. Header: logo + ad
+   2. Header: logo + ad row
    --------------------------------------------------------- */
-#header-wrap { padding-top: clamp(10px, 1.6vw, 18px); }
+#header-wrap { padding: 0; }
 
-.header-header { padding: 0; }
+.header-header { padding-block: clamp(12px, 2vw, 20px); }
 .header-header > .container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 20px;
+  gap: 12px 24px;
 }
 
-.header-logo { float: none; flex: 0 0 auto; max-width: 200px; margin: 0; padding: 0; }
+.header-logo { float: none; flex: 0 0 auto; max-width: 240px; margin: 0; padding: 0; }
 .header-logo .widget { margin: 0; }
 .header-logo img,
 .header-logo .header-image-wrapper img {
@@ -69,10 +74,10 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 46px;
+  max-height: 52px;
   object-fit: contain;
 }
-.header-logo h1 { font-size: 22px; margin: 0; }
+.header-logo h1 { font-size: 23px; margin: 0; }
 .header-logo h1 a { color: var(--ui-heading); }
 
 .header-ads {
@@ -92,6 +97,6 @@
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: 90px;
+  max-height: 96px;
   border-radius: var(--radius-sm);
 }
