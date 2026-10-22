@@ -676,11 +676,12 @@ body.nav-active { overflow: hidden; }
   top: 7px;
   left: 7px;
   z-index: 2;
-  max-width: calc(100% - 14px);
-  padding: 2px 7px;
+  max-width: calc(100% - 12px);
+  padding: 2px 6px;
   display: inline-block;
   overflow: hidden;
-  font-size: 9px;
+  font-size: 8.5px;
+  letter-spacing: .03em;
   text-overflow: ellipsis;
   white-space: nowrap;
   backdrop-filter: blur(6px);
