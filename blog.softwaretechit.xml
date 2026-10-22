@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:g='http://base.google.com/ns/1.0'>
   
   <head>
+    <!-- Theme: SoftTwinPlus 1.0 | assets: css/theme.css, layout.css, style-ui.css, responsive.css, tailwind.css -->
     
     <!-- OneSignal Push Notifications -->
     <script async='async' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js'/>
@@ -32,22 +33,47 @@
     <!-- Font Awesome 6 Free via jsDelivr (non-render-blocking) -->
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='preload' as='style' onload="this.rel='stylesheet'"/>
   
-<!-- Template Style CSS -->
-<b:skin version='1.0'><![CDATA[
-/* All styles merged into merged.css. This block kept empty to avoid duplicates. */
+<!-- Template Style CSS: theme designer variables only.
+     Visual rules are split by concern (load order matters):
+       tailwind.css    compiled utilities
+       theme.css       tokens, reset, base typography
+       layout.css      page shell, content grid, header shell
+       style-ui.css    UI components
+       responsive.css  breakpoints, reduced motion, print (must be last) -->
+<b:skin version='1.0'><![CDATA[/*
+<Variable name="body.background" description="Page background" type="background"
+          color="#f4f6fb" default="$(color) none repeat scroll top left" value="#f4f6fb none repeat scroll top left"/>
+<Variable name="body.text.color" description="Body text colour" type="color" default="#3b4a5f" value="#3b4a5f"/>
+<Variable name="body.link.color" description="Link colour" type="color" default="#4f46e5" value="#4f46e5"/>
+<Variable name="body.link.hover" description="Link hover colour" type="color" default="#4338ca" value="#4338ca"/>
+<Variable name="main.color" description="Accent colour" type="color" default="#4f46e5" value="#4f46e5"/>
+<Variable name="main.dark.color" description="Dark surface colour" type="color" default="#0f172a" value="#0f172a"/>
+<Variable name="title.color" description="Heading colour" type="color" default="#0f172a" value="#0f172a"/>
+<Variable name="footer.color" description="Footer text colour" type="color" default="#cbd5e1" value="#cbd5e1"/>
+*/
+:root{
+  --skin-page: $(body.background.color);
+  --skin-text: $(body.text.color);
+  --skin-link: $(body.link.color);
+  --skin-heading: $(title.color);
+  --skin-accent: $(main.color);
+  --skin-accent-hover: $(body.link.hover);
+  --skin-dark: $(main.dark.color);
+  --skin-footer: $(footer.color);
+}
 ]]></b:skin>
 
 
 <b:if cond='data:view.isLayoutMode'>
 <b:template-skin>
 <![CDATA[
-@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css?v=1.0.1');
+@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/editor.css?v=1.0.0');
 ]]>
 </b:template-skin>
 </b:if>
 
-<!-- Global Variables -->
-<script async='async' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/globals.js'/>
+<!-- Global Variables: loaded synchronously at the end of the body, right
+     before theme.js, so theme.js never sees an undefined helper. -->
 
 <b:defaultmarkups>
   <b:defaultmarkup type='Common'>
@@ -238,12 +264,12 @@
 
 
     
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/merged.css?v=1.0.1' rel='preload' as='style' onload="this.rel='stylesheet'"/>
-      <noscript>
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.1'/>
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/merged.css?v=1.0.1'/>
-      </noscript>
+      <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/layout.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/responsive.css?v=1.0.0' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
@@ -502,8 +528,8 @@
         <input class='mobile-search-input' expr:placeholder='data:messages.searchThisBlog' name='q' type='search' value=''/>
         <span class='hide-mobile-search'/>
       </form>
-      <div class='mobile-menu'/>
     </div>
+    <div class='mobile-menu'/>
 
     <div class='header-menu'>
       <div class='container row'> 
@@ -1123,7 +1149,7 @@
                 
                 <data:post.body/>
                 <b:if cond='data:view.isPost'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.js?v=1.0.1'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.js?v=1.0.0'/>
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
@@ -1131,7 +1157,7 @@
       </b:if>
     </b:loop>
   </b:if>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.js?v=1.0.1'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.js?v=1.0.0'/>
 </b:if>
               </div>
             </b:includable>
@@ -3182,14 +3208,15 @@
 
 <!-- Main Scripts -->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/globals.js?v=1.0.0'/>
 <script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theia-sticky-sidebar.js'/>
 
 <!-- Theme Functions JS -->
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.js?v=1.0.1'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.js?v=1.0.0'/>
 
 <!-- Pagination Scripts -->
 <b:if cond='data:view.isMultipleItems'>
-<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.js?v=1.0.1'/>
+<script src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.js?v=1.0.0'/>
 </b:if>
 
 <!-- Facebook SDK -->

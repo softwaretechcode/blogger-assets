@@ -1,23 +1,51 @@
 # SoftTwinPlus 1.0 - Blogger assets
 
-This repository contains only the CSS and JavaScript assets referenced by the
-SoftTwinPlus 1.0 Blogger template (SoftwareTechIT). The XML template is kept outside the
-repository.
+CSS and JavaScript assets referenced by the SoftTwinPlus Blogger template
+(SoftwareTechIT). The template itself is `blog.softwaretechit.xml` in this folder.
 
-The Blogger template loads these assets from jsDelivr:
+## CSS (6 files)
 
-- `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/tailwind.css`
-- `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/theme.css`
-- `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/custom.css`
-- `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/modern-ui.css`
-- JavaScript files under `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/`
+| File | Purpose |
+| --- | --- |
+| `css/tailwind.css` | Compiled TailwindCSS utility layer |
+| `css/theme.css` | Design tokens (`--ui-*`), reset, base typography, accessibility helpers |
+| `css/layout.css` | Page structure: outer shell, content grid, sidebar column, header shell (logo + ad) |
+| `css/style-ui.css` | UI components: top bar, desktop menu + mega menu, search, mobile header/drawer, index cards, hot posts, featured blocks, sidebar widgets, single post, comments, pager, footer |
+| `css/responsive.css` | Breakpoints, reduced motion, print. **Must load last** |
+| `css/editor.css` | Blogger layout-editor mode only, loaded through `<b:template-skin>` (never on the public site) |
 
-`custom.css` contains the extracted shortcode and HTML-widget styles.
-`js/globals.js` contains the template's static JavaScript settings; Blogger
-widget settings that use dynamic Blogger data remain in the XML.
-`modern-ui.css` applies the responsive surface, card, typography, and spacing
-overrides after the original theme and Tailwind styles. It also carries the
-SoftTwinPlus soft glass gradient design: pill-shaped tags and categories,
-glass cards, gradient buttons, and gradient section headings.
+Load order is not optional:
+
+```
+tailwind.css -> theme.css -> layout.css -> style-ui.css -> responsive.css
+```
+
+`responsive.css` overrides rules of equal specificity in the other files, so
+reordering it silently breaks the mobile layout.
+
+Theme-designer colours (`<Variable>` tags) live in the `<b:skin>` block of the
+XML. They are exposed as `--skin-*` custom properties and consumed by
+`theme.css` through fallbacks, so the XML can be restyled from
+Blogger -> Theme -> Customise without touching CSS.
+
+## JavaScript
+
+| File | Purpose |
+| --- | --- |
+| `js/globals.js` | Shared helpers (`monthFormat`, `noThumbnail`). Blog options come from the Layout "Default Variables" widget |
+| `js/theme.js` | Menu, dropdowns, mobile drawer, hot/featured feed widgets, comments |
+| `js/pagination.js` | Numbered pager |
+| `js/theia-sticky-sidebar.js` | Sticky sidebar |
+| `js/related-posts.js` / `js/related-posts-render.js` | In-post "also read" links |
+| `js/facebook-sdk.js`, `js/analytics.js`, `js/onesignal-init.js` | Optional integrations |
+
+Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
+
+## CDN
+
+All files are served from
+`https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/...`.
+Bump the `?v=` query string in the XML after editing an asset so the CDN
+cache is refreshed.
 
 Do not remove or rename an asset while the Blogger XML references it.
