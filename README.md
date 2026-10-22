@@ -74,11 +74,11 @@ step down through 3 and 2).
 All files are served from an immutable commit ref:
 
 ```
-https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@7328d37/...
+https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@61e9ad5/...
 ```
 
 The theme version is always **1.0.0**: every asset URL ends in `?v=1.0.0`. The
-`@7328d37` part is only the build pointer, not a version number.
+`@61e9ad5` part is only the build pointer, not a version number.
 
 Why a commit instead of a version tag: jsDelivr caches tag URLs permanently.
 Moving `v1.0.0` to a new commit and purging the files still served the old
