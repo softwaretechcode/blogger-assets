@@ -1,4 +1,4 @@
-# SoftTwinPlus 1.0 - Blogger assets
+﻿# SoftTwinPlus 1.0 - Blogger assets
 
 CSS and JavaScript assets referenced by the SoftTwinPlus Blogger template
 (SoftwareTechIT). The template itself is `blog.softwaretechit.xml` in this folder.
@@ -46,7 +46,7 @@ Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> 
 All files are served from
 `https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/...`.
 
-Current asset build: **1.0.2** (the XML requests `?v=1.0.2`). Bump the `?v=`
+Current asset build: **1.0.3** (the XML requests `?v=1.0.3`). Bump the `?v=`
 query string in the XML after editing an asset so browser caches are refreshed.
 
 jsDelivr also caches the `@main` branch for up to 12 hours. After pushing an

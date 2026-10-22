@@ -570,16 +570,17 @@ body.nav-active { overflow: hidden; }
    --------------------------------------------------------- */
 .blog-posts.index-post-wrap {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
 }
 .blog-posts.item-post-wrap { display: block; }
 .blog-posts.index-post-wrap > .inline-ad { grid-column: 1 / -1; }
 
 .index-post {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(92px, 34%) minmax(0, 1fr);
+  align-items: stretch;
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / .8);
@@ -597,7 +598,8 @@ body.nav-active { overflow: hidden; }
   position: relative;
   float: none;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
+  min-height: 132px;
   margin: 0;
   overflow: hidden;
   background-color: var(--ui-surface-muted);
@@ -615,15 +617,16 @@ body.nav-active { overflow: hidden; }
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  gap: 6px;
+  justify-content: center;
+  gap: 5px;
   float: none;
   width: auto;
   min-width: 0;
-  padding: 13px 15px 15px;
+  padding: 12px 14px;
 }
 .index-post .post-title {
   margin: 0;
-  font-size: clamp(14.5px, 1.35vw, 16.5px);
+  font-size: clamp(13.5px, 1.15vw, 15px);
   font-weight: 700;
   line-height: 1.36;
   letter-spacing: -.01em;
@@ -644,8 +647,8 @@ body.nav-active { overflow: hidden; }
   overflow: hidden;
   margin: 0;
   color: var(--ui-muted);
-  font-size: 12.5px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.55;
 }
 .index-post .post-header { display: block; }
 
@@ -670,9 +673,16 @@ body.nav-active { overflow: hidden; }
 .post-tag:hover { color: #fff; }
 .index-post .post-tag {
   position: absolute;
-  top: 9px;
-  left: 9px;
+  top: 7px;
+  left: 7px;
   z-index: 2;
+  max-width: calc(100% - 14px);
+  padding: 2px 7px;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   backdrop-filter: blur(6px);
 }
 
@@ -861,6 +871,8 @@ ul.hot-posts:empty { display: none; }
   backdrop-filter: var(--blur-glass);
 }
 .featured-posts > .widget.col-width { grid-column: span 1; }
+/* Safety net: a grid-small widget always spans the full band. */
+.featured-posts > .widget.col-width:has(ul.grid-small) { grid-column: 1 / -1; }
 
 /* Feed widgets are hydrated by theme.js. Keep the raw config text hidden
    and show a soft skeleton while the JSONP request is in flight. */
@@ -1020,14 +1032,66 @@ ul.feat-col .feat-item:not(.item-0) .post-title { margin: 0; font-size: 12.5px; 
 ul.feat-col .feat-item:not(.item-0) .post-snippet,
 ul.feat-col .feat-item:not(.item-0) .post-tag { display: none; }
 
-/* grid-small / grid-big / feat-list */
+/* grid-small: full-width band of 3 horizontal cards (image left, text right) */
 ul.grid-small {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
-ul.grid-small .post-image-link { aspect-ratio: 16 / 10; }
-ul.grid-small .post-title { font-size: 12.5px; }
+ul.grid-small .feat-item {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid rgb(255 255 255 / .75);
+  border-radius: var(--radius-md);
+  background-color: rgb(255 255 255 / .5);
+  transition: background-color .18s var(--ease), box-shadow .18s var(--ease);
+}
+ul.grid-small .feat-item:hover {
+  background-color: rgb(255 255 255 / .8);
+  box-shadow: 0 10px 22px -18px rgb(30 41 59 / .5);
+}
+ul.grid-small .post-image-link {
+  display: block;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--ui-surface-muted);
+  aspect-ratio: 1 / 1;
+}
+ul.grid-small .post-image-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+ul.grid-small .post-info { min-width: 0; }
+ul.grid-small .post-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0 0 3px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+ul.grid-small .post-title a { color: var(--ui-heading); font-weight: 600; }
+ul.grid-small .post-title a:hover { color: var(--ui-accent); }
+ul.grid-small .post-snippet {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0;
+  color: var(--ui-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+ul.grid-small .post-meta { margin-top: 5px; font-size: 10px; gap: 2px 6px; }
 
 ul.grid-big {
   display: grid;
@@ -1228,12 +1292,13 @@ ul.custom-widget .post-image-link {
   background-color: var(--ui-surface-muted);
 }
 ul.custom-widget .post-image-link img { width: 100%; height: 100%; object-fit: cover; }
-ul.custom-widget .post-title { margin: 0 0 4px; font-size: 13px; line-height: 1.45; }
+ul.custom-widget .post-title { margin: 0 0 2px; font-size: 13px; line-height: 1.45; }
 ul.custom-widget .post-title a {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  overflow-wrap: anywhere;
   color: var(--ui-heading);
   font-weight: 600;
 }
@@ -1275,21 +1340,37 @@ ul.custom-widget .post-meta { font-size: 11px; color: var(--ui-muted); }
   box-shadow: 0 8px 18px -12px rgb(99 102 241 / .7);
 }
 .cloud-label .label-count { display: none; }
+.cloud-label ul { gap: 4px 5px; }
+.cloud-label li a {
+  padding: 3px 8px;
+  font-size: 10.5px;
+  line-height: 1.3;
+  border-radius: var(--radius-full);
+}
 
-.list-label ul { display: grid; gap: 4px; }
+.list-label ul { display: grid; gap: 2px; }
 .list-label li { float: none; margin: 0; padding: 0; border: 0; }
+/* Blogspot's generic widget-list rule adds 7px padding + a border to every
+   li; labels/clouds are chips, so strip that rhythm back out. */
+.sidebar .widget-content.list-label ul li,
+.sidebar .widget-content.cloud-label ul li,
+#footer-wrapper .widget-content.list-label ul li,
+#footer-wrapper .widget-content.cloud-label ul li {
+  padding: 0;
+  border-bottom: 0;
+}
 .list-label li a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 7px 11px;
+  padding: 4px 8px;
   border-color: transparent;
   border-radius: var(--radius-sm);
   background-image: none;
   background-color: transparent;
   color: #3b4a5f;
-  font-size: 12.5px;
+  font-size: 12px;
   text-transform: none;
 }
 .list-label li a::before { display: none; }
@@ -1299,12 +1380,12 @@ ul.custom-widget .post-meta { font-size: 11px; color: var(--ui-muted); }
   float: none;
   width: auto;
   height: auto;
-  padding: 1px 7px;
+  padding: 0 6px;
   border-radius: var(--radius-full);
   background-color: #eef2ff;
   color: #4f46e5;
-  font-size: 10.5px;
-  line-height: 1.6;
+  font-size: 10px;
+  line-height: 1.7;
 }
 
 /* Archive, search, contact, newsletter widgets */

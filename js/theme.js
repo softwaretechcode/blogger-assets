@@ -422,7 +422,7 @@ $(function () {
                                             }
                                         } else {
                                             if (_0xf943x11['match']('grid-small')) {
-                                                _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3d + '</div></div></li>'
+                                                _0xf943x3f += '<li class="feat-item item-small item-' + _0xf943x4 + '"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[1] + '</a><div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2>' + _0xf943x3e + '<div class="post-meta">' + _0xf943x3d + '</div></div></li>'
                                             } else {
                                                 if (_0xf943x11['match']('grid-big')) {
                                                     _0xf943x3f += '<li class="feat-item item-big item-' + _0xf943x4 + '"><div class="feat-inner"><a class="post-image-link" href="' + _0xf943x1f + '">' + _0xf943x3b[0] + '</a>' + _0xf943x31 + '<div class="post-info"><h2 class="post-title">' + _0xf943x18 + '</h2><div class="post-meta">' + _0xf943x3c + _0xf943x3d + '</div>' + _0xf943x3e + '</div></div></li>'
@@ -466,7 +466,7 @@ $(function () {
                         } else {
                             if (_0xf943x11['match']('feat-big') || _0xf943x11['match']('feat-list') || _0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small') || _0xf943x11['match']('grid-big')) {
                                 _0xf943xf['parent']()['find']('.widget-title')['append']('<a class="view-all" href="/search/label/' + _0xf943x13 + '?&max-results=' + postPerPage + '">' + messages['viewAll'] + '</a>');
-                                if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right') || _0xf943x11['match']('grid-small')) {
+                                if (_0xf943x11['match']('col-left') || _0xf943x11['match']('col-right')) {
                                     if (_0xf943x11['match']('col-right')) {
                                         _0xf943xf['parent']()['addClass']('col-right')
                                     };
