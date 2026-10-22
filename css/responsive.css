@@ -53,8 +53,6 @@
   ul.feat-big { grid-template-columns: minmax(0, 1fr); }
   ul.feat-big > .item-small { grid-template-columns: 92px minmax(0, 1fr); }
   ul.grid-small { grid-template-columns: minmax(0, 1fr); }
-  ul.grid-small .feat-item { grid-template-columns: 104px minmax(0, 1fr); }
-  ul.grid-small .post-image-link { width: 104px; height: 104px; }
   ul.grid-text { grid-template-columns: minmax(0, 1fr); }
   ul.grid-big { grid-template-columns: minmax(0, 1fr); }
   ul.feat-list .feat-inner { grid-template-columns: 110px minmax(0, 1fr); }

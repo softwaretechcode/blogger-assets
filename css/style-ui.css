@@ -1033,17 +1033,15 @@ ul.feat-col .feat-item:not(.item-0) .post-title { margin: 0; font-size: 12.5px; 
 ul.feat-col .feat-item:not(.item-0) .post-snippet,
 ul.feat-col .feat-item:not(.item-0) .post-tag { display: none; }
 
-/* grid-small: full-width band of 3 horizontal cards (image left, text right) */
+/* grid-small: 3-column vertical cards in the grid-big style (image on top, title + description below) */
 ul.grid-small {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px 12px;
 }
 ul.grid-small .feat-item {
-  display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  align-items: start;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   padding: 9px;
   border: 1px solid rgb(255 255 255 / .75);
@@ -1052,47 +1050,49 @@ ul.grid-small .feat-item {
   transition: background-color .18s var(--ease), box-shadow .18s var(--ease);
 }
 ul.grid-small .feat-item:hover {
-  background-color: rgb(255 255 255 / .8);
-  box-shadow: 0 10px 22px -18px rgb(30 41 59 / .5);
+  background-color: rgb(255 255 255 / .82);
+  box-shadow: 0 12px 24px -18px rgb(30 41 59 / .5);
 }
 ul.grid-small .post-image-link {
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 100%;
+  height: auto;
   overflow: hidden;
   border-radius: var(--radius-sm);
   background-color: var(--ui-surface-muted);
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 10;
 }
 ul.grid-small .post-image-link img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-ul.grid-small .post-info { min-width: 0; }
+ul.grid-small .post-info { min-width: 0; padding-top: 8px; }
 ul.grid-small .post-title {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  margin: 0 0 3px;
-  font-size: 12.5px;
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
   line-height: 1.4;
   overflow-wrap: anywhere;
 }
-ul.grid-small .post-title a { color: var(--ui-heading); font-weight: 600; }
+ul.grid-small .post-title a { color: var(--ui-heading); }
 ul.grid-small .post-title a:hover { color: var(--ui-accent); }
 ul.grid-small .post-snippet {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  margin: 0;
+  margin: 5px 0 0;
   color: var(--ui-muted);
-  font-size: 11px;
-  line-height: 1.5;
+  font-size: 11.5px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
 }
-ul.grid-small .post-meta { margin-top: 5px; font-size: 10px; gap: 2px 6px; }
+ul.grid-small .post-meta { display: none; }
 
 /* grid-text: thumbnail-free 3-column grid (title + description only) */
 ul.grid-text {
