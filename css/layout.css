@@ -60,11 +60,14 @@
   gap: var(--widget-gap);
   min-width: 0;
 }
-#sidebar-wrapper { display: flex; flex-direction: column; gap: var(--widget-gap); }
+/* Sidebar widgets carry margin: 5px 0, so the container gap is reduced to
+   keep the total inter-widget spacing at 16px (5 + 6 + 5), consistent with
+   the main/featured stacks that use margin: 0 + gap: 16px. */
+#sidebar-wrapper { display: flex; flex-direction: column; gap: calc(var(--widget-gap) - 10px); }
 #sidebar-wrapper > .sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--widget-gap);
+  gap: calc(var(--widget-gap) - 10px);
   min-width: 0;
 }
 
