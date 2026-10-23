@@ -145,11 +145,11 @@ window.softtwinPostTools = { tocTitle: 'On this page', tocMinHeadings: 4, wordsP
 All files are served from an immutable commit ref:
 
 ```
-https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@797510a/...
+https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@5cb4ec2/...
 ```
 
 The theme version is always **1.0.0**: every asset URL ends in `?v=1.0.0`. The
-`@797510a` part is only the build pointer, not a version number.
+`@5cb4ec2` part is only the build pointer, not a version number.
 
 Why a commit instead of a version tag: jsDelivr caches tag URLs permanently.
 Moving `v1.0.0` to a new commit and purging the files still served the old
