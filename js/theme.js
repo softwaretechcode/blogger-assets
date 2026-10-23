@@ -89,6 +89,11 @@ $(function () {
         'grid-tile'
     ];
 
+    // Number of cards in the homepage "Recent posts" grid (3 columns x 3 rows).
+    // Blogger auto-pagination can serve fewer posts than the blog setting, so
+    // the grid is topped up from the feed below when it comes back short.
+    var HOME_INDEX_TARGET = 9;
+
     /* ---------------------------------------------------------------------
      * 1. Desktop menu - turn "_" prefixed links into dropdowns
      * ------------------------------------------------------------------ */
@@ -420,7 +425,7 @@ $(function () {
     }
 
     function getSnippet(entry) {
-        var content = entry.content ? entry.content.$t : '';
+        var content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
         var text = $('<div>').html(content).text().trim().substr(0, 86);
 
         return '<p class="post-snippet">' + text + '…</p>';
@@ -432,7 +437,7 @@ $(function () {
      */
     function getImages(entry) {
         var title = entry.title.$t;
-        var content = entry.content ? entry.content.$t : '';
+        var content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
         var large;
         var medium;
         var small;
@@ -664,6 +669,9 @@ $(function () {
             url: url,
             type: 'get',
             dataType: 'jsonp',
+            // The feed URL is same-origin, but the response is JSONP, so force
+            // the script transport (jQuery only uses it for cross-domain URLs).
+            crossDomain: true,
             beforeSend: function () {
                 if (layout === 'hot-posts') {
                     $target.html('<div class="hot-loader"/>').parent().addClass('show-hot');
@@ -683,6 +691,140 @@ $(function () {
                 }
 
                 applyFeed($target, layout, source, html);
+            }
+        });
+    }
+
+    /**
+     * Protocol- and hash-insensitive URL key, used to compare feed entries
+     * with links already rendered by Blogger (the feed often links http://).
+     *
+     * @param {string} url
+     * @return {string}
+     */
+    function normalizeUrl(url) {
+        return (url || '').replace(/^https?:\/\//i, '').replace(/\/+$/, '').split('#')[0];
+    }
+
+    /**
+     * Card markup for the homepage "Recent posts" grid, matching the
+     * Blog1 index card so the injected cards look identical.
+     *
+     * @param {object} entry Blogger JSON feed entry
+     * @return {string} card HTML
+     */
+    function indexCard(entry) {
+        var url = getPostUrl(entry).replace(/^http:\/\//i, 'https://');
+        var image = getImages(entry)[0];
+        var tag = getTag(entry);
+        var title = getTitle(entry, url);
+        var author = getAuthor(entry);
+        var date = getDate(entry);
+        var snippet = getSnippet(entry);
+
+        if (tag) {
+            tag = tag.replace('class="post-tag"', 'class="post-tag index-post-tag"');
+        }
+
+        return '<div class="blog-post hentry index-post">' +
+            '<div class="post-image-wrap">' +
+            '<a class="post-image-link" href="' + url + '">' + image + '</a>' + tag +
+            '</div>' +
+            '<div class="post-info">' +
+            '<h2 class="post-title">' + title + '</h2>' +
+            '<div class="post-meta">' + author + date + '</div>' +
+            snippet +
+            '</div>' +
+            '</div>';
+    }
+
+    /**
+     * Top up the homepage "Recent posts" grid to HOME_INDEX_TARGET cards.
+     *
+     * Blogger renders `data:posts` server-side and auto-pagination can return
+     * fewer posts than "Max posts shown on main page", which leaves the 3 x 3
+     * grid half empty. When that happens, the newest posts are pulled from the
+     * feed and only the missing cards are appended. The "Older Posts" link is
+     * moved past the last card shown so nothing is repeated on page 2.
+     */
+    function fillHomeIndex() {
+        var grid = document.querySelector('.blog-posts.index-post-wrap');
+        var headline = document.querySelector('.home-posts-headline');
+
+        // Homepage only: the headline is rendered for data:view.isHomepage.
+        if (!grid || !headline) {
+            return;
+        }
+
+        var existing = grid.querySelectorAll('.index-post');
+
+        if (existing.length >= HOME_INDEX_TARGET) {
+            return;
+        }
+
+        // URLs already on the page, to avoid showing the same post twice.
+        var seen = {};
+        var i;
+
+        for (i = 0; i < existing.length; i++) {
+            var link = existing[i].querySelector('.post-title a, .post-image-link');
+
+            if (link) {
+                seen[normalizeUrl(link.href)] = true;
+            }
+        }
+
+        $.ajax({
+            url: '/feeds/posts/summary?alt=json-in-script&max-results=' + (HOME_INDEX_TARGET + existing.length),
+            type: 'get',
+            dataType: 'jsonp',
+            crossDomain: true,
+            success: function (response) {
+                var entries = response.feed.entry;
+
+                if (!entries) {
+                    return;
+                }
+
+                var added = 0;
+                var lastEntry = null;
+                var candidates = [];
+                var entry;
+                var key;
+
+                for (i = 0; i < entries.length; i++) {
+                    entry = entries[i];
+                    key = normalizeUrl(getPostUrl(entry));
+
+                    if (!seen[key]) {
+                        seen[key] = true;
+                        candidates.push(entry);
+                    }
+                }
+
+                // Blogger feeds are ordered by updated date; the index is
+                // ordered by published date, so sort before filling.
+                candidates.sort(function (a, b) {
+                    return new Date(b.published.$t) - new Date(a.published.$t);
+                });
+
+                for (i = 0; i < candidates.length && existing.length + added < HOME_INDEX_TARGET; i++) {
+                    entry = candidates[i];
+
+                    grid.insertAdjacentHTML('beforeend', indexCard(entry));
+                    lastEntry = entry;
+                    added += 1;
+                }
+
+                // Continue pagination after the last card now visible.
+                var older = document.querySelector('#blog-pager .blog-pager-older-link');
+
+                if (added && lastEntry && older) {
+                    var stamp = lastEntry.published.$t.replace(/\.\d+/, '');
+
+                    older.href = '/search?updated-max=' + encodeURIComponent(stamp) +
+                        '&max-results=' + HOME_INDEX_TARGET;
+                }
             }
         });
     }
@@ -764,6 +906,10 @@ $(function () {
 
         renderFeed($content, 'related', 3, label);
     });
+
+    // 5f. Homepage "Recent posts": complete the 3 x 3 grid when Blogger's
+    // auto-pagination serves fewer posts than the grid needs.
+    fillHomeIndex();
 
     /* ---------------------------------------------------------------------
      * 6. Comment system

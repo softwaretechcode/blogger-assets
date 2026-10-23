@@ -42,6 +42,12 @@ Blogger -> Theme -> Customise without touching CSS.
 
 Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
 
+Feed widgets load `/feeds/posts/...&alt=json-in-script` through jQuery JSONP. That
+URL is same-origin, and jQuery only uses its script transport for cross-domain
+requests, so every JSONP call must pass `crossDomain: true`. Without it jQuery
+falls back to XHR, receives JSONP, fails to parse it, and the widget keeps its
+raw `count/label/type` text.
+
 ## Feed widget layouts
 
 Any HTML widget inside a `.featured-posts` or `.common-widget` section that
@@ -69,6 +75,33 @@ Blogger label, `random`, or `recent`.
 Example: `<b:widget-setting name='content'>9/mcq/grid-left-small</b:widget-setting>`.
 Every layout is responsive: 3 columns -> 2 at 1100px -> 1 at 720px (4-tile grids
 step down through 3 and 2).
+
+## Homepage "Recent posts"
+
+The homepage grid (`.blog-posts.index-post-wrap` under the "Recent posts"
+headline) is a 3-column grid, so a full block is 3 x 3 = 9 cards.
+
+Blogger renders that grid from `data:posts` and applies *auto pagination* to
+index pages: when the rendered page grows too heavy it returns fewer posts than
+"Max posts shown on main page", regardless of `?max-results`. On this blog the
+homepage usually comes back with 3 posts, which left the grid one row tall.
+
+`fillHomeIndex()` in `theme.js` tops the grid up:
+
+1. It runs only when `.home-posts-headline` exists, i.e. on `data:view.isHomepage`.
+2. If fewer than `HOME_INDEX_TARGET` (9) cards rendered, it fetches
+   `/feeds/posts/summary?alt=json-in-script&max-results=12`.
+3. Entries already on the page are skipped (scheme- and hash-insensitive URL
+   compare, because the feed links `http://`).
+4. The rest are sorted by *published* date (feeds are ordered by *updated*) and
+   only the missing cards are appended, in the same markup as `indexPost`.
+5. The "Older Posts" link is moved to `updated-max` of the 9th post and
+   `max-results=9`, so page 2 continues after the last visible card instead of
+   repeating it.
+
+The fill is a workaround, not a replacement for the setting: set
+Blogger -> Settings -> Posts -> "Max posts shown on main page" to **9** as well.
+If Blogger ever serves 9 posts by itself, the fill does nothing.
 
 ## Post content tools
 
