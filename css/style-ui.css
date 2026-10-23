@@ -1358,8 +1358,8 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 .sidebar .widget {
   float: none;
   width: 100%;
-  margin: 0 0 16px;
-  padding: 16px;
+  margin: 0;
+  padding: 12px;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / .8);
   border-radius: var(--radius-lg);
@@ -1371,6 +1371,7 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 }
 .sidebar .widget:last-child { margin-bottom: 0; }
 .sidebar .widget:empty { display: none; }
+.sidebar .widget-title { margin: 0 0 10px; padding: 0 0 8px; }
 .sidebar .widget-content { font-size: 13px; }
 .sidebar .widget-content iframe {
   display: block;
@@ -1420,10 +1421,10 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 }
 
 /* Social Plugin widget: room above and below, tighter side padding */
-#social-widget { margin: 18px 0; }
+#social-widget { margin: 0; }
 #social-widget .widget {
   margin: 0;
-  padding: 14px 10px;
+  padding: 12px 10px;
 }
 #social-widget .widget-content { margin: 0; }
 .social-counter li { float: none; margin: 0; padding: 0; }
@@ -1454,7 +1455,7 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 
 /* Popular / featured posts inside widgets */
 .PopularPosts .post,
-.FeaturedPost .post { padding: 10px 0; border-bottom: 1px solid var(--ui-border-soft); }
+.FeaturedPost .post { padding: 8px 0; border-bottom: 1px solid var(--ui-border-soft); }
 .PopularPosts .post:last-child,
 .FeaturedPost .post:last-child { padding-bottom: 0; border-bottom: 0; }
 .PopularPosts .post:first-child { padding-top: 0; }
@@ -1516,14 +1517,14 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 ul.custom-widget { display: grid; gap: 12px; }
 ul.custom-widget > li {
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--ui-border-soft);
 }
 ul.custom-widget > li:last-child { padding-bottom: 0; border-bottom: 0; }
 .sidebar .widget-content ul.custom-widget > li,
 #footer-wrapper .widget-content ul.custom-widget > li {
   min-height: 72px;
-  padding: 0 0 12px 82px;
+  padding: 0 0 10px 82px;
 }
 .sidebar .widget-content ul.custom-widget > li:last-child,
 #footer-wrapper .widget-content ul.custom-widget > li:last-child { padding-bottom: 0; }
@@ -1704,7 +1705,7 @@ a.button:hover,
 .sidebar .Profile .profile-link { color: var(--ui-accent); font-size: 12px; font-weight: 600; }
 .sidebar .widget-content ul { list-style: none; }
 .sidebar .widget-content ul li {
-  padding: 7px 0;
+  padding: 6px 0;
   border-bottom: 1px solid var(--ui-border-soft);
   font-size: 12.5px;
 }

@@ -50,7 +50,13 @@
   overflow: visible;
 }
 #main-wrapper { display: flex; flex-direction: column; gap: 22px; }
-#sidebar-wrapper { display: flex; flex-direction: column; gap: 18px; }
+#sidebar-wrapper { display: flex; flex-direction: column; gap: 12px; }
+#sidebar-wrapper > .sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
 
 /* ---------------------------------------------------------
    2. Header: logo + ad row
