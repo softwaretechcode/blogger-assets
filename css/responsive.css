@@ -27,8 +27,8 @@
   #outer-wrapper { padding-top: var(--mobile-height); }
 
   #content-wrapper > .container { grid-template-columns: minmax(0, 1fr); }
-  #sidebar-wrapper { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--widget-gap) - 10px); }
-  .sidebar .widget { margin: 5px 0; }
+  #sidebar-wrapper { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+  .sidebar .widget { margin: 12px 0; }
 
   .featured-posts { grid-template-columns: minmax(0, 1fr); }
   .featured-posts > .widget.col-width { grid-column: 1 / -1; }

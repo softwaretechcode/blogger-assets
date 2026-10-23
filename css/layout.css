@@ -60,14 +60,14 @@
   gap: var(--widget-gap);
   min-width: 0;
 }
-/* Sidebar widgets carry margin: 5px 0, so the container gap is reduced to
-   keep the total inter-widget spacing at 16px (5 + 6 + 5), consistent with
-   the main/featured stacks that use margin: 0 + gap: 16px. */
-#sidebar-wrapper { display: flex; flex-direction: column; gap: calc(var(--widget-gap) - 10px); }
+/* Sidebar widgets carry margin: 12px 0. Container gap stays 0 so margins
+   alone provide consistent spacing (12px top / 12px bottom per card, no
+   extra gap added on top). */
+#sidebar-wrapper { display: flex; flex-direction: column; gap: 0; }
 #sidebar-wrapper > .sidebar {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--widget-gap) - 10px);
+  gap: 0;
   min-width: 0;
 }
 

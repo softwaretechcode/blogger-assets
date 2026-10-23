@@ -1358,7 +1358,7 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 .sidebar .widget {
   float: none;
   width: 100%;
-  margin: 5px 0;
+  margin: 12px 0;
   padding: var(--widget-pad);
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / .8);
@@ -1423,7 +1423,7 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 /* Social plugin widget: same inner padding as the other cards. */
 #social-widget { margin: 0; }
 #social-widget .widget {
-  margin: 5px 0;
+  margin: 12px 0;
   padding: var(--widget-pad) 10px;
 }
 #social-widget .widget-content { margin: 0; }
