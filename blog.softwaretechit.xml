@@ -280,7 +280,7 @@
 <!-- Theme Options -->
   <div class='theme-options'>
     <b:section class='sora-panel' id='sora-panel' maxwidgets='1' name='Theme Options' showaddelement='no'>
-      <b:widget id='LinkList70' locked='true' title='Css Options' type='LinkList' version='2' visible='true'>
+      <b:widget id='LinkList70' locked='false' title='Css Options' type='LinkList' version='2' visible='true'>
         <b:widget-settings>
           <b:widget-setting name='sorting'>NONE</b:widget-setting>
           <b:widget-setting name='text-1'>recentPostsHeadline</b:widget-setting>
@@ -308,7 +308,7 @@
           &lt;/style&gt;
         </b:includable>
       </b:widget>
-      <b:widget id='LinkList71' locked='true' title='Default Variables' type='LinkList' version='2' visible='true'>
+      <b:widget id='LinkList71' locked='false' title='Default Variables' type='LinkList' version='2' visible='true'>
         <b:widget-settings>
           <b:widget-setting name='link-3'>5</b:widget-setting>
           <b:widget-setting name='sorting'>NONE</b:widget-setting>
@@ -353,7 +353,7 @@
   <div id='top-bar'>
     <div class='container row'>
         <b:section class='top-bar-nav' id='top-bar-nav' maxwidgets='10' name='Top Navigation' showaddelement='yes'>
-          <b:widget id='LinkList72' locked='true' title='' type='LinkList' version='2' visible='true'>
+          <b:widget id='LinkList72' locked='false' title='' type='LinkList' version='2' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='link-3'>/p/download.html</b:widget-setting>
               <b:widget-setting name='sorting'>NONE</b:widget-setting>
@@ -384,7 +384,7 @@
 
       <!-- Top Social --> 
         <b:section class='top-bar-social social' id='top-bar-social' maxwidgets='10' name='Social Top' showaddelement='yes'>
-           <b:widget id='LinkList73' locked='true' title='' type='LinkList' version='2' visible='true'>
+           <b:widget id='LinkList73' locked='false' title='' type='LinkList' version='2' visible='true'>
              <b:widget-settings>
                <b:widget-setting name='link-5'>https://home.softwaretechit.com</b:widget-setting>
                <b:widget-setting name='link-3'>https://www.pinterest.com/psmgyan/_saved/</b:widget-setting>
@@ -495,7 +495,7 @@
     <div class='mobile-header'>
       <span class='slide-menu-toggle'/>
       <b:section class='mobile-logo' id='mobile-logo' maxwidgets='1' name='Mobile Logo' showaddelement='yes'>
-        <b:widget id='Image70' locked='true' title='Mobile Logo Settings' type='Image' version='2' visible='true'>
+        <b:widget id='Image70' locked='false' title='Mobile Logo Settings' type='Image' version='2' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='displayUrl'>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2xK2mGfe8aQcjPcFMmDrJA33V0WH7G2HX_lOQaBjyvROPq74lMz0sw602Fh3DKAMx27ZkuyL_u8wibKOwIGikj_j1q5DZQqj_Y42yDY3RfPBbuLfqoA9bJJB0e8Ry9Hmwsf5KNQC01xUHccbDQHakeIpSvi1R4WUKHf57VyTDzoL-EzxV0ZO8yWokYzY/s1000/logo.png</b:widget-setting>
             <b:widget-setting name='displayHeight'>1000</b:widget-setting>
@@ -535,7 +535,7 @@
   <div class='header-menu'>
       <div class='container row'> 
         <b:section class='main-menu' id='main-menu' maxwidgets='1' name='Main Menu' showaddelement='yes'>
-           <b:widget id='LinkList74' locked='true' title='Link List' type='LinkList' version='2' visible='true'>
+           <b:widget id='LinkList74' locked='false' title='Link List' type='LinkList' version='2' visible='true'>
              <b:widget-settings>
                <b:widget-setting name='text-26'>Career</b:widget-setting>
                <b:widget-setting name='text-27'>Download Our App</b:widget-setting>
@@ -731,7 +731,7 @@
         </b:if>
 
         <b:section class='main' id='main' maxwidgets='12' name='Main Posts' showaddelement='yes'>
-          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+          <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='showDateHeader'>false</b:widget-setting>
               <b:widget-setting name='commentLabel'>Comments</b:widget-setting>
@@ -1754,7 +1754,7 @@
           </b:widget>
         </b:section>
         <b:section class='sidebar' id='social-widget' maxwidgets='1' name='Social Widget' showaddelement='yes'>
-          <b:widget id='LinkList75' locked='true' title='Social Plugin' type='LinkList' version='2' visible='true'>
+          <b:widget id='LinkList75' locked='false' title='Social Plugin' type='LinkList' version='2' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='link-7'>https://www.youtube.com/results?search_query=madforyou</b:widget-setting>
               <b:widget-setting name='link-5'>https://www.youtube.com/results?search_query=softwaretechit</b:widget-setting>
@@ -3163,7 +3163,7 @@
 <div id='sub-footer-wrapper'>
   <div class='container row'>
     <b:section class='menu-footer' id='menu-footer' maxwidgets='1' name='Menu Footer' showaddelement='yes'>
-      <b:widget id='LinkList76' locked='true' title='Menu Footer Widget' type='LinkList' visible='true'>
+      <b:widget id='LinkList76' locked='false' title='Menu Footer Widget' type='LinkList' visible='true'>
         <b:widget-settings>
           <b:widget-setting name='link-3'>https://www.softwaretechit.com/p/download.html</b:widget-setting>
           <b:widget-setting name='sorting'>NONE</b:widget-setting>
