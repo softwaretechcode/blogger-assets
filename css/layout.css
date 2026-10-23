@@ -49,12 +49,22 @@
   padding: 0;
   overflow: visible;
 }
-#main-wrapper { display: flex; flex-direction: column; gap: 22px; }
-#sidebar-wrapper { display: flex; flex-direction: column; gap: 12px; }
+#main-wrapper { display: flex; flex-direction: column; gap: var(--widget-gap); }
+/* Leftover float clearers from the old layout: in a flex column they become
+   zero-height flex items and add a phantom gap on both sides. */
+#main-wrapper > .clearfix,
+#sidebar-wrapper > .clearfix { display: none; }
+#main-wrapper > .main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--widget-gap);
+  min-width: 0;
+}
+#sidebar-wrapper { display: flex; flex-direction: column; gap: var(--widget-gap); }
 #sidebar-wrapper > .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--widget-gap);
   min-width: 0;
 }
 

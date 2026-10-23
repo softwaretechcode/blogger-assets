@@ -27,7 +27,7 @@
   #outer-wrapper { padding-top: var(--mobile-height); }
 
   #content-wrapper > .container { grid-template-columns: minmax(0, 1fr); }
-  #sidebar-wrapper { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  #sidebar-wrapper { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--widget-gap); }
   .sidebar .widget { margin: 0; }
 
   .featured-posts { grid-template-columns: minmax(0, 1fr); }
@@ -50,8 +50,8 @@
   .index-post .post-title { font-size: 14.5px; }
   .index-post .post-snippet { -webkit-line-clamp: 2; }
 
-  .featured-posts { gap: 16px; }
-  .featured-posts > .widget { padding: 15px; }
+  .featured-posts { gap: var(--widget-gap); }
+  .featured-posts > .widget { padding: var(--widget-pad); }
   ul.feat-big { grid-template-columns: minmax(0, 1fr); }
   ul.feat-big > .item-small { grid-template-columns: 92px minmax(0, 1fr); }
   ul.grid-small { grid-template-columns: minmax(0, 1fr); }
@@ -94,7 +94,7 @@
   .top-bar-social ul > li > a { width: 24px; height: 24px; font-size: 12px; }
 
   #content-wrapper { padding-block: 16px; }
-  .featured-posts > .widget { padding: 13px; border-radius: var(--radius-md); }
+  .featured-posts > .widget { padding: var(--widget-pad); border-radius: var(--radius-md); }
   .featured-posts .widget-title > h3,
   .sidebar .widget-title > h3 { font-size: 13.5px; }
 
