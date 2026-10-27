@@ -62,8 +62,8 @@
   /* One rhythm for every widget stack: the same gap between cards and the
      same padding inside them, in the sidebar, featured bands, main column
      and footer. Change these two values to retune all of them at once. */
-  --widget-gap: 12px;
-  --widget-pad: 12px;
+  --widget-gap: 8px;
+  --widget-pad: 10px;
 }
 
 /* ---------------------------------------------------------

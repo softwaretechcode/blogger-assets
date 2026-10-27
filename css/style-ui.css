@@ -1356,8 +1356,8 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
    --------------------------------------------------------- */
 .sidebar .widget {
   float: none;
-  width: 100%;
-  margin: 8px 8px;
+  width: calc(100% - 8px);
+  margin: 6px 4px;
   padding: var(--widget-pad);
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / .8);
@@ -1368,7 +1368,7 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
   -webkit-backdrop-filter: var(--blur-glass);
   backdrop-filter: var(--blur-glass);
 }
-.sidebar .widget:last-child { margin-bottom: 12px; }
+.sidebar .widget:last-child { margin-bottom: 6px; }
 .sidebar .widget:empty { display: none; }
 .sidebar .widget-title { margin: 0 0 10px; padding: 0 0 8px; }
 .sidebar .widget-content { font-size: 13px; }
