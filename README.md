@@ -1,4 +1,4 @@
-# SoftTwinPlus 1.0 - Blogger assets
+# SoftTwinPlus 1.0.0 - Blogger assets
 
 CSS and JavaScript assets referenced by the SoftTwinPlus Blogger template
 (SoftwareTechIT). The template itself is `blog.softwaretechit.xml` in this folder.

@@ -1,5 +1,5 @@
 /*!
- * SoftTwinPlus 1.0 - post-tools.js
+ * SoftTwinPlus 1.0.0 - post-tools.js
  *
  * Post content enhancements, loaded on post/page views only:
  *   - Table of contents built from the post headings (collapsible, numbered)

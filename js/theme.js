@@ -1,5 +1,5 @@
 /*!
- * SoftTwinPlus 1.0 - theme.js
+ * SoftTwinPlus 1.0.0 - theme.js
  *
  * Front-end behaviour for the Blogger theme:
  *   1.  Desktop menu dropdowns (built from "_" prefixed items)
