@@ -946,6 +946,33 @@ $(function () {
         if (system === 'facebook') {
             $('#comments, #gpluscomments').remove();
             $comments.append(facebookMarkup).addClass(systemClass).show();
+
+            if (!document.getElementById('fb-root')) {
+                var facebookRoot = document.createElement('div');
+                facebookRoot.id = 'fb-root';
+                document.body.insertBefore(facebookRoot, document.body.firstChild);
+            }
+
+            var facebookComments = $comments.find('.fb-comments')[0];
+            var parseFacebookComments = function () {
+                if (window.FB && window.FB.XFBML) {
+                    window.FB.XFBML.parse(facebookComments);
+                }
+            };
+
+            if (window.FB && window.FB.XFBML) {
+                parseFacebookComments();
+            } else {
+                var facebookSdk = document.createElement('script');
+                facebookSdk.id = 'facebook-jssdk';
+                facebookSdk.async = true;
+                facebookSdk.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+                facebookSdk.onload = parseFacebookComments;
+                facebookSdk.onerror = function () {
+                    console.error('Unable to load the Facebook SDK for comments.');
+                };
+                document.head.appendChild(facebookSdk);
+            }
             return;
         }
 

@@ -38,7 +38,7 @@ Blogger -> Theme -> Customise without touching CSS.
 | `js/pagination.js` | Numbered pager |
 | `js/theia-sticky-sidebar.js` | Sticky sidebar |
 | `js/related-posts.js` / `js/related-posts-render.js` | In-post "also read" links |
-| `js/facebook-sdk.js`, `js/analytics.js`, `js/onesignal-init.js` | Optional integrations |
+| Google Analytics 4 and Facebook comments | GA4 is initialized inline in the template; the Facebook SDK loads only when Facebook comments are selected |
 
 Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
 The jQuery/theme scripts are loaded with `defer` from the document head, so
