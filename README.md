@@ -41,6 +41,10 @@ Blogger -> Theme -> Customise without touching CSS.
 | `js/facebook-sdk.js`, `js/analytics.js`, `js/onesignal-init.js` | Optional integrations |
 
 Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
+The jQuery/theme scripts are loaded with `defer` from the document head, so
+their downloads can overlap HTML parsing while execution remains ordered.
+Pagination inserts its JSONP feed script dynamically; it does not use
+`document.write`, which is unsafe after deferred execution.
 
 Feed widgets load `/feeds/posts/...&alt=json-in-script` through jQuery JSONP. That
 URL is same-origin, and jQuery only uses its script transport for cross-domain

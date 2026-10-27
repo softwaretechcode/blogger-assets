@@ -2201,9 +2201,14 @@ body.lightbox-open { overflow: hidden; }
   margin-top: 16px;
 }
 .inline-ad { margin: 18px 0; text-align: center; }
+.inline-ad:has(> .adsbygoogle) { min-height: 250px; }
 .inline-ad img,
 .inline-ad iframe { max-width: 100%; height: auto; }
 .related-tag { display: none; }
+
+@media (max-width: 720px) {
+  .inline-ad:has(> .adsbygoogle) { min-height: 100px; }
+}
 
 /* Author box */
 .about-author {

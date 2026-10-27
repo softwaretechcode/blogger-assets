@@ -103,6 +103,13 @@ function dataFeed(a) {
     startPagination(c)
 }
 
+function loadFeed(url) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    document.head.appendChild(script);
+}
+
 function pageCurrentBlogger() {
     var a = locationUrl;
     if (a.indexOf('/search/label/') != -1) {
@@ -120,7 +127,7 @@ function pageCurrentBlogger() {
             } else {
                 currentPageNo = 1
             }
-            document.write('<script src=\'' + home_page + 'feeds/posts/summary?max-results=1&alt=json-in-script&callback=dataFeed\'><\/script>')
+            loadFeed(home_page + 'feeds/posts/summary?max-results=1&alt=json-in-script&callback=dataFeed');
         } else {
             currentPage = 'label';
             if (a.indexOf('&max-results=') == -1) {
@@ -131,7 +138,7 @@ function pageCurrentBlogger() {
             } else {
                 currentPageNo = 1
             }
-            document.write('<script src="' + home_page + 'feeds/posts/summary/-/' + postLabel + '?alt=json-in-script&callback=dataFeed&max-results=1" ><\/script>')
+            loadFeed(home_page + 'feeds/posts/summary/-/' + postLabel + '?alt=json-in-script&callback=dataFeed&max-results=1');
         }
     }
 }
