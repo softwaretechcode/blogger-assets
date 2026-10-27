@@ -1368,7 +1368,7 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
   -webkit-backdrop-filter: var(--blur-glass);
   backdrop-filter: var(--blur-glass);
 }
-.sidebar .widget:last-child { margin-bottom: 0; }
+.sidebar .widget:last-child { margin-bottom: 12px; }
 .sidebar .widget:empty { display: none; }
 .sidebar .widget-title { margin: 0 0 10px; padding: 0 0 8px; }
 .sidebar .widget-content { font-size: 13px; }
@@ -2661,7 +2661,12 @@ body.lightbox-open { overflow: hidden; }
 .back-top:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -14px rgb(124 58 237 / .8); }
 .back-top::before {
   content: "\f062";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 14px;
+  line-height: 1;
 }

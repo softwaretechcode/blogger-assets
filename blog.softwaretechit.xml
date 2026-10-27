@@ -4,6 +4,8 @@
   
   <head>
     <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
+    <link href='https://blogger.googleusercontent.com' rel='preconnect'/>
+    <link href='https://yt3.googleusercontent.com' rel='preconnect'/>
     <!-- Theme: SoftTwinPlus 1.0 | assets: css/theme.css, layout.css, style-ui.css, responsive.css, tailwind.css -->
     
     <!-- OneSignal Push Notifications -->
@@ -63,7 +65,7 @@
     <!-- Font Awesome 6 Free via jsDelivr (non-render-blocking) -->
     <link as='style' href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' onload='this.rel=&apos;stylesheet&apos;' rel='preload'/>
     <!-- Deferred scripts are discovered early and execute in dependency order after parsing. -->
-    <script defer='defer' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
+    <script defer='defer' src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js' type='text/javascript'/>
     <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/js/globals.js?v=1.0.0'/>
     <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/js/theia-sticky-sidebar.js?v=1.0.0'/>
     <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/js/theme.js?v=1.0.0'/>
@@ -168,7 +170,7 @@
     </b:includable>
     <b:includable id='image'>
       <a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
-        <img expr:alt='data:blog.title.escaped' expr:data-height='data:height' expr:data-width='data:width' expr:src='data:image'/>
+        <img expr:alt='data:blog.title.escaped' expr:height='data:height' expr:src='resizeImage(data:image, 320)' expr:width='data:width' decoding='async' loading='eager'/>
       </a>
     </b:includable>
   </b:defaultmarkup>
@@ -492,7 +494,7 @@
   </b:includable>
               <b:includable id='image'>
       <a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
-        <img expr:alt='data:blog.title.escaped' expr:data-height='data:height' expr:data-width='data:width' expr:src='data:image'/>
+        <img expr:alt='data:blog.title.escaped' expr:height='data:height' expr:src='resizeImage(data:image, 320)' expr:width='data:width' decoding='async' loading='eager'/>
       </a>
     </b:includable>
               <b:includable id='title'>
@@ -508,9 +510,10 @@
          <b:section class='header-ads' id='header-ads' maxwidgets='10' name='Header Ads 728x90' showaddelement='yes'>
            <b:widget id='HTML1' locked='false' title='' type='HTML' visible='true'>
              <b:widget-settings>
-               <b:widget-setting name='content'><![CDATA[<img src="https://yt3.googleusercontent.com/wxYjZBEAOQET6-lCnYMyFq7Io3iRyu-VXtq8lEi27HESR1fGP7XpuEn_xrC6Kc0otrIXpJxYhQ=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="Advertisement"
-  width="728"
-  height="90"/>]]></b:widget-setting>
+               <b:widget-setting name='content'><![CDATA[<img src="https://yt3.googleusercontent.com/wxYjZBEAOQET6-lCnYMyFq7Io3iRyu-VXtq8lEi27HESR1fGP7XpuEn_xrC6Kc0otrIXpJxYhQ=w800-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="Advertisement"
+  width="800"
+  height="132"
+  decoding="async"/>]]></b:widget-setting>
              </b:widget-settings>
              <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -546,7 +549,7 @@
           <b:includable id='content'>
             <div class='logo-content'>
               <b:if cond='data:caption == &quot;image&quot;'>
-                <a expr:href='data:blog.homepageUrl'><img expr:alt='data:blog.title' expr:src='data:sourceUrl'/></a>
+                <a expr:href='data:blog.homepageUrl'><img expr:alt='data:blog.title' expr:src='resizeImage(data:sourceUrl, 150)' height='150' width='150' decoding='async' loading='eager'/></a>
                 <b:elseif cond='data:caption == &quot;custom&quot;'/>
                 <b:if cond='data:link'>
                   <h3><a expr:href='data:blog.homepageUrl'><data:link/></a></h3>
@@ -1761,7 +1764,7 @@
           </b:widget>
           <b:widget id='HTML22' locked='false' title='' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKEMaOBTZrMODTB4boptnDdwrVQil1idbiabhvZ6OcDIwVPdqQ316ri8Sf-B8Dg1HLxq92IxQtXpkB8I0rrMH5n_2fHlTSzCmQnBJqai4cSKum2b_XWYDGgglJFyCumcWNNtcb2vCdPEfpcqlFDRCFj2PTs4jMCSvNtDsepnPEtK3VTkEu2vQzQ8S1/s16000/softwaretechit%20welcome.webp" width="100%" />]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKEMaOBTZrMODTB4boptnDdwrVQil1idbiabhvZ6OcDIwVPdqQ316ri8Sf-B8Dg1HLxq92IxQtXpkB8I0rrMH5n_2fHlTSzCmQnBJqai4cSKum2b_XWYDGgglJFyCumcWNNtcb2vCdPEfpcqlFDRCFj2PTs4jMCSvNtDsepnPEtK3VTkEu2vQzQ8S1/w800/softwaretechit%20welcome.webp" width="800" height="200" loading="lazy" decoding="async" alt="SoftwareTechIT welcome banner"/>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>

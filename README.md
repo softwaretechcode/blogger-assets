@@ -40,7 +40,7 @@ Blogger -> Theme -> Customise without touching CSS.
 | `js/related-posts.js` / `js/related-posts-render.js` | In-post "also read" links |
 | Google Analytics 4 and Facebook comments | GA4 is initialized inline in the template; the Facebook SDK loads only when Facebook comments are selected |
 
-Load order matters: jQuery -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
+Load order matters: jQuery 3.7.1 -> globals.js -> theia-sticky-sidebar -> theme.js -> pagination.js.
 The jQuery/theme scripts are loaded with `defer` from the document head, so
 their downloads can overlap HTML parsing while execution remains ordered.
 Pagination inserts its JSONP feed script dynamically; it does not use
@@ -61,6 +61,13 @@ compressed versus 77.6 KB for the full-content feed (about 94% less).
 The first index-card image is eager and high-priority; following thumbnails are
 lazy-loaded. OneSignal is queued at page load but its SDK is fetched only after
 the visitor interacts with the page.
+
+Header logos are served at reduced dimensions, and the large static banner is
+limited to 800px with explicit dimensions and lazy loading. Image filename
+extensions are not a reliable format indicator: a Blogger URL ending in `.webp`
+was observed serving `image/gif`. Do not rewrite all image URLs to WebP until a
+configured image CDN transform has been verified to return successfully; the
+site's Cloudflare transform endpoint currently returns 403.
 
 ## Feed widget layouts
 
