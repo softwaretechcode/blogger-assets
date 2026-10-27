@@ -1454,8 +1454,8 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 /* Social plugin widget: same inner padding as the other cards. */
 #social-widget { margin: 0; }
 #social-widget .widget {
-  margin: 12px 0;
-  padding: var(--widget-pad) 10px;
+  margin: 0;
+  padding: var(--widget-pad);
 }
 #social-widget .widget-content { margin: 0; }
 .social-counter li { float: none; margin: 0; padding: 0; }
@@ -1808,7 +1808,7 @@ a.button:hover,
 }
 
 .blog-post.item-post {
-  padding: clamp(18px, 3vw, 40px);
+  padding: 18px clamp(12px, 2vw, 24px);
   border: 1px solid rgb(255 255 255 / .8);
   border-radius: var(--radius-xl);
   background-color: var(--ui-glass);

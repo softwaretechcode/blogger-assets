@@ -63,7 +63,7 @@
      same padding inside them, in the sidebar, featured bands, main column
      and footer. Change these two values to retune all of them at once. */
   --widget-gap: 8px;
-  --widget-pad: 10px;
+  --widget-pad: 8px;
 }
 
 /* ---------------------------------------------------------
