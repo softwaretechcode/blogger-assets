@@ -22,6 +22,35 @@
 $(function () {
     'use strict';
 
+    function deferYoutubeEmbeds() {
+        var embeds = document.querySelectorAll(
+            'iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]'
+        );
+
+        Array.prototype.forEach.call(embeds, function (iframe) {
+            var source = iframe.getAttribute('src');
+            var facade = document.createElement('button');
+            var label = iframe.title || 'YouTube video';
+
+            facade.type = 'button';
+            facade.className = 'youtube-facade';
+            facade.setAttribute('aria-label', 'Load ' + label);
+            facade.textContent = 'Load video';
+            facade.addEventListener('click', function () {
+                var player = iframe.cloneNode(false);
+                var separator = source.indexOf('?') === -1 ? '?' : '&';
+
+                player.setAttribute('src', source + separator + 'autoplay=1');
+                player.setAttribute('loading', 'eager');
+                facade.parentNode.replaceChild(player, facade);
+            }, { once: true });
+
+            iframe.parentNode.replaceChild(facade, iframe);
+        });
+    }
+
+    deferYoutubeEmbeds();
+
     /* ---------------------------------------------------------------------
      * Constants
      * ------------------------------------------------------------------ */
@@ -464,7 +493,7 @@ $(function () {
      * Build the three <img> variants (large, medium, small) for an entry.
      * YouTube thumbs use the higher-quality frames instead of the default one.
      */
-    function getImages(entry) {
+    function getImages(entry, prioritizeLarge) {
         var title = entry.title.$t;
         var content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
         var large;
@@ -491,7 +520,9 @@ $(function () {
         }
 
         return [
-            '<img class="post-thumb" loading="lazy" decoding="async" alt="' + title + '" src="' + large + '"/>',
+            '<img class="post-thumb" loading="' + (prioritizeLarge ? 'eager' : 'lazy') + '"' +
+                (prioritizeLarge ? ' fetchpriority="high"' : '') +
+                ' decoding="async" alt="' + title + '" src="' + large + '"/>',
             '<img class="post-thumb" loading="lazy" decoding="async" alt="' + title + '" src="' + medium + '"/>',
             '<img class="post-thumb" loading="lazy" decoding="async" alt="' + title + '" src="' + small + '"/>'
         ];
@@ -532,7 +563,7 @@ $(function () {
         var entry = entries[index];
         var url = getPostUrl(entry);
         var title = getTitle(entry, url);
-        var images = getImages(entry);
+        var images = getImages(entry, layout === 'hot-posts' && index === 0);
         var tag = getTag(entry);
         var author = getAuthor(entry);
         var date = getDate(entry);
@@ -631,6 +662,8 @@ $(function () {
      * expects (show-widget, col-width, show-hot, has-sub...).
      */
     function applyFeed($target, layout, source, html) {
+        $target.removeAttr('data-feed-layout');
+
         if (layout === 'mega-menu') {
             $target.addClass('has-sub mega-menu').append(html);
 
@@ -721,6 +754,12 @@ $(function () {
                 }
 
                 applyFeed($target, layout, source, html);
+            },
+            error: function (request, status, error) {
+                $target.removeAttr('data-feed-layout')
+                    .addClass('feed-error')
+                    .html('<p>Unable to load posts. Please try again later.</p>');
+                console.error('Unable to load Blogger feed:', status, error);
             }
         });
     }
@@ -891,25 +930,21 @@ $(function () {
     // 5c. Featured posts: lazy-loaded when they scroll near the viewport.
     $('.featured-posts .widget-content').each(function () {
         var $content = $(this);
+        var config = $content.text().trim().toLowerCase();
+        var parts = config.split('/');
+        var layout = detectLayout(config);
+        var count = layout === 'feat-big' ? 5 : parts[0];
+        var source = layout === 'feat-big' ? parts[0] : parts[1];
+
+        if (layout) {
+            $content.attr('data-feed-layout', layout);
+        }
 
         var load = function () {
             if ($content.data('feedLoaded')) {
                 return;
             }
             $content.data('feedLoaded', true);
-
-            var config = $content.text().trim().toLowerCase();
-            var parts = config.split('/');
-            var count;
-            var source;
-
-            if (config.indexOf('feat-big') !== -1) {
-                count = 5;
-                source = parts[0];
-            } else {
-                count = parts[0];
-                source = parts[1];
-            }
 
             renderFeed($content, config, count, source);
         };

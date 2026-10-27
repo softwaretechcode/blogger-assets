@@ -58,9 +58,13 @@ raw `count/label/type` text.
 On the live Java label feed, nine summary entries transferred about 4.4 KB
 compressed versus 77.6 KB for the full-content feed (about 94% less).
 
-The first index-card image is eager and high-priority; following thumbnails are
-lazy-loaded. OneSignal is queued at page load but its SDK is fetched only after
-the visitor interacts with the page.
+The first index-card image and the first hot-post image are eager and
+high-priority; following thumbnails are lazy-loaded. The hot-post and featured
+feed placeholders reserve space for their incoming cards to reduce layout
+shifts. YouTube embeds are replaced with click-to-load buttons so the player
+scripts are not downloaded until a visitor chooses to play a video. OneSignal
+is queued at page load but its SDK is fetched only after the visitor interacts
+with the page.
 
 Header logos are served at reduced dimensions, and the large static banner is
 limited to 800px with explicit dimensions and lazy loading. Image filename

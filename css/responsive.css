@@ -34,6 +34,7 @@
   .featured-posts > .widget.col-width { grid-column: 1 / -1; }
 
   ul.hot-posts { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 170px; }
+  #hot-section .widget-content { min-height: 538px; }
   .hot-posts .item-0 { grid-column: span 2; grid-row: span 1; }
   .hot-posts .item-1 { grid-column: span 2; }
   .hot-posts .item-2, .hot-posts .item-3 { grid-column: span 1; }
@@ -99,11 +100,13 @@
   .sidebar .widget-title > h3 { font-size: 13.5px; }
 
   ul.hot-posts { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 175px; gap: 12px; }
+  #hot-section .widget-content { min-height: 736px; }
   .hot-posts .item-0,
   .hot-posts .item-1,
   .hot-posts .item-2,
   .hot-posts .item-3 { grid-column: span 1; grid-row: span 1; }
   .hot-posts .item-0 .post-title { font-size: 16px; }
+  .featured-posts .widget-content[data-feed-layout="feat-big"] { min-height: 700px; }
 
   .index-post { border-radius: var(--radius-md); }
   .index-post .post-info { padding: 12px 13px 14px; }

@@ -5,7 +5,6 @@
   <head>
     <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
     <link href='https://blogger.googleusercontent.com' rel='preconnect'/>
-    <link href='https://yt3.googleusercontent.com' rel='preconnect'/>
     <!-- Theme: SoftTwinPlus 1.0.0 | assets: css/theme.css, layout.css, style-ui.css, responsive.css, tailwind.css -->
     
     <!-- OneSignal Push Notifications -->
@@ -117,6 +116,12 @@
 
 <!-- Global helpers and theme scripts are deferred in dependency order from
      the head; Blogger's inline layout options are parsed before they execute. -->
+
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/theme.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/layout.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/responsive.css?v=1.0.0' rel='stylesheet'/>
 
 <b:defaultmarkups>
   <b:defaultmarkup type='Common'>
@@ -301,12 +306,6 @@
     </b:includable>
   </b:defaultmarkup>
 </b:defaultmarkups>
-
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/theme.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/layout.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/css/responsive.css?v=1.0.0' rel='stylesheet'/>
   </head>
 <body expr:class='data:blog.pageType'>
   <b:class cond='data:view.isHomepage' name='home'/>
