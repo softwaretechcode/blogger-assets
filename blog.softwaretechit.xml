@@ -1742,7 +1742,7 @@
           <b:widget id='HTML27' locked='false' title='' type='HTML' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='content'><![CDATA[<a href=" https://softwaretechit.com/paypal"><i class="fa-brands fa-paypal"></i>Donate For Support Me</a>
-<a href="https://razorpay.com/payment-button/pl_HYrPdhtCi9Mtxr/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button" >Donate On RazorPay</a>]]></b:widget-setting>
+<a class="razorpay-donate-link" href="https://razorpay.com/payment-button/pl_HYrPdhtCi9Mtxr/view/?utm_source=payment_button&amp;utm_medium=button&amp;utm_campaign=payment_button" target="_blank" rel="noopener noreferrer">Donate On RazorPay</a>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>

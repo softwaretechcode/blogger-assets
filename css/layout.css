@@ -60,15 +60,15 @@
   gap: var(--widget-gap);
   min-width: 0;
 }
-/* Sidebar widgets carry margin: 12px 0. Container gap stays 0 so margins
-   alone provide consistent spacing (12px top / 12px bottom per card, no
-   extra gap added on top). */
+/* Keep sidebar spacing on the flex container so widget widths stay inside
+   their columns, including the two-column mobile sidebar. */
 #sidebar-wrapper { display: flex; flex-direction: column; gap: 0; }
 #sidebar-wrapper > .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 8px;
   min-width: 0;
+  padding: 6px 4px;
 }
 
 /* ---------------------------------------------------------
