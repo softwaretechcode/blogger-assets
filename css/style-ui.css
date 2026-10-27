@@ -684,7 +684,6 @@ body.nav-active { overflow: hidden; }
   letter-spacing: .03em;
   text-overflow: ellipsis;
   white-space: nowrap;
-  backdrop-filter: blur(6px);
 }
 
 /* Meta */
@@ -1373,6 +1372,21 @@ ul.feat-list .post-snippet { -webkit-line-clamp: 2; }
 .sidebar .widget:empty { display: none; }
 .sidebar .widget-title { margin: 0 0 10px; padding: 0 0 8px; }
 .sidebar .widget-content { font-size: 13px; }
+.kofi-support-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 16px;
+  border-radius: var(--radius-full);
+  background-color: #29abe0;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+.kofi-support-link:hover { background-color: #2188b4; color: #fff !important; }
 .sidebar .widget-content iframe {
   display: block;
   width: 100%;

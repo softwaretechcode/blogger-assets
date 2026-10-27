@@ -94,6 +94,22 @@ $(function () {
     // the grid is topped up from the feed below when it comes back short.
     var HOME_INDEX_TARGET = 9;
 
+    function loadNearViewport(element, callback) {
+        if (!('IntersectionObserver' in window)) {
+            callback();
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                observer.disconnect();
+                callback();
+            }
+        }, { rootMargin: '500px 0px' });
+
+        observer.observe(element);
+    }
+
     /* ---------------------------------------------------------------------
      * 1. Desktop menu - turn "_" prefixed links into dropdowns
      * ------------------------------------------------------------------ */
@@ -326,7 +342,7 @@ $(function () {
      * 4. Sticky header, back-to-top, sticky sidebar
      * ------------------------------------------------------------------ */
 
-    $('#main-wrapper, #sidebar-wrapper').each(function () {
+    $('#sidebar-wrapper').each(function () {
         if (fixedSidebar === true || fixedSidebar === 'true') {
             $(this).theiaStickySidebar({
                 additionalMarginTop: 72,
@@ -354,14 +370,27 @@ $(function () {
 
     $('.back-top').each(function () {
         var $button = $(this);
+        var visible = false;
+        var scrollPending = false;
 
-        $(window).on('scroll', function () {
-            if ($(window).scrollTop() >= 100) {
-                $button.fadeIn(250);
-            } else {
-                $button.fadeOut(250);
+        var updateVisibility = function () {
+            scrollPending = false;
+            var shouldShow = window.pageYOffset >= 100;
+
+            if (shouldShow !== visible) {
+                visible = shouldShow;
+                $button.stop(true, true)[visible ? 'fadeIn' : 'fadeOut'](250);
             }
-        });
+        };
+
+        window.addEventListener('scroll', function () {
+            if (!scrollPending) {
+                scrollPending = true;
+                window.requestAnimationFrame(updateVisibility);
+            }
+        }, { passive: true });
+
+        updateVisibility();
 
         $button.on('click', function () {
             $('html, body').animate({ scrollTop: 0 }, 500);
@@ -449,7 +478,8 @@ $(function () {
             medium = thumb.replace('/s72-c', '/w280');
             small = thumb.replace('/s72-c', '/w100');
 
-            if (content.indexOf('youtube.com/embed') !== -1) {
+            if (content.indexOf('youtube.com/embed') !== -1 ||
+                    /(?:youtube\.com|ytimg\.com)\//i.test(thumb)) {
                 large = thumb.replace('/default.', '/hqdefault.');
                 medium = thumb.replace('/default.', '/mqdefault.');
                 small = thumb;
@@ -657,12 +687,12 @@ $(function () {
 
         var url;
         if (source === 'recent') {
-            url = '/feeds/posts/default?alt=json-in-script&max-results=' + count;
+            url = '/feeds/posts/summary?alt=json-in-script&max-results=' + count;
         } else if (source === 'random') {
             var start = Math.floor(Math.random() * count) + 1;
-            url = '/feeds/posts/default?max-results=' + count + '&start-index=' + start + '&alt=json-in-script';
+            url = '/feeds/posts/summary?max-results=' + count + '&start-index=' + start + '&alt=json-in-script';
         } else {
-            url = '/feeds/posts/default/-/' + source + '?alt=json-in-script&max-results=' + count;
+            url = '/feeds/posts/summary/-/' + source + '?alt=json-in-script&max-results=' + count;
         }
 
         $.ajax({
@@ -836,7 +866,17 @@ $(function () {
         var config = href.toLowerCase();
         var source = config.split('/')[0];
 
-        renderFeed($item, config, 4, source);
+        if (detectLayout(config)) {
+            var loadMenuFeed = function () {
+                if ($item.data('feedLoaded')) {
+                    return;
+                }
+                $item.data('feedLoaded', true);
+                renderFeed($item, config, 4, source);
+            };
+
+            $item.one('mouseenter pointerenter focusin', loadMenuFeed);
+        }
     });
 
     // 5b. Hot posts section: always 4 posts.
@@ -896,7 +936,15 @@ $(function () {
         var config = $content.text().trim().toLowerCase();
         var parts = config.split('/');
 
-        renderFeed($content, config, parts[0], parts[1]);
+        if (detectLayout(config)) {
+            loadNearViewport(this, function () {
+                if ($content.data('feedLoaded')) {
+                    return;
+                }
+                $content.data('feedLoaded', true);
+                renderFeed($content, config, parts[0], parts[1]);
+            });
+        }
     });
 
     // 5e. Related posts in a single post: labelled by .related-tag.

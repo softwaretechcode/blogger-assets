@@ -4,12 +4,9 @@
   
   <head>
     <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
-    <link href='https://fonts.googleapis.com' rel='preconnect'/>
-    <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
     <!-- Theme: SoftTwinPlus 1.0 | assets: css/theme.css, layout.css, style-ui.css, responsive.css, tailwind.css -->
     
     <!-- OneSignal Push Notifications -->
-    <script defer='defer' src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js'/>
     <script type='text/javascript'>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
@@ -19,6 +16,27 @@
           notifyButton: { enable: true },
         });
       });
+      (function() {
+        var started = false;
+        var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+        function loadOneSignal() {
+          if (started) return;
+          started = true;
+          events.forEach(function(eventName) {
+            window.removeEventListener(eventName, loadOneSignal);
+          });
+          var sdk = document.createElement('script');
+          sdk.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';
+          sdk.async = true;
+          sdk.onerror = function() {
+            console.error('Unable to load the OneSignal SDK.');
+          };
+          document.head.appendChild(sdk);
+        }
+        events.forEach(function(eventName) {
+          window.addEventListener(eventName, loadOneSignal, { once: true, passive: true });
+        });
+      })();
     </script>
     <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
     <!--GOOGLE CODE START-->
@@ -42,8 +60,6 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
     <b:include data='blog' name='all-head-content'/>
-    <!-- Google Fonts (non-render-blocking) -->
-    <link as='style' href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap' onload='this.rel=&apos;stylesheet&apos;' rel='preload'/>
     <!-- Font Awesome 6 Free via jsDelivr (non-render-blocking) -->
     <link as='style' href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' onload='this.rel=&apos;stylesheet&apos;' rel='preload'/>
     <!-- Deferred scripts are discovered early and execute in dependency order after parsing. -->
@@ -1171,7 +1187,7 @@
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
-        <script expr:src='&quot;/feeds/posts/default/-/&quot; + data:label.name + &quot;?alt=json-in-script&amp;callback=related_results_labels&amp;max-results=100&quot;'/>
+        <script expr:src='&quot;/feeds/posts/summary/-/&quot; + data:label.name + &quot;?alt=json-in-script&amp;callback=related_results_labels&amp;max-results=10&quot;'/>
       </b:if>
     </b:loop>
   </b:if>
@@ -1254,9 +1270,17 @@
               <div class='post-image-wrap'>
                 <a class='post-image-link' expr:href='data:post.url'>
                   <b:if cond='data:post.featuredImage'> 
-                    <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' height='400' loading='lazy' width='640' decoding='async'/>
+                    <b:if cond='data:post.isFirstPost'>
+                      <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' height='400' loading='eager' fetchpriority='high' width='640' decoding='async'/>
+                      <b:else/>
+                      <img class='post-thumb' expr:alt='data:post.title' expr:src='data:post.featuredImage resizeImage 640' height='400' loading='lazy' width='640' decoding='async'/>
+                    </b:if>
                     <b:else/>
-                    <img class='post-thumb' expr:alt='data:post.title' height='400' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' width='640' decoding='async'/>
+                    <b:if cond='data:post.isFirstPost'>
+                      <img class='post-thumb' expr:alt='data:post.title' height='400' loading='eager' fetchpriority='high' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' width='640' decoding='async'/>
+                      <b:else/>
+                      <img class='post-thumb' expr:alt='data:post.title' height='400' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRM5LPszv7maX1xnr5QUWtSgCwsEjKPkoIdRZTEAJaHZ2uoeuNvtUh4UsMRt_oURLn8arm_87lY-p4T5sEUq7__gDMC625k5YYl7xYWc89Z08GLkBXFKos3oqsFXfIWeAc_v9nDjHsDmfiZ_TtdNN4_RvJd-N83VIrmQSsjqLU3ZSUpdUSdasAArhh54U/s320/logo.png' width='640' decoding='async'/>
+                    </b:if>
                   </b:if>
                 </a>
                 <b:include data='post' name='postCategory'/>
@@ -1611,7 +1635,7 @@
           </b:widget>
           <b:widget id='HTML23' locked='false' title='' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'E1E8I58IY');kofiwidget2.draw();</script>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<a class="kofi-support-link" href="https://ko-fi.com/E1E8I58IY" target="_blank" rel="noopener noreferrer">Support me on Ko-fi</a>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1726,7 +1750,7 @@
           </b:widget>
           <b:widget id='HTML25' locked='false' title='' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'E1E8I58IY');kofiwidget2.draw();</script>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<a class="kofi-support-link" href="https://ko-fi.com/E1E8I58IY" target="_blank" rel="noopener noreferrer">Support me on Ko-fi</a>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1749,20 +1773,6 @@
           <b:widget id='HTML6' locked='false' title='Download App' type='HTML' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='content'><![CDATA[<center><a href="https://blog.softwaretechit.com/p/download.html"><button class="button download-app-button"><span>Download App </span></button></a></center>]]></b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-  <b:include name='widget-title'/>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-</b:includable>
-          </b:widget>
-          <b:widget id='HTML28' locked='false' title='' type='HTML' visible='true'>
-            <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<!--<iframe src="https://softwaretechit.com/diwali-wishing-script/" height="400px" width="100%" title=" Let each diya you light bring a glow of happiness on your face and enlighten your soul. Happy Diwali! from SoftwareTechIT.com"></iframe>-->]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1811,9 +1821,9 @@
         <b:section class='sidebar common-widget' id='sidebar2' name='Sidebar Right (B)' showaddelement='yes'>
           <b:widget id='HTML7' locked='false' title='Watch Our Videos' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<iframe loading="lazy" width="auto" height="auto" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>]]></b:widget-setting>
+              <b:widget-setting name='content'><![CDATA[<iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=UULFLU4EFzGkjsRKrPKD8bhG-A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZc1HIqwwl4ubT8cpFwsf6L6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmwJLue37PZe0YTYW_3uh_EJn5r_ayqDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -2801,7 +2811,7 @@
         <b:widget id='HTML4' locked='false' title='About Us' type='HTML' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='content'><![CDATA[<p class="footer-about"><span class="footer-about-bold"><a href='https://blog.softwaretechit.com/p/download.html'>SoftwareTechIT</a></span> offers Online Courses, Ebooks, MCQs, Assignments, Project Reports, Presentations, Model Papers, Essay Writing, Editing, Formating & Top-quality writing services with accuracy, incorporates formatting standards and as per your desire. <span class="footer-about-bold"><a href='https://youtube.com/results?search_query=softwaretechit'>Subscribe Us on YouTube</a></span></p>
-<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'E1E8I58IY');kofiwidget2.draw();</script>]]></b:widget-setting>
+<a class="kofi-support-link" href="https://ko-fi.com/E1E8I58IY" target="_blank" rel="noopener noreferrer">Support me on Ko-fi</a>]]></b:widget-setting>
           </b:widget-settings>
           <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -2874,7 +2884,7 @@
       <b:section class='footer common-widget' id='footer-sec3' maxwidgets='3' name='Section (Right)' showaddelement='yes'>
         <b:widget id='HTML26' locked='false' title='' type='HTML' version='2' visible='true'>
           <b:widget-settings>
-            <b:widget-setting name='content'><![CDATA[<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'E1E8I58IY');kofiwidget2.draw();</script>]]></b:widget-setting>
+            <b:widget-setting name='content'><![CDATA[<a class="kofi-support-link" href="https://ko-fi.com/E1E8I58IY" target="_blank" rel="noopener noreferrer">Support me on Ko-fi</a>]]></b:widget-setting>
           </b:widget-settings>
           <b:includable id='main'>
   <b:include name='widget-title'/>

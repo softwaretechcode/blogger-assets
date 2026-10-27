@@ -46,11 +46,21 @@ their downloads can overlap HTML parsing while execution remains ordered.
 Pagination inserts its JSONP feed script dynamically; it does not use
 `document.write`, which is unsafe after deferred execution.
 
-Feed widgets load `/feeds/posts/...&alt=json-in-script` through jQuery JSONP. That
+Feed widgets use Blogger's summary feeds rather than full post-body feeds,
+load menu feeds on hover/focus, and load sidebar/footer feeds near the viewport.
+Summary feeds contain the titles, summaries and thumbnails needed by the cards
+without downloading full post bodies. They load through jQuery JSONP. The feed
 URL is same-origin, and jQuery only uses its script transport for cross-domain
 requests, so every JSONP call must pass `crossDomain: true`. Without it jQuery
 falls back to XHR, receives JSONP, fails to parse it, and the widget keeps its
 raw `count/label/type` text.
+
+On the live Java label feed, nine summary entries transferred about 4.4 KB
+compressed versus 77.6 KB for the full-content feed (about 94% less).
+
+The first index-card image is eager and high-priority; following thumbnails are
+lazy-loaded. OneSignal is queued at page load but its SDK is fetched only after
+the visitor interacts with the page.
 
 ## Feed widget layouts
 

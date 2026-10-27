@@ -2473,7 +2473,7 @@ table.fire-table .no{color:#991b1b;font-weight:700}
 <span class="tk-kw">import</span> requests
 
 <span class="tk-kw">def</span> <span class="tk-fn">latest</span>(label, n=<span class="tk-num">10</span>):
-    url <span class="tk-kw">=</span> f<span class="tk-str">"/feeds/posts/default/-/{label}"</span>
+    url <span class="tk-kw">=</span> f<span class="tk-str">"/feeds/posts/summary/-/{label}"</span>
     r <span class="tk-kw">=</span> requests.get(url, params={<span class="tk-str">"max-results"</span>: n})
     <span class="tk-kw">return</span> r.json()[<span class="tk-str">"feed"</span>][<span class="tk-str">"entry"</span>]</code></pre>
     </div>
@@ -4400,7 +4400,7 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
         <span class="gchip ok"><span class="gdot"></span>feat-big supported</span>
         <span class="gchip note-g">Homepage only · lazy-loads</span>
       </div>
-      <div class="slot-note">Ships with <code>12/random/grid-small</code> and a Ko-fi support widget.</div>
+      <div class="slot-note">Ships with <code>12/random/grid-small</code> and a Ko-fi support link.</div>
     </div>
 
     <div class="slot">
@@ -4416,9 +4416,9 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
       <div class="slot-head"><span class="sname">Sidebar Right (A)</span><span class="ssid">sidebar1</span><span class="scls">.sidebar .common-widget</span></div>
       <div class="slot-body">
         <span class="gchip ok"><span class="gdot"></span>15 layouts (not feat-big)</span>
-        <span class="gchip part"><span class="gdot"></span>Loads immediately</span>
+        <span class="gchip part"><span class="gdot"></span>Loads near viewport</span>
       </div>
-      <div class="slot-note">Right column, top half. Ships with a PayPal donate link, Ko-fi, a welcome banner <code>&lt;img&gt;</code> and a Download App button — plus Blogger's native <b>Popular Posts</b> (7-day), <b>Label</b> (Categories), <b>Popular Posts</b> (30-day) and <b>Label</b> (Tags) widgets.</div>
+      <div class="slot-note">Right column, top half. Ships with a PayPal donate link, a Ko-fi support link, a welcome banner <code>&lt;img&gt;</code> and a Download App button — plus Blogger's native <b>Popular Posts</b> (7-day), <b>Label</b> (Categories), <b>Popular Posts</b> (30-day) and <b>Label</b> (Tags) widgets.</div>
     </div>
 
     <div class="slot">
@@ -4435,7 +4435,7 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
       <div class="slot-head"><span class="sname">Sidebar Right (B)</span><span class="ssid">sidebar2</span><span class="scls">.sidebar .common-widget</span></div>
       <div class="slot-body">
         <span class="gchip ok"><span class="gdot"></span>15 layouts (not feat-big)</span>
-        <span class="gchip part"><span class="gdot"></span>Loads immediately</span>
+        <span class="gchip part"><span class="gdot"></span>Loads near viewport</span>
       </div>
       <div class="slot-note">Right column, lower half. Ships with a YouTube playlist <code>&lt;iframe&gt;</code> and the <b>Popular Posts</b> (All Time) widget.</div>
     </div>
@@ -4464,7 +4464,7 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
         <span class="gchip ok"><span class="gdot"></span>15 layouts (not feat-big)</span>
         <span class="gchip note-g">maxwidgets=3</span>
       </div>
-      <div class="slot-note">Footer column 3. Ships with a Ko-fi widget.</div>
+      <div class="slot-note">Footer column 3. Ships with a Ko-fi support link.</div>
     </div>
 
     <div class="slot">
@@ -4518,7 +4518,7 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
 
   <div class="meta-grid">
     <div class="meta"><dt>featured-posts</dt><dd>Lazy-loads · supports feat-big · homepage only</dd></div>
-    <div class="meta"><dt>common-widget</dt><dd>Loads immediately · 15 layouts · sidebars + footers</dd></div>
+    <div class="meta"><dt>common-widget</dt><dd>Loads near viewport · 15 layouts · sidebars + footers</dd></div>
     <div class="meta"><dt>View All</dt><dd>Appended to the widget title for the 12 layouts marked Yes</dd></div>
     <div class="meta"><dt>Case</dt><dd>Content is lowercased before matching</dd></div>
   </div>
@@ -4910,7 +4910,7 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
 
       <tr class="grp"><td colspan="4">Non-feed HTML gadgets (arbitrary sections)</td></tr>
       <tr><td>Banner ad</td><td>HTML/JavaScript</td><td>Header Ads 728x90</td><td>Paste your ad network's <code>&lt;ins&gt;</code> or <code>&lt;img&gt;</code> code</td></tr>
-      <tr><td>Donate button</td><td>HTML/JavaScript</td><td>Sidebar (A)</td><td><code>&lt;a href="…"&gt;Donate&lt;/a&gt;</code> — ships with PayPal + Ko-fi</td></tr>
+      <tr><td>Donate button</td><td>HTML/JavaScript</td><td>Sidebar (A)</td><td><code>&lt;a href="…"&gt;Donate&lt;/a&gt;</code> — ships with PayPal + a Ko-fi support link</td></tr>
       <tr><td>YouTube playlist</td><td>HTML/JavaScript</td><td>Sidebar (B)</td><td><code>&lt;iframe src="…/embed/videoseries?list=…"&gt;</code></td></tr>
       <tr><td>About / welcome blurb</td><td>HTML/JavaScript</td><td>Footer (Left)</td><td>Rich text with <code>.footer-about</code> classes</td></tr>
       <tr><td>Custom card grid</td><td>HTML/JavaScript</td><td>Any section</td><td>Static <code>&lt;div class="ogrid"&gt;</code> markup — see previous section</td></tr>
@@ -5033,8 +5033,8 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
       <tr class="grp"><td colspan="3">Monetisation, analytics &amp; push</td></tr>
       <tr><td>Google AdSense</td><td>AdSense loader plus clearly marked ad slots (header 728×90 and in-post) ready for your client ID.</td><td>header + body</td></tr>
       <tr><td>Google Analytics</td><td>GA4 only; the tag loads asynchronously and configuration is queued inline.</td><td>head</td></tr>
-      <tr><td>OneSignal push</td><td>Web push notifications: SDK plus an init script so visitors can subscribe.</td><td>head</td></tr>
-      <tr><td>Donate widgets</td><td>Ko-fi buttons and a PayPal donate link shipped as ready-to-edit sidebar/footer widgets.</td><td>sidebar + footer</td></tr>
+      <tr><td>OneSignal push</td><td>SDK is loaded after the visitor interacts; the initialization callback is queued in the head.</td><td>head + interaction</td></tr>
+      <tr><td>Donate links</td><td>Static Ko-fi support links and a PayPal donate link shipped as ready-to-edit sidebar/footer widgets.</td><td>sidebar + footer</td></tr>
       <tr><td>Download App button</td><td>Styled call-to-action button linking to the app download page.</td><td>sidebar</td></tr>
       <tr><td>YouTube embeds</td><td>Lazy-loaded playlist iframes for the channel's uploads and a curated playlist.</td><td>sidebar</td></tr>
 
@@ -5090,10 +5090,10 @@ document.<span class="tm-tk-func">querySelectorAll</span>(<span class="tm-tk-str
       <tr><td>Responsive lightbox grid</td><td>Gallery tiles scale and reveal a magnifier on hover, ready to wire to a full-size viewer.</td><td><code class="inline">.gallery</code></td></tr>
 
       <tr class="grp"><td colspan="3">Performance &amp; accessibility</td></tr>
-      <tr><td>IntersectionObserver lazy feed load</td><td>Featured widgets only fetch their posts when scrolled within 400px of the viewport.</td><td><code class="inline">theme.js</code></td></tr>
+      <tr><td>IntersectionObserver lazy feed load</td><td>Featured widgets load within 400px and sidebar/footer widgets within 500px of the viewport; menu feeds load on hover or focus.</td><td><code class="inline">theme.js</code></td></tr>
       <tr><td>Feed-load guard</td><td>A <code class="inline">feedLoaded</code> data flag makes each widget fetch exactly once, even on repeat observers.</td><td><code class="inline">theme.js</code></td></tr>
       <tr><td>Lazy images</td><td>Every thumbnail carries <code class="inline">loading="lazy"</code> and <code class="inline">decoding="async"</code>.</td><td>all cards</td></tr>
-      <tr><td>Non-blocking assets</td><td>Google Fonts and Font Awesome preload as styles and swap on load; scripts load async.</td><td>head</td></tr>
+      <tr><td>Non-blocking assets</td><td>System fonts avoid a font download; theme scripts defer and Font Awesome loads as a non-blocking stylesheet.</td><td>head</td></tr>
       <tr><td>4 breakpoints</td><td>1100px, 960px, 720px and 560px media queries collapse grids from 4→2→1 columns.</td><td><code class="inline">responsive.css</code></td></tr>
       <tr><td>Reduced motion</td><td><code class="inline">prefers-reduced-motion</code> disables zooms, transitions and shimmer animations.</td><td><code class="inline">responsive.css</code></td></tr>
       <tr><td>Print stylesheet</td><td>Chrome-only elements hidden and content widened for clean printing.</td><td><code class="inline">responsive.css</code></td></tr>
