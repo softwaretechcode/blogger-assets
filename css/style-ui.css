@@ -862,6 +862,8 @@ ul.hot-posts:empty { display: none; }
   color: #fff;
   cursor: pointer;
   font: inherit;
+  text-align: center;
+  text-decoration: none;
 }
 .youtube-facade::before {
   content: "";
@@ -872,6 +874,14 @@ ul.hot-posts:empty { display: none; }
   border-left: 20px solid currentColor;
 }
 .youtube-facade:focus-visible { outline: 3px solid var(--ui-accent); outline-offset: 3px; }
+.youtube-player {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-md);
+}
 
 /* ---------------------------------------------------------
    7. Featured post blocks (feed driven)
@@ -914,6 +924,8 @@ ul.hot-posts:empty { display: none; }
   background-color: rgb(226 232 240 / .55);
 }
 .featured-posts .widget-content[data-feed-layout="feat-big"] { min-height: 740px; }
+#HTML5 .widget-content { min-height: 740px; }
+#HTML5 .widget-content.feed-error { min-height: 0; }
 .widget-content.feed-error { color: var(--ui-muted); font-size: 12px; text-align: center; }
 .featured-posts > .widget:not(.show-widget) .widget-content::after,
 #hot-section .widget:not(.show-hot) .widget-content::after {

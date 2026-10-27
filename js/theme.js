@@ -23,29 +23,29 @@ $(function () {
     'use strict';
 
     function deferYoutubeEmbeds() {
-        var embeds = document.querySelectorAll(
-            'iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]'
-        );
+        var embeds = document.querySelectorAll('.youtube-facade[data-embed-src]');
 
-        Array.prototype.forEach.call(embeds, function (iframe) {
-            var source = iframe.getAttribute('src');
-            var facade = document.createElement('button');
-            var label = iframe.title || 'YouTube video';
+        Array.prototype.forEach.call(embeds, function (facade) {
+            var source = facade.getAttribute('data-embed-src');
+            var label = facade.getAttribute('data-video-title') || 'YouTube video';
 
-            facade.type = 'button';
-            facade.className = 'youtube-facade';
-            facade.setAttribute('aria-label', 'Load ' + label);
-            facade.textContent = 'Load video';
-            facade.addEventListener('click', function () {
-                var player = iframe.cloneNode(false);
+            facade.setAttribute('aria-label', 'Play ' + label);
+            facade.addEventListener('click', function (event) {
+                var player = document.createElement('iframe');
                 var separator = source.indexOf('?') === -1 ? '?' : '&';
 
+                event.preventDefault();
+                player.className = 'youtube-player';
+                player.title = label;
+                player.width = '560';
+                player.height = '315';
+                player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                player.allowFullscreen = true;
+                player.referrerPolicy = 'strict-origin-when-cross-origin';
+                player.loading = 'eager';
                 player.setAttribute('src', source + separator + 'autoplay=1');
-                player.setAttribute('loading', 'eager');
                 facade.parentNode.replaceChild(player, facade);
             }, { once: true });
-
-            iframe.parentNode.replaceChild(facade, iframe);
         });
     }
 
@@ -134,7 +134,7 @@ $(function () {
                 observer.disconnect();
                 callback();
             }
-        }, { rootMargin: '500px 0px' });
+        }, { rootMargin: '200px 0px' });
 
         observer.observe(element);
     }
@@ -520,11 +520,11 @@ $(function () {
         }
 
         return [
-            '<img class="post-thumb" loading="' + (prioritizeLarge ? 'eager' : 'lazy') + '"' +
+            '<img class="post-thumb" width="640" height="400" loading="' + (prioritizeLarge ? 'eager' : 'lazy') + '"' +
                 (prioritizeLarge ? ' fetchpriority="high"' : '') +
                 ' decoding="async" alt="' + title + '" src="' + large + '"/>',
-            '<img class="post-thumb" loading="lazy" decoding="async" alt="' + title + '" src="' + medium + '"/>',
-            '<img class="post-thumb" loading="lazy" decoding="async" alt="' + title + '" src="' + small + '"/>'
+            '<img class="post-thumb" width="280" height="175" loading="lazy" decoding="async" alt="' + title + '" src="' + medium + '"/>',
+            '<img class="post-thumb" width="100" height="100" loading="lazy" decoding="async" alt="' + title + '" src="' + small + '"/>'
         ];
     }
 
@@ -956,7 +956,7 @@ $(function () {
                     load();
                 }
             }, {
-                rootMargin: '400px 0px'
+                rootMargin: '150px 0px'
             });
 
             observer.observe(this);

@@ -107,6 +107,7 @@
   .hot-posts .item-3 { grid-column: span 1; grid-row: span 1; }
   .hot-posts .item-0 .post-title { font-size: 16px; }
   .featured-posts .widget-content[data-feed-layout="feat-big"] { min-height: 700px; }
+  #HTML5 .widget-content { min-height: 700px; }
 
   .index-post { border-radius: var(--radius-md); }
   .index-post .post-info { padding: 12px 13px 14px; }

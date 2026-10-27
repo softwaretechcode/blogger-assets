@@ -58,13 +58,18 @@ raw `count/label/type` text.
 On the live Java label feed, nine summary entries transferred about 4.4 KB
 compressed versus 77.6 KB for the full-content feed (about 94% less).
 
+jsDelivr already serves the published CSS and JavaScript with Brotli
+compression when supported by the client. Keep these source files readable;
+pre-compressing or minifying them manually would duplicate CDN compression
+without addressing the larger runtime and third-party costs.
+
 The first index-card image and the first hot-post image are eager and
-high-priority; following thumbnails are lazy-loaded. The hot-post and featured
-feed placeholders reserve space for their incoming cards to reduce layout
-shifts. YouTube embeds are replaced with click-to-load buttons so the player
-scripts are not downloaded until a visitor chooses to play a video. OneSignal
-is queued at page load but its SDK is fetched only after the visitor interacts
-with the page.
+high-priority; following thumbnails are lazy-loaded. The hot-post and first featured-feed placeholders reserve space for their
+incoming cards to reduce layout shifts. Other featured and sidebar feeds wait
+until they are closer to the viewport. Video playlist links only create a
+YouTube player when clicked; without JavaScript, they open the playlist page.
+OneSignal is queued at page load but its SDK is fetched only after the visitor
+interacts with the page.
 
 Header logos are served at reduced dimensions, and the large static banner is
 limited to 800px with explicit dimensions and lazy loading. Image filename
