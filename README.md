@@ -172,14 +172,16 @@ window.softtwinPostTools = { tocTitle: 'On this page', tocMinHeadings: 4, wordsP
 
 ## CDN
 
-All files are served from an immutable commit ref:
+All files are served from an immutable commit ref. The current Blogger template
+pins its assets to:
 
 ```
-https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@4697f30/...
+https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/...
 ```
 
 The theme version is always **1.0.0**: every asset URL ends in `?v=1.0.0`. The
-`@4697f30` part is only the build pointer, not a version number.
+`@6677e06` part is only the build pointer, not a version number; update it to
+the asset-release commit whenever the template is updated.
 
 Why a commit instead of a version tag: jsDelivr caches tag URLs permanently.
 Moving `v1.0.0` to a new commit and purging the files still served the old
