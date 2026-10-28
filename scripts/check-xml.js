@@ -54,3 +54,4 @@ if (errors === 0 && stack.length === 0) {
 } else if (errors === 0) {
   console.log(`Error: ${stack.length} unclosed tags remain:`, stack.map(s => s.tagName).join(', '));
 }
+
