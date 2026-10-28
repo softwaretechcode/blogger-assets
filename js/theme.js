@@ -382,20 +382,36 @@ $(function () {
 
     var $headerMenu = $('.header-menu');
     if ($headerMenu.length) {
+        var headerStuck = false;
+        var headerTicking = false;
         var updateHeaderShadow = function () {
-            $headerMenu.toggleClass('is-stuck', $(window).scrollTop() > 6);
+            headerTicking = false;
+            var isStuck = (window.pageYOffset || document.documentElement.scrollTop || 0) > 6;
+            if (isStuck !== headerStuck) {
+                headerStuck = isStuck;
+                $headerMenu.toggleClass('is-stuck', isStuck);
+            }
         };
 
-        $(window).on('scroll', updateHeaderShadow);
+        window.addEventListener('scroll', function () {
+            if (!headerTicking) {
+                headerTicking = true;
+                window.requestAnimationFrame(updateHeaderShadow);
+            }
+        }, { passive: true });
         updateHeaderShadow();
     }
 
-    // Desktop viewport: close the mobile drawer if it is still open.
-    $(window).on('resize', function () {
-        if ($(window).width() > 960 && $('body').hasClass('nav-active')) {
-            $('.slide-menu-toggle').trigger('click');
-        }
-    });
+    // Desktop viewport: close the mobile drawer if it is still open (debounced).
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            if ($(window).width() > 960 && $('body').hasClass('nav-active')) {
+                $('.slide-menu-toggle').trigger('click');
+            }
+        }, 150);
+    }, { passive: true });
 
     $('.back-top').each(function () {
         var $button = $(this);
@@ -918,13 +934,17 @@ $(function () {
         }
     });
 
-    // 5b. Hot posts section: always 4 posts.
+    // 5b. Hot posts section: always 4 posts (lazy-loaded near viewport for speed).
     $('#hot-section .widget-content').each(function () {
         var $content = $(this);
         var config = $content.text().trim().toLowerCase();
         var source = config.split('/')[0];
 
-        renderFeed($content, config, 4, source);
+        loadNearViewport(this, function () {
+            if ($content.data('feedLoaded')) return;
+            $content.data('feedLoaded', true);
+            renderFeed($content, config, 4, source);
+        });
     });
 
     // 5c. Featured posts: lazy-loaded when they scroll near the viewport.
@@ -991,8 +1011,12 @@ $(function () {
     });
 
     // 5f. Homepage "Recent posts": complete the 3 x 3 grid when Blogger's
-    // auto-pagination serves fewer posts than the grid needs.
-    fillHomeIndex();
+    // auto-pagination serves fewer posts than the grid needs (deferred on idle).
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(fillHomeIndex, { timeout: 2000 });
+    } else {
+        setTimeout(fillHomeIndex, 300);
+    }
 
     /* ---------------------------------------------------------------------
      * 6. Comment system

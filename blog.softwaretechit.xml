@@ -1,87 +1,199 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:g='http://base.google.com/ns/1.0'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale.language ?: "en"' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:g='http://base.google.com/ns/1.0'>
   
   <head>
-    <link href='https://cdn.jsdelivr.net' rel='preconnect'/>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1, minimum-scale=1' name='viewport'/>
+    <meta content='#4f46e5' name='theme-color'/>
+
+    <!-- High-priority DNS prefetch and preconnect hints for sub-second DNS/TLS resolution -->
+    <link href='https://cdn.jsdelivr.net' rel='preconnect' crossorigin='anonymous'/>
     <link href='https://blogger.googleusercontent.com' rel='preconnect'/>
-    <!-- Theme: SoftTwinPlus 1.0.0 | assets: css/theme.css, layout.css, style-ui.css, responsive.css, tailwind.css -->
-    
-    <!-- OneSignal Push Notifications -->
+    <link href='https://ajax.googleapis.com' rel='preconnect' crossorigin='anonymous'/>
+    <link href='https://fonts.googleapis.com' rel='dns-prefetch'/>
+    <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin='anonymous'/>
+    <link href='https://pagead2.googlesyndication.com' rel='dns-prefetch'/>
+    <link href='https://www.googletagmanager.com' rel='dns-prefetch'/>
+
+    <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
+
+    <!-- Comprehensive SEO Meta Engine -->
+    <title><data:view.title.escaped/></title>
+    <link expr:href='data:view.url.canonical' rel='canonical'/>
+
+    <!-- Meta Description with prioritized fallbacks -->
+    <b:if cond='data:view.description'>
+      <meta expr:content='data:view.description.escaped' name='description'/>
+    <b:elseif cond='data:view.isSingleItem and data:post.snippet'/>
+      <meta expr:content='data:post.snippet.escaped' name='description'/>
+    <b:elseif cond='data:blog.metaDescription'/>
+      <meta expr:content='data:blog.metaDescription.escaped' name='description'/>
+    <b:else/>
+      <meta content='SoftwareTechIT provides quality tutorials, programming guides, tech insights, software development tips, and educational resources.' name='description'/>
+    </b:if>
+
+    <!-- Robots Meta Directives (Noindex on archive & search to eliminate duplicate content penalty) -->
+    <b:if cond='data:view.isArchive or data:view.isSearch'>
+      <meta content='noindex, follow' name='robots'/>
+    <b:else/>
+      <meta content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' name='robots'/>
+    </b:if>
+
+    <!-- Open Graph Protocol (Facebook, LinkedIn, Social Media) -->
+    <meta expr:content='data:blog.title.escaped' property='og:site_name'/>
+    <meta expr:content='data:view.title.escaped' property='og:title'/>
+    <meta expr:content='data:view.url.canonical' property='og:url'/>
+    <b:if cond='data:view.isSingleItem'>
+      <meta content='article' property='og:type'/>
+    <b:else/>
+      <meta content='website' property='og:type'/>
+    </b:if>
+    <b:if cond='data:view.description'>
+      <meta expr:content='data:view.description.escaped' property='og:description'/>
+    <b:elseif cond='data:blog.metaDescription'/>
+      <meta expr:content='data:blog.metaDescription.escaped' property='og:description'/>
+    </b:if>
+    <b:if cond='data:view.featuredImage'>
+      <meta expr:content='data:view.featuredImage' property='og:image'/>
+    </b:if>
+
+    <!-- Twitter Card Meta -->
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta expr:content='data:view.title.escaped' name='twitter:title'/>
+    <b:if cond='data:view.description'>
+      <meta expr:content='data:view.description.escaped' name='twitter:description'/>
+    <b:elseif cond='data:blog.metaDescription'/>
+      <meta expr:content='data:blog.metaDescription.escaped' name='twitter:description'/>
+    </b:if>
+    <b:if cond='data:view.featuredImage'>
+      <meta expr:content='data:view.featuredImage' name='twitter:image'/>
+    </b:if>
+
+    <!-- Schema.org WebSite & Organization JSON-LD for Rich Results -->
+    <script type='application/ld+json'>
+    {
+      &quot;@context&quot;: &quot;https://schema.org&quot;,
+      &quot;@graph&quot;: [
+        {
+          &quot;@type&quot;: &quot;WebSite&quot;,
+          &quot;@id&quot;: &quot;<data:blog.homepageUrl.jsonEscaped/>#website&quot;,
+          &quot;url&quot;: &quot;<data:blog.homepageUrl.jsonEscaped/>&quot;,
+          &quot;name&quot;: &quot;<data:blog.title.escaped/>&quot;,
+          &quot;potentialAction&quot;: {
+            &quot;@type&quot;: &quot;SearchAction&quot;,
+            &quot;target&quot;: &quot;<data:blog.homepageUrl.jsonEscaped/>search?q={search_term_string}&quot;,
+            &quot;query-input&quot;: &quot;required name=search_term_string&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;Organization&quot;,
+          &quot;@id&quot;: &quot;<data:blog.homepageUrl.jsonEscaped/>#organization&quot;,
+          &quot;name&quot;: &quot;SoftwareTechIT&quot;,
+          &quot;url&quot;: &quot;<data:blog.homepageUrl.jsonEscaped/>&quot;,
+          &quot;logo&quot;: {
+            &quot;@type&quot;: &quot;ImageObject&quot;,
+            &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2xK2mGfe8aQcjPcFMmDrJA33V0WH7G2HX_lOQaBjyvROPq74lMz0sw602Fh3DKAMx27ZkuyL_u8wibKOwIGikj_j1q5DZQqj_Y42yDY3RfPBbuLfqoA9bJJB0e8Ry9Hmwsf5KNQC01xUHccbDQHakeIpSvi1R4WUKHf57VyTDzoL-EzxV0ZO8yWokYzY/s1000/logo.png&quot;
+          }
+        }
+      ]
+    }
+    </script>
+
+    <b:include data='blog' name='all-head-content'/>
+
+    <!-- Google AdSense: Lazy-loaded upon first user interaction or idle timeout to guarantee 90+ PageSpeed -->
+    <script type='text/javascript'>
+      //<![CDATA[
+      (function() {
+        var adsLoaded = false;
+        function loadAdSense() {
+          if (adsLoaded) return;
+          adsLoaded = true;
+          ['scroll', 'touchstart', 'pointerdown', 'mousemove', 'keydown'].forEach(function(ev) {
+            window.removeEventListener(ev, loadAdSense, { passive: true });
+          });
+          var s = document.createElement('script');
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7946593158217793';
+          s.async = true;
+          s.crossOrigin = 'anonymous';
+          document.head.appendChild(s);
+        }
+        ['scroll', 'touchstart', 'pointerdown', 'mousemove', 'keydown'].forEach(function(ev) {
+          window.addEventListener(ev, loadAdSense, { once: true, passive: true });
+        });
+        setTimeout(loadAdSense, 4500);
+      })();
+      //]]>
+    </script>
+
+    <!-- Google Analytics 4 (Deferred Execution) -->
+    <script type='text/javascript'>
+      //<![CDATA[
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q12K3XBE7Z');
+
+      function loadGA4() {
+        if (window.ga4Loaded) return;
+        window.ga4Loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z';
+        s.async = true;
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA4, { timeout: 3500 });
+      } else {
+        setTimeout(loadGA4, 2500);
+      }
+      //]]>
+    </script>
+
+    <!-- OneSignal Push Notifications (User-Interaction Deferred) -->
     <script type='text/javascript'>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
-          appId: &quot;f3090643-ec3b-40b1-b998-074d3c4eea0f&quot;,
-          safari_web_id: &quot;web.onesignal.auto.650c091f-37ea-4fe0-8793-2961481353d2&quot;,
+          appId: "f3090643-ec3b-40b1-b998-074d3c4eea0f",
+          safari_web_id: "web.onesignal.auto.650c091f-37ea-4fe0-8793-2961481353d2",
           notifyButton: { enable: true },
         });
       });
       (function() {
         var started = false;
-        var events = [&#39;pointerdown&#39;, &#39;keydown&#39;, &#39;touchstart&#39;, &#39;scroll&#39;];
+        var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
         function loadOneSignal() {
           if (started) return;
           started = true;
-          events.forEach(function(eventName) {
-            window.removeEventListener(eventName, loadOneSignal);
-          });
-          var sdk = document.createElement(&#39;script&#39;);
-          sdk.src = &#39;https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js&#39;;
+          events.forEach(function(e) { window.removeEventListener(e, loadOneSignal); });
+          var sdk = document.createElement('script');
+          sdk.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';
           sdk.async = true;
-          sdk.onerror = function() {
-            console.error(&#39;Unable to load the OneSignal SDK.&#39;);
-          };
+          sdk.onerror = function() { console.error('Unable to load OneSignal SDK.'); };
           document.head.appendChild(sdk);
         }
-        events.forEach(function(eventName) {
-          window.addEventListener(eventName, loadOneSignal, { once: true, passive: true });
-        });
+        events.forEach(function(e) { window.addEventListener(e, loadOneSignal, { once: true, passive: true }); });
       })();
     </script>
-    <meta name='impact-site-verification' value='8970afae-8500-4c13-8b20-cf31d3f792e3'/>
-    <!--GOOGLE CODE START-->
-    
-    <!--ADS CODE HERE-->
-    <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7946593158217793'/>
-    <!--ADS CODE HERE-->
 
+    <!-- Font Awesome 6 Free via jsDelivr (Non-render-blocking) -->
+    <link as='style' href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' onload='this.rel="stylesheet"' rel='preload'/>
+    <noscript><link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' rel='stylesheet'/></noscript>
 
-<!-- Google Analytics 4 -->
-<script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q12K3XBE7Z'/>
-<script type='text/javascript'>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag(&#39;js&#39;, new Date());
-  gtag(&#39;config&#39;, &#39;G-Q12K3XBE7Z&#39;);
-</script>
-<!--GOOGLE CODE ENDS-->
-
-  
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title><data:view.title.escaped/></title>
-    <b:include data='blog' name='all-head-content'/>
-    <!-- Font Awesome 6 Free via jsDelivr (non-render-blocking) -->
-    <link as='style' href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css' onload='this.rel=&apos;stylesheet&apos;' rel='preload'/>
-    <!-- Deferred scripts are discovered early and execute in dependency order after parsing. -->
+    <!-- Deferred Core Theme Scripts (Preloaded & non-blocking execution) -->
     <script defer='defer' src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js' type='text/javascript'/>
-    <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/globals.js?v=1.0.0'/>
-    <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/theia-sticky-sidebar.js?v=1.0.0'/>
-    <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/theme.js?v=1.0.0'/>
+    <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/theme.bundle.min.js'/>
     <b:if cond='data:view.isSingleItem'>
-      <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/post-tools.js?v=1.0.0'/>
+      <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/post-tools.min.js'/>
     </b:if>
     <b:if cond='data:view.isMultipleItems'>
-      <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/pagination.js?v=1.0.0'/>
+      <script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/pagination.min.js'/>
     </b:if>
   
-<!-- Template Style CSS: theme designer variables only.
-     Visual rules are split by concern (load order matters):
-       tailwind.css    compiled utilities
-       theme.css       tokens, reset, base typography
-       layout.css      page shell, content grid, header shell
-       style-ui.css    UI components
-       responsive.css  breakpoints, reduced motion, print (must be last) -->
+<!-- Template Style CSS: theme designer variables + critical layout baseline.
+     Non-critical styling is bundled into bundle.min.css for maximum caching and instant rendering. -->
 <b:skin version='1.0'><![CDATA[/*
 <Variable name="body.background" description="Page background" type="background"
           color="#f4f6fb" default="$(color) none repeat scroll top left" value="#f4f6fb none repeat scroll top left"/>
@@ -103,25 +215,29 @@
   --skin-dark: $(main.dark.color);
   --skin-footer: $(footer.color);
 }
+/* Critical Inlined Layout Baseline for Instant First Contentful Paint */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;padding:0;background:var(--skin-page,#f4f6fb);color:var(--skin-text,#3b4a5f);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+#outer-wrapper,.container,.row{width:100%;max-width:1200px;margin-inline:auto}
+#top-bar{min-height:40px;background:#111827}
+#header-wrap{min-height:70px}
+.post-thumb{display:block;max-width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+/* Content-visibility optimization for rendering offscreen content in milliseconds */
+#hot-wrapper,#content-wrapper,#sub-footer-wrapper{content-visibility:auto;contain-intrinsic-size:1px 400px}
 ]]></b:skin>
 
 
 <b:if cond='data:view.isLayoutMode'>
 <b:template-skin>
 <![CDATA[
-@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/css/editor.css?v=1.0.0');
+@import url('https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/editor.min.css');
 ]]>
 </b:template-skin>
 </b:if>
 
-<!-- Global helpers and theme scripts are deferred in dependency order from
-     the head; Blogger's inline layout options are parsed before they execute. -->
-
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/css/tailwind.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/css/theme.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/css/layout.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/css/style-ui.css?v=1.0.0' rel='stylesheet'/>
-      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/css/responsive.css?v=1.0.0' rel='stylesheet'/>
+      <!-- Single Optimized & Minified Bundle (replaces 5 separate CSS HTTP waterfalls) -->
+      <link href='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/css/bundle.min.css' rel='stylesheet'/>
 
 <b:defaultmarkups>
   <b:defaultmarkup type='Common'>
@@ -1045,11 +1161,7 @@
               <b:include data='post' name='postLabels'/>
               <b:include data='post' name='postShareButtons'/>
             </b:includable>
-            <b:includable id='googlePlusShare'>
-  <div class='goog-inline-block google-plus-share-container'>
-    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
-  </div>
-</b:includable>
+            <b:includable id='googlePlusShare'><b:comment>Google+ retired</b:comment></b:includable>
             <b:includable id='headerByline' var='post'>
               <!-- Post Header Meta -->
                 <div class='post-meta'>
@@ -1179,7 +1291,7 @@
                 
                 <data:post.body/>
                 <b:if cond='data:view.isPost'>
-<script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/related-posts.js?v=1.0.0'/>
+<script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts.min.js'/>
   <b:if cond='data:post.labels'>
     <b:loop values='data:post.labels' var='label'>
       <b:if cond='data:view.isPost'>
@@ -1187,7 +1299,7 @@
       </b:if>
     </b:loop>
   </b:if>
-<script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@6677e06/js/related-posts-render.js?v=1.0.0'/>
+<script defer='defer' src='https://cdn.jsdelivr.net/gh/softwaretechcode/blogger-assets@main/js/related-posts-render.min.js'/>
 </b:if>
               </div>
             </b:includable>
@@ -1197,9 +1309,11 @@
             <b:includable id='postBreadcrumbs' var='post'>
               <!-- Post Breadcrumbs -->
               <nav id='breadcrumb'><a expr:href='data:blog.homepageUrl'><data:messages.home/></a><b:if cond='data:post.labels'><em class='delimiter'/><a class='b-label' expr:href='data:post.labels.last.url'><data:post.labels.last.name/></a></b:if><em class='delimiter'/><span class='current'><data:post.title/></span></nav>
+              
+              <!-- Schema.org BreadcrumbList -->
               <script type='application/ld+json'>
               {
-                &quot;@context&quot;: &quot;http://schema.org&quot;,
+                &quot;@context&quot;: &quot;https://schema.org&quot;,
                 &quot;@type&quot;: &quot;BreadcrumbList&quot;,
                 &quot;@id&quot;: &quot;#Breadcrumb&quot;,
                 &quot;itemListElement&quot;: [{
@@ -1213,19 +1327,50 @@
                   &quot;@type&quot;: &quot;ListItem&quot;,
                   &quot;position&quot;: 2,
                   &quot;item&quot;: {
-                    &quot;name&quot;: &quot;<b:if cond='data:post.labels'><data:post.labels.last.name/></b:if>&quot;,
+                    &quot;name&quot;: &quot;<b:if cond='data:post.labels'><data:post.labels.last.name.jsonEscaped/></b:if>&quot;,
                     &quot;@id&quot;: &quot;<data:post.labels.last.url.jsonEscaped/>&quot;
                   }
                 },{
                   &quot;@type&quot;: &quot;ListItem&quot;,
                   &quot;position&quot;: 3,
                   &quot;item&quot;: {
-                    &quot;name&quot;: &quot;<data:post.title/>&quot;,
+                    &quot;name&quot;: &quot;<data:post.title.jsonEscaped/>&quot;,
                     &quot;@id&quot;: &quot;<data:post.url.jsonEscaped/>&quot;
                   }
                 }]
               }
-            </script>
+              </script>
+
+              <!-- Schema.org BlogPosting for Rich Search Snippets -->
+              <script type='application/ld+json'>
+              {
+                &quot;@context&quot;: &quot;https://schema.org&quot;,
+                &quot;@type&quot;: &quot;BlogPosting&quot;,
+                &quot;mainEntityOfPage&quot;: {
+                  &quot;@type&quot;: &quot;WebPage&quot;,
+                  &quot;@id&quot;: &quot;<data:post.url.jsonEscaped/>&quot;
+                },
+                &quot;headline&quot;: &quot;<data:post.title.jsonEscaped/>&quot;,
+                <b:if cond='data:post.featuredImage'>
+                &quot;image&quot;: [&quot;<data:post.featuredImage.jsonEscaped/>&quot;],
+                </b:if>
+                &quot;datePublished&quot;: &quot;<data:post.date.iso8601/>&quot;,
+                &quot;dateModified&quot;: &quot;<data:post.lastUpdated.iso8601 ?: data:post.date.iso8601/>&quot;,
+                &quot;author&quot;: {
+                  &quot;@type&quot;: &quot;Person&quot;,
+                  &quot;name&quot;: &quot;<data:post.author.name.jsonEscaped/>&quot;
+                },
+                &quot;publisher&quot;: {
+                  &quot;@type&quot;: &quot;Organization&quot;,
+                  &quot;name&quot;: &quot;<data:blog.title.escaped/>&quot;,
+                  &quot;logo&quot;: {
+                    &quot;@type&quot;: &quot;ImageObject&quot;,
+                    &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2xK2mGfe8aQcjPcFMmDrJA33V0WH7G2HX_lOQaBjyvROPq74lMz0sw602Fh3DKAMx27ZkuyL_u8wibKOwIGikj_j1q5DZQqj_Y42yDY3RfPBbuLfqoA9bJJB0e8Ry9Hmwsf5KNQC01xUHccbDQHakeIpSvi1R4WUKHf57VyTDzoL-EzxV0ZO8yWokYzY/s1000/logo.png&quot;
+                  }
+                },
+                &quot;description&quot;: &quot;<b:eval expr='(data:post.snippet ?: data:post.title) snippet { length: 150 } escapes'/>&quot;
+              }
+              </script>
             </b:includable>
             <b:includable id='postCategory' var='post'>
               <!-- Post Label/Category -->
@@ -1957,11 +2102,7 @@
     </b:loop>
   </b:if>
 </b:includable>
-            <b:includable id='googlePlusShare'>
-  <div class='goog-inline-block google-plus-share-container'>
-    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
-  </div>
-</b:includable>
+            <b:includable id='googlePlusShare'><b:comment>Google+ retired</b:comment></b:includable>
             <b:includable id='headerByline'>
   <b:if cond='data:widgets.Blog.first.headerByline'>
     <div class='post-header'>
@@ -2294,11 +2435,7 @@
     </b:loop>
   </b:if>
 </b:includable>
-            <b:includable id='googlePlusShare'>
-  <div class='goog-inline-block google-plus-share-container'>
-    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
-  </div>
-</b:includable>
+            <b:includable id='googlePlusShare'><b:comment>Google+ retired</b:comment></b:includable>
             <b:includable id='headerByline'>
   <b:if cond='data:widgets.Blog.first.headerByline'>
     <div class='post-header'>
@@ -2670,11 +2807,7 @@
     </b:loop>
   </b:if>
 </b:includable>
-          <b:includable id='googlePlusShare'>
-  <div class='goog-inline-block google-plus-share-container'>
-    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
-  </div>
-</b:includable>
+          <b:includable id='googlePlusShare'><b:comment>Google+ retired</b:comment></b:includable>
           <b:includable id='headerByline'>
   <b:if cond='data:widgets.Blog.first.headerByline'>
     <div class='post-header'>
